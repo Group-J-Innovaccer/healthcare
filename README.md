@@ -2,28 +2,25 @@
 
 1. Create a folder 
 
-2. Intialize a repo 
-    - git init
-
-3. Clone the repo
+2. Clone the repo
     - git clone https://github.com/Group-J-Innovaccer/healthcare.git
 
-4. To create and install envoirnment:
+3. To create and install envoirnment:
     - pipenv install
 
-5.  To get back to Backend directory:
+4.  To get back to Backend directory:
     - cd /backend
 
-6.  To run the django server: 
+5.  To run the django server: 
     - python manage.py runserver 
 
-7.  To get back to Frontend directory:  
+6.  To get back to Frontend directory:  
     - cd ..
     - cd /frontend
 
-8.  To install the npm:
-    - npm isntall
+7.  To install the npm:
+    - npm install
 
-9.  To start the npm:
+8.  To start the npm:
     - npm start
 
