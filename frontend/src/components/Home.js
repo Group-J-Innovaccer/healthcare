@@ -32,13 +32,13 @@ const Home = () => {
             <div className="ourDoctors" >
                 <div>
                     <div className="ourDoctorsDetails">
-                        <a href='#' style={{ borderRadius: "15px"}}><Card>
+                        <a href="/doctorlogin" style={{ borderRadius: "15px"}}><Card>
                             <img style={{ height: "300px"}} src={drImage} alt="" />
                             <div className="doctorsInfo">
                                 <h5>Doctor</h5>
                             </div>
                         </Card></a>
-                        <a href='#'  style={{ borderRadius: "15px"}}><Card>
+                        <a href="/patientlogin"  style={{ borderRadius: "15px"}}><Card>
                             <img style={{ height: "300px"}} src={patient} alt="" />
                             <div className="doctorsInfo">
                                 <h5>Patient</h5>
