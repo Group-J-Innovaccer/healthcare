@@ -1,5 +1,6 @@
+import React from 'react';
 import Header from './Header';
-import { Nav, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import Footer from './Footer';
 import BannerImg from '../images/Mask Group 4.jpg'
 import drImage from '../images/drimage.jpg';
@@ -32,13 +33,13 @@ const Home = () => {
             <div className="ourDoctors" >
                 <div>
                     <div className="ourDoctorsDetails">
-                        <a href='#' style={{ borderRadius: "15px"}}><Card>
+                        <a href='/' style={{ borderRadius: "15px"}}><Card>
                             <img style={{ height: "300px"}} src={drImage} alt="" />
                             <div className="doctorsInfo">
                                 <h5>Doctor</h5>
                             </div>
                         </Card></a>
-                        <a href='#'  style={{ borderRadius: "15px"}}><Card>
+                        <a href='/'  style={{ borderRadius: "15px"}}><Card>
                             <img style={{ height: "300px"}} src={patient} alt="" />
                             <div className="doctorsInfo">
                                 <h5>Patient</h5>
