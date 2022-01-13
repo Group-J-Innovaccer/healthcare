@@ -6,13 +6,20 @@ from .models import Patient
 from rest_framework import generics
 from rest_framework import mixins
 
-# Create your views here.
+# Patient list for doctor get API
 class PatientList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     serializer_class=PatientSerializer
-    queryset=Patient.objects.all()
+    queryset=Patient.objects.all() #filter for doctor
 
-    def get(self,request):
+    def get(self,request): 
         return self.list(request)
 
     def post(self,request):
         return self.create(request)
+
+
+# Create new Patient PostAPI (doctor)
+
+# Patient Detail for patient get API (doctor)
+
+# Edit Patient Detail PutAPI (doctor)

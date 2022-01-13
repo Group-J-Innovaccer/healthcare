@@ -32,3 +32,16 @@ class PatientPrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mi
 
     def get(self, request):
         return self.list(request)
+
+# Prescription (Rachna)
+# Add new Prescription PostAPI (doctor)
+
+# Add new medication PostAPI (doctor)
+
+# View Prescription GetAPI (patient)
+
+# View Prescription GetAPI (doctor)
+
+# View Medication GetAPI (patient)
+
+# View Medication GetAPI (doctor)

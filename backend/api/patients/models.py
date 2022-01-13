@@ -1,4 +1,6 @@
+from pyexpat import model
 from django.db import models
+from doctors.models import Doctor
 
 # Create your models here.
 class Patient(models.Model):
@@ -13,6 +15,7 @@ class Patient(models.Model):
     address=models.TextField(null=False)
     gender=models.TextField(null=False)
     emergency_contact=models.TextField(null=False)
+    current_doctor=models.ForeignKey(Doctor, on_delete=models.PROTECT)
 
     def _str_(self):
         return self.id

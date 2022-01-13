@@ -2,11 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-<<<<<<< HEAD
-from django.utils.translation import gettext_lazy as _
-=======
-import django
->>>>>>> eprescription-model
+
 
 def main():
     """Run administrative tasks."""

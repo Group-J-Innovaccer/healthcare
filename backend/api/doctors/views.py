@@ -12,8 +12,8 @@ class DoctorList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateMo
     serializer_class = DoctorSerializer
     queryset = Doctor.objects.all()
     # authentication_classes = [SessionAuthentication, BasicAuthentication]
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
 
     def get(self, request):
         return self.list(request)
