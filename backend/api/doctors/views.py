@@ -20,4 +20,8 @@ class DoctorList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateMo
 
     def post(self, request):
         return self.create(request)
+    # def get_queryset(self):
+    #     return self.request.user.doctors.all()
 
+    # def perform_create(self, serializer):
+    #     serializer.save(owner=self.request.user)

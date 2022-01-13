@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
 
 from django.db.models.expressions import F
 
@@ -15,6 +16,8 @@ class Doctor(models.Model):
     specialization = models.CharField(max_length=40,null=False)
     dob = models.DateField(null=False)
     phone_no = models.PositiveBigIntegerField(null=False)
+    # owner = models.ForeignKey(
+    #     User, related_name="leads", on_delete=models.CASCADE, null=True)
     gender = models.CharField(max_length=5, null=False)
     registration_no = models.IntegerField(null= False)
 
