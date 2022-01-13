@@ -20,21 +20,20 @@ const Footer = () => {
                         <br />
                     </div>
                 </div>
-                
             </div>
             <br/>
             <div>
-                    <b><p>Connect with us</p></b>
-                    <div>
-                        <div className="brandIcon">
-                            <FontAwesomeIcon icon={faFacebookF} />
-                            <FontAwesomeIcon icon={faGooglePlusG} />
-                            <FontAwesomeIcon icon={faTwitter} />
-                        </div>
-                        <small>Call Now</small>
-                        <p className="callNow">+911234567890</p>
+                <b><p>Connect with us</p></b>
+                <div>
+                    <div className="brandIcon">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                        <FontAwesomeIcon icon={faGooglePlusG} />
+                        <FontAwesomeIcon icon={faTwitter} />
                     </div>
+                    <small>Call Now</small>
+                    <p className="callNow">+911234567890</p>
                 </div>
+            </div>
             <div style={{ textAlign: "center", marginTop: "30px" }}>
                 <small>Copyright 2022 DocEasy.com</small>
             </div>
