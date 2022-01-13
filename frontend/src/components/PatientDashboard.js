@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
 import { MDBNavItem } from 'mdbreact';
+import ViewPrescription from './ViewPrescription';
 
 const PatientDashboard = () =>{
     
@@ -17,9 +18,11 @@ const PatientDashboard = () =>{
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}> 
+
             <div class="text-center p-3">
             <h1>Patient Details</h1>
             </div>
+            
             <div class="row ">
                 <div class="col-lg-8 mx-auto">
                     <div class="card mt-2 mx-auto p-4 bg-light">
@@ -40,14 +43,27 @@ const PatientDashboard = () =>{
                                         <li>Patient Weight: </li>
                                         <li>Diagnosis: </li>
                                     </ul>
+                                    <form id="contact-form" role="form">
+                <div class="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
+
+                </form>
                                 </div>
                                 <div class="col"><img src="patient.png"></img></div>
                                 </div>
+
+                                
                             </div>
                             </div>
                             </div>
                             </div>
                             </div>
+
+                            <div class="container p-4" style={{ display:"flex", justifyContent:"center"}}>
+            <form id="contact-form" role="form" method="get" action="prescription">
+                <div class="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}  onClick={<ViewPrescription />}>View Prescription</button></div>
+
+                </form>
+            </div>
                             </div>
 
             <Footer />

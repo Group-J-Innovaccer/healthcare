@@ -11,6 +11,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import ViewPrescription from './ViewPrescription';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
       <Route path="patientsignup" element={<PatientSignUp />} />
       <Route path="patientlogin" element={<PatientLogin />} />
       <Route path="patientdashboard" element={<PatientDashboard/>} />
+      <Route path="viewprescription" element={<ViewPrescription />} />
     </Routes>
   </BrowserRouter>
     </div>
