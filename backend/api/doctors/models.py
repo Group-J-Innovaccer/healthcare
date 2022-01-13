@@ -7,7 +7,6 @@ from django.db.models.expressions import F
 # Create your models here.
 
 class Doctor(models.Model):
-    doctor_id = models.IntegerField(null=False)
     email = models.EmailField(null=False)
     firstname = models.CharField(max_length=40, null=False)
     lastname = models.CharField(max_length=40, null=False)
@@ -20,6 +19,6 @@ class Doctor(models.Model):
     registration_no = models.IntegerField(null= False)
 
     def _str_(self):
-        return self.id
+        return self.firstname
 
 
