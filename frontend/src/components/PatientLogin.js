@@ -10,7 +10,7 @@ const PatientLogin = () =>{
         <div class="container-fluid" style={{
             width: "100%",
             height: "110vh",
-            backgroundImage: "url(" + "https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg" + ")",
+            backgroundImage: "url('https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg')",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -23,7 +23,7 @@ const PatientLogin = () =>{
                     <div class="card mt-2 mx-auto p-4 bg-light">
                         <div class="card-body bg-light">
                             <div class="container">
-                                <form id="contact-form" role="form">
+                                <form id="contact-form">
                                     <div class="controls">
                                         <div class="row">
                                             <div class="col-md-12">

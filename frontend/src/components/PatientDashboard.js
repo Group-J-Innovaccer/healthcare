@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
-import { MDBNavItem } from 'mdbreact';
+// import { MDBNavItem } from 'mdbreact';
 import ViewPrescription from './ViewPrescription';
 
 const PatientDashboard = () =>{
@@ -13,7 +13,7 @@ const PatientDashboard = () =>{
             <div class="container-fluid" style={{
             width: "100%",
             height: "110vh",
-            backgroundImage: "url(" + "https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg" + ")",
+            backgroundImage: "url('https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg')",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -43,12 +43,12 @@ const PatientDashboard = () =>{
                                         <li>Patient Weight: </li>
                                         <li>Diagnosis: </li>
                                     </ul>
-                                    <form id="contact-form" role="form">
+                                    <form id="contact-form">
                 <div class="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
 
                 </form>
                                 </div>
-                                <div class="col"><img src="patient.png"></img></div>
+                                <div class="col"><img src="patient.png" alt="patient"></img></div>
                                 </div>
 
                                 
@@ -59,7 +59,7 @@ const PatientDashboard = () =>{
                             </div>
 
                             <div class="container p-4" style={{ display:"flex", justifyContent:"center"}}>
-            <form id="contact-form" role="form" method="get" action="prescription">
+            <form id="contact-form" method="get" action="prescription">
                 <div class="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}  onClick={<ViewPrescription />}>View Prescription</button></div>
 
                 </form>

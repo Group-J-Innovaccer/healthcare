@@ -16,7 +16,7 @@ const Login = (setIsDoctor) => {
             setIsDoctor("Doctor");
           }}
         >
-          <img src="/doctor.png" className="btnlogo" />
+          <img src="/doctor.png" alt="doctor" className="btnlogo" />
           <p>Doctor</p>
         </button>
         <button
@@ -25,12 +25,12 @@ const Login = (setIsDoctor) => {
             setIsDoctor("Patient");
           }}
         >
-          <img src="/care.png" className="btnlogo" />
+          <img src="/care.png" alt="patient" className="btnlogo" />
           <p>Patient</p>
         </button>
         <p className="sign_in">
           Don't you have a account yet? <br />
-          Please <a href="" >Sign in.</a>
+          Please <a href="/" >Sign in.</a>
         </p>
       </div>
     </div>
