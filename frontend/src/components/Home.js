@@ -1,12 +1,13 @@
 import Header from './Header';
 import Footer from './Footer';
+import Login from './Login';
 
 const Home = () => {
 
     return (
         <div>
-            <Header />
-            Homepage
+           
+            <Login />
             <Footer />
         </div>
     )
