@@ -24,7 +24,6 @@ const Footer = () => {
             </div>
             <br/>
             <div>
-                    
                     <b><p>Connect with us</p></b>
                     <div>
                         <div className="brandIcon">
@@ -37,7 +36,7 @@ const Footer = () => {
                     </div>
                 </div>
             <div style={{ textAlign: "center", marginTop: "30px" }}>
-                <small>Copyright 2020 All Right Reserved</small>
+                <small>Copyright 2022 DocEasy.com</small>
             </div>
         </div>
     )

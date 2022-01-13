@@ -10,20 +10,20 @@ const Home = () => {
     return (
         <div><div className='doctorHeading'>
             <Header />
-            <div className="ourDoctors">
+            <div className="ourDoctors" >
                 <div>
                     <div className="ourDoctorsDetails">
-                        <a href='#'><Card style={{ width: '21rem', border: "none" }}>
+                        <a href='#'><Card >
                             <img style={{ height: "300px" }} src={drImage} alt="" />
                             <div className="doctorsInfo">
-                                <p>Doctor</p>
+                                <h5>Doctor</h5>
                                 
                             </div>
                         </Card></a>
-                        <a href='#'><Card style={{ width: '21rem', border: "none" }}>
+                        <a href='#'><Card>
                             <img style={{ height: "300px" }} src={patient} alt="" />
                             <div className="doctorsInfo">
-                                <p>Patient</p>
+                                <h5>Patient</h5>
                                 
                             </div>
                         </Card></a> 

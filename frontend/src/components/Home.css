@@ -17,20 +17,26 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+
+    border-radius: 15px;
 }
 .ourDoctors .ourDoctorsDetails{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    border-radius: 5%;
 }
 
 .ourDoctors .ourDoctorsDetails > *{
     margin: 120px;
+
 }
 .ourDoctors .doctorsInfo{
+    background-image: linear-gradient(to right, #eb1e75, #000000);
     text-align: center;
-    margin-top: 5px;
+}
+.doctorsInfo h5{
+   color: white;
+   padding-top: 5px;
 }
 .doctorHeading{
     background-image:  url(../images/Mask\ Group\ 4.jpg);
@@ -50,24 +56,22 @@
 }
 
 .footer .brandIcon > *{
-    border: 1px solid #19D3AE;
+    border: 1px solid #eb1e75;
     border-radius: 15px;
     padding: 5px;
     height: 30px;
     width: 30px;
     margin-right: 10px;
-    color: #19D3AE;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    color: #eb1e75;
     transition: .5s;
 }
 .footer .brandIcon > *:hover{
-    background-color: #19D3AE;
+    background-color: #eb1e75;
     color: white;
 }
 .footer .callNow{
-    background-image: linear-gradient(to right, #19D3AE, #0FCFEC);
-    width: 150px;
+    background-image: linear-gradient(to right, #eb1e75, #000000);
+    width: 140px;
     padding: 10px 10px;
     color: white;
     border-radius: 5px;
