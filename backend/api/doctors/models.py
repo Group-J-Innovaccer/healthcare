@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 
 from django.db.models.expressions import F
 
-
 class UserManager(BaseUserManager):
 
     def create_user(self, email, password=None):
@@ -58,14 +57,6 @@ class Doctor(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    # def has_module_perms(self, app_label):
-    #    return self.is_superuser
-
-    # def has_perm(self, perm, obj=None):
-    #    return self.is_superuser
-
 
     def _str_(self):
         return self.registration_no
-
-
