@@ -38,10 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'api',
     'api.doctors',
     'rest_framework.authtoken',
     'rest_framework',
+=======
+    'rest_framework',
+    'api.eprescription',
+    'api'
+>>>>>>> eprescription-model
     ]
 
 # REST_FRAMEWORK = {

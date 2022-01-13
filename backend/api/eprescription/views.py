@@ -1,3 +1,34 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .serializers import PrescriptionSerializer,MedicationSerializer
+from .models import Prescription,Medication
+from rest_framework import generics
+from rest_framework import mixins 
 
-# Create your views here.
+
+class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+    serializer_class = PrescriptionSerializer
+    queryset = Prescription.objects.all()
+
+    def get(self, request):
+        return self.list(request)
+
+    def post(self, request):
+        return self.create(request)
+
+class MedicationList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+    serializer_class = MedicationSerializer
+    queryset = Medication.objects.all()
+
+    def get(self, request):
+        return self.list(request)
+
+    def post(self, request):
+        return self.create(request)
+
+
+class PatientPrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+    serializer_class = PrescriptionSerializer
+    queryset = Prescription.objects.all()
+
+    def get(self, request):
+        return self.list(request)
