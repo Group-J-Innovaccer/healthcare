@@ -14,6 +14,7 @@ class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.Cr
 
     def post(self, request):
         return self.create(request)
+
 class MedicationList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     serializer_class = MedicationSerializer
     queryset = Medication.objects.all()
@@ -23,3 +24,11 @@ class MedicationList(generics.GenericAPIView, mixins.ListModelMixin, mixins.Crea
 
     def post(self, request):
         return self.create(request)
+
+
+class PatientPrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+    serializer_class = PrescriptionSerializer
+    queryset = Prescription.objects.all()
+
+    def get(self, request):
+        return self.list(request)

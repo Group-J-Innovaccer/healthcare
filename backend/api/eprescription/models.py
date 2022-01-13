@@ -28,3 +28,6 @@ class Medication(models.Model):
     frequency = models.BooleanField(null=False, default=True)
     duration= models.DateField(default=datetime.now())
     total_quantity=models.IntegerField(null=False)
+
+class PatientPrescription(models.Model):
+    pass
