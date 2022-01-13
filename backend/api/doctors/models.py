@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager
+
 from django.db.models.expressions import F
 
 
@@ -19,6 +19,6 @@ class Doctor(models.Model):
     registration_no = models.IntegerField(null= False)
 
     def _str_(self):
-        return self.firstname
+        return self.registration_no
 
 
