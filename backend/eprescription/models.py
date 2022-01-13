@@ -16,3 +16,15 @@ class Prescription(models.Model):
 
     def __str__(self):
         return self.id
+class Medication(models.Model):
+    Medication_id = models.IntegerField(null=False)
+    prescription_id = models.IntegerField(null=False)
+    medication_item = models.TextField(null=False)
+    strength = models.TextField(null=False)
+    preparation = models.TextField(null=False)
+    route= models.TextField(null=False)
+    dose = models.TextField(null=False)
+    dorection = models.TextField(null=False)
+    frequency = models.BooleanField(null=False, default=True)
+    duration= models.DateField(default=datetime.now())
+    total_quantity=models.IntegerField(null=False)
