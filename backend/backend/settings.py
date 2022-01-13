@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     'api',
     'api.doctors',
-
+    'rest_framework.authtoken',
     'rest_framework',
     ]
 
