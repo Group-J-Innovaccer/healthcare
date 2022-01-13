@@ -6,8 +6,6 @@ from django.db.models.expressions import F
 
 # Create your models here.
 
-
-
 class Doctor(models.Model):
     doctor_id = models.IntegerField(null=False)
     email = models.EmailField(null=False)
