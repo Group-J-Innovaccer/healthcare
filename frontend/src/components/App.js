@@ -6,6 +6,7 @@ import Doctor_login from './Doctor_login';
 import Doctor_register from './Doctor_register';
 import Doctor_dashboard from './Doctor_dashboard';
 import Add_medication from './Add_medication';
+import React from 'react';
 
 import {
   BrowserRouter,

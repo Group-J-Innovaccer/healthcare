@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { ReactDOM } from 'react';
 
 function Add_medication() {
-	return (
-		<div>
-			hiiii
-		</div>
-	)
+	
 }
 
 export default Add_medication
