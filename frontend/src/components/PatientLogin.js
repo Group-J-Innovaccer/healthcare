@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
@@ -30,7 +31,7 @@ const PatientLogin = () =>{
                                             <div className="row">
                                                 <div className="col-md-12">
                                                     <div className="form-group"> 
-                                                        <label for="form_p_id">Patient ID *</label> 
+                                                        <label htmlFor="form_p_id">Patient ID *</label> 
                                                         <input id="form_p_id" type="text" name="p_id" className="form-control" placeholder="Please enter your unique patient id no. *" required="required" data-error="Valid patient id is required." /> 
                                                     </div>
                                                 </div>
@@ -40,7 +41,7 @@ const PatientLogin = () =>{
                                             <div className="row">
                                                 <div className="col-md-12">
                                                     <div className="form-group"> 
-                                                        <label for="form_p_secretkey">Secret Key *</label> 
+                                                        <label htmlFor="form_p_secretkey">Secret Key *</label> 
                                                         <input id="form_p_secretkey" type="password" name="p_secretkey" className="form-control" placeholder="Secret Key *" required="required" data-error="Secret Key is required." /> 
                                                     </div>
                                                 </div>
@@ -50,7 +51,7 @@ const PatientLogin = () =>{
                                                 <center>
                                                     <div className="col-md-12">
                                                         <div className="form-group"> 
-                                                            <button variant="outline-primary" style={{width:"100%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}} onClick={"/patientashboard"}>View Details</button>
+                                                            <button variant="outline-primary" style={{width:"100%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}} >View Details</button>
                                                         </div>
                                                     </div>
                                                 </center>

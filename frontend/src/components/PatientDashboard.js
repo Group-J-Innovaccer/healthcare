@@ -8,7 +8,7 @@ const PatientDashboard = () =>{
         return(
         <div>
             <Header />
-            <div class="container-fluid" style={{
+            <div className="container-fluid" style={{
                 width: "100%",
                 height: "110vh",
                 backgroundImage: "url('https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg')",
@@ -21,10 +21,10 @@ const PatientDashboard = () =>{
                 <h1>Patient Details</h1>
             </div>
             
-            <div cclassName="row ">
+            <div className="row ">
                 <div className="col-lg-8 mx-auto">
                     <div className="card mt-2 mx-auto p-4 bg-light">
-                        <div cclassName="card-body bg-light">
+                        <div className="card-body bg-light">
                             <div className="container">
                                 <div className="row">
                                 <div className="col">
@@ -42,7 +42,7 @@ const PatientDashboard = () =>{
                                         
                                     </ul>
                                     <form id="contact-form" action='patientlogin'>
-                                        <div className="form-group"> <button variant="outline-primary" onClick={"/patientlogin"} style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
+                                        <div className="form-group"> <button variant="outline-primary"  style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
 
                                     </form>
                                 </div>
@@ -57,10 +57,10 @@ const PatientDashboard = () =>{
                 </div>
             </div>
 
-            <div class="container p-4" style={{ display:"flex", justifyContent:"center"}}>
+            <div className="container p-4" style={{ display:"flex", justifyContent:"center"}}>
                 <form id="contact-form" method="get" action="viewprescription">
-                    <div class="form-group">
-                        <button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}  onClick={"/viewprescription"}>View Prescription</button>
+                    <div className="form-group">
+                        <button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>View Prescription</button>
                     </div>
 
                 </form>

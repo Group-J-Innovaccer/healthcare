@@ -1,10 +1,11 @@
 import './Home.css';
 import React from 'react';
+
 const Header = () => {
     return (
         <div>
             <div className="topnav">
-                <a className="active" href="/home">DocEasy</a>
+                <a className="active" href="/">DocEasy</a>
                 <div className="topnav-right">
                     <a href="/about">About Us</a>
 

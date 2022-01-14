@@ -3,7 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
 
-const ViewPrescription = () =>{
+const ViewPrescription = () => {
     
         return(
         <div>
@@ -37,7 +37,7 @@ const ViewPrescription = () =>{
                 
                             <form id="contact-form" action='/patientlogin'>
                                 <div className="form-group"> 
-                                    <button variant="outline-primary" onClick={"/patientlogin"} style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
+                                    <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
                                 </div>
 
                             </form>

@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
@@ -28,14 +29,14 @@ const AddPatient = () => (
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
-                                                    <label for="form_p_fname">Firstname *</label> 
+                                                    <label htmlFor="form_p_fname">Firstname *</label> 
                                                     <input id="form_p_fname" type="text" name="p_fname" className="form-control" placeholder="Please enter your Firstname *" required="required" data-error="Firstname is required." /> 
                                                 </div>
                                             </div>
 
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
-                                                    <label for="form_p_lname">Lastname *</label> 
+                                                    <label htmlFor="form_p_lname">Lastname *</label> 
                                                     <input id="form_p_lname" type="text" name="p_lname" className="form-control" placeholder="Lastname*" required="required" data-error="Lastname is required." /> 
                                                 </div>
                                             </div>
@@ -44,13 +45,13 @@ const AddPatient = () => (
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
-                                                    <label for="form_dob">Date Of Birth *</label> 
+                                                    <label htmlFor="form_dob">Date Of Birth *</label> 
                                                     <input id="form_dob" type="date" name="dob" className="form-control" placeholder="Please enter your Date of birth *" required="required" data-error="Date of birth is required." /> 
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="form-group">
-                                                    <label for="form_email">Email *</label> 
+                                                    <label htmlFor="form_email">Email *</label> 
                                                     <input id="form_email" type="email" name="p_email" className="form-control" placeholder="Please enter your Email *" required="required" data-error="Email is required." /> 
                                                 </div>
                                             </div>
@@ -59,7 +60,7 @@ const AddPatient = () => (
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <div className="form-group ">
-                                                     <label for="form_gender">Gender *</label> 
+                                                     <label htmlFor="form_gender">Gender *</label> 
                                                     <select id="form_gender" className="form-control dropdown-toggle" placeholder='Choose Gender'>
                                                         <option>Male</option>
                                                         <option>Female</option>
@@ -69,7 +70,7 @@ const AddPatient = () => (
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
-                                                    <label for="form_p_mob_no">Mobile No. *</label>
+                                                    <label htmlFor="form_p_mob_no">Mobile No. *</label>
                                                     <input id="form_p_mob_no" type="tel" name="p_mobile_no" className="form-control" placeholder="Please enter your mobile no. *" required="required" data-error="Valid mobile number is required." />
                                                 </div>
                                             </div>
@@ -78,8 +79,8 @@ const AddPatient = () => (
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <div className="form-group "> 
-                                                    <label for="form_height">Height (in Cm) *</label> 
-                                                    <label for="form_height">Height *</label> 
+                                                    <label htmlFor="form_height">Height (in Cm) *</label> 
+                                                    <label htmlFor="form_height">Height *</label> 
                                                     <input id="form_p_height" type="number" name="p_height" className="form-control" placeholder="Please enter your  height*" required="required" data-error="Patient height is required." /> 
                                                 </div>
                                             </div>
@@ -94,7 +95,7 @@ const AddPatient = () => (
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="form-group">
-                                                    <label for="form_p_address">Address *</label>
+                                                    <label htmlFor="form_p_address">Address *</label>
                                                     <textarea id="form_p_address" name="p_address" className="form-control" placeholder="Write your address here." rows="3" required="required" data-error="Address is required."></textarea> 
                                                 </div>
                                             </div>

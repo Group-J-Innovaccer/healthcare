@@ -1,26 +1,20 @@
-<<<<<<< HEAD
 import React from 'react';
-=======
-import Home from './Home';
-import AddPatient from './AddPatient';
-import PatientLogin from './PatientLogin';
-import PatientDashboard from './PatientDashboard';
-
-import "./App.css";
-
->>>>>>> shivangi_branch
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
 import Home from './Home';
-import About from './About';
 import AddPatient from './AddPatient';
 import PatientLogin from './PatientLogin';
 import PatientDashboard from './PatientDashboard';
+import Prescription from './Prescription';
+import DoctorLogin from './DoctorLogin';
+import About from './About';
 import ViewPrescription from './ViewPrescription';
+import DoctorDashboard from './DoctorDashboard';
 import "./App.css";
+
 
 
 const App = () => {
@@ -34,6 +28,9 @@ const App = () => {
           <Route path="patientlogin" element={<PatientLogin />} />
           <Route path="patientdashboard" element={<PatientDashboard/>} />
           <Route path="viewprescription" element={<ViewPrescription />} />
+          <Route path="doctor_login" element={<DoctorLogin />} />
+          <Route path="doctor_dashboard" element={<DoctorDashboard />} />
+          <Route path="prescription" element={<Prescription />} />
         </Routes>
       </BrowserRouter>
     </div>

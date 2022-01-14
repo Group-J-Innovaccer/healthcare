@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import {CCard,CCardBody,CCardTitle,CRow,CCol} from '@coreui/react';
