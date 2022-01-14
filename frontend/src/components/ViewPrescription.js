@@ -35,9 +35,9 @@ const ViewPrescription = () =>{
                             <h6>Total Quantity : <b>drug_quantity</b></h6><br />
                             <h6>Other Instructions : <b>drug_instruction</b></h6><br />
                 
-                            <form id="contact-form">
+                            <form id="contact-form" action='/patientlogin'>
                                 <div className="form-group"> 
-                                    <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
+                                    <button variant="outline-primary" onClick={"/patientlogin"} style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
                                 </div>
 
                             </form>
