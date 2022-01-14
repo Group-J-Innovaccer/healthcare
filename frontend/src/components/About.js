@@ -10,13 +10,13 @@ const About = () => {
         <div>
             <Header />
             <div className="about_us">
-            <div className="row align-items-center" style={{ height: '30vh' }}>
-					<div className="col-md-10">
-						<p className="my-7" style={{ fontSize:'22px', paddingLeft:'25%', paddingRight:'15%', textAlign:'center'}}>
-                         The DocEasy website features a clean, straightforward information architecture to simplify the process of Health Care in hospitals to help the patients, doctor... 						
-                         </p>
-					</div>
-				</div>
+                <div className="row align-items-center" style={{ height: '30vh', width: '100%', margin: 'auto'}} >
+                        <div className="col-md-10">
+                            <p className="my-7" style={{ fontSize:'22px', paddingLeft:'25%', paddingRight:'15%', textAlign:'center'}}>
+                            The DocEasy website features a clean, straightforward information architecture to simplify the process of Health Care in hospitals to help the patients, doctor... 						
+                            </p>
+                        </div>
+                </div>
             
             <CRow >
                <CCol sm={3} style={{padding:'2%', paddingLeft:'2%', paddingRight:'2%'}}>

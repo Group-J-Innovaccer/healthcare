@@ -8,10 +8,11 @@ import drImage from '../images/drimage.jpg';
 import patient from '../images/patient.jpg';
 import './Home.css';
 
+
 const Home = () => {
 
     return (
-        <div>
+        <div> 
             <Header />
             <div className='doctorHeading'>
             <section className="banner-section">
