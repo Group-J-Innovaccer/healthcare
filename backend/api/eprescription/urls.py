@@ -4,7 +4,7 @@ from . import views
 
 
 urlpatterns = [
-    path('prescription/', views.PrescriptionList.as_view()),
-    path('patientprescription/', views.PatientPrescriptionList.as_view()),
-    path('medication/', views.MedicationList.as_view()),
+    # path('prescription/', views.PrescriptionList.as_view()),
+    # path('patientprescription/', views.PatientPrescriptionList.as_view()),
+    path('medication/', views.medication_list),
 ]
