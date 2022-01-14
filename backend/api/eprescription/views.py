@@ -49,6 +49,13 @@ class patientviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs) 
+class DoctorviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
+    serializer_class=PrescriptionSerializer
+    queryset=Prescription.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs) 
+
 
 
 # Prescription (Rachna)
