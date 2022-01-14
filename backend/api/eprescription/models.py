@@ -2,8 +2,8 @@ from operator import mod
 from ssl import PROTOCOL_TLS_CLIENT
 from django.db import models
 from datetime import datetime
-from patients.models import Patient
-from doctors.models import Doctor
+from api.patients.models import Patient
+from api.doctors.models import Doctor
 
 class Prescription(models.Model):
     patient_id = models.ForeignKey(Patient, on_delete=models.PROTECT)
@@ -19,18 +19,20 @@ class Prescription(models.Model):
     date = models.DateField(default=datetime.now())
 
     def __str__(self):
-        return self.id
+        return self.patient_id + ' ' + self.date
 
 class Medication(models.Model):
-    Medication_id = models.IntegerField(null=False)
     prescription_id = models.ForeignKey(Prescription, on_delete=models.PROTECT)
-    medication_item = models.TextField(null=False)
-    strength = models.TextField(null=False)
-    preparation = models.TextField(null=False)
-    route= models.TextField(null=False)
-    dose = models.TextField(null=False)
-    dorection = models.TextField(null=False)
+    medication_item = models.CharField(max_length=30, null=False)
+    strength = models.CharField(max_length=20, null=False)
+    preparation = models.CharField(max_length=20, null=False)
+    route= models.CharField(max_length=20, null=False)
+    dose = models.CharField(max_length=20, null=False)
+    direction = models.CharField(max_length=20, null=False)
     frequency = models.BooleanField(null=False, default=True)
     duration= models.DateField(default=datetime.now())
     total_quantity=models.IntegerField(null=False)
+
+    def __str__(self):
+        return self.medication_item
 

@@ -37,15 +37,19 @@ class UserManager(BaseUserManager):
         return user
 
 class Doctor(AbstractBaseUser, PermissionsMixin):
+    GENDER = (
+        ('M', "Male"),
+        ('F', "Female"),
+    )
     email = models.EmailField(unique=True)
     firstname = models.CharField(max_length=40, null=False, default="")
     lastname = models.CharField(max_length=40, null=False, default="")
     qualification = models.CharField(max_length=40,null=False, default="")
     specialization = models.CharField(max_length=40,null=False, default="")
     dob = models.DateField(null=False, default=date.today())
-    phone_no = models.TextField(null=False, default="")
-    gender = models.CharField(max_length=5, null=False, default="")
-    registration_no = models.TextField(null= False, default="")
+    phone_no = models.CharField(max_length=12, null=False, default="")
+    gender = models.CharField(max_length=1, null=False, default="", choices=GENDER)
+    registration_no = models.CharField(max_length=6, null= False, default="")
 
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
