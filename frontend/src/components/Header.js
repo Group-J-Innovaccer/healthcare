@@ -3,9 +3,9 @@ import React from 'react';
 const Header = () => {
     return (
         <div>
-            <div class="topnav">
-                <a class="active" href="/home">DocEasy</a>
-                <div class="topnav-right">
+            <div className="topnav">
+                <a className="active" href="/home">DocEasy</a>
+                <div className="topnav-right">
                     <a href="/about">About Us</a>
                     <a href="/patientlogin">Patient Portal</a>
                     <a href="/doctorlogin">Doctor Portal</a>
