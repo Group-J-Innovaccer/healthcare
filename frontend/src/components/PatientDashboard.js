@@ -19,17 +19,17 @@ const PatientDashboard = () =>{
                 backgroundRepeat: 'no-repeat'
             }}> 
 
-            <div class="text-center p-3">
+            <div className="text-center p-3">
                 <h1>Patient Details</h1>
             </div>
             
-            <div class="row ">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card mt-2 mx-auto p-4 bg-light">
-                        <div class="card-body bg-light">
-                            <div class="container">
-                                <div class="row">
-                                <div class="col">
+            <div cclassName="row ">
+                <div className="col-lg-8 mx-auto">
+                    <div className="card mt-2 mx-auto p-4 bg-light">
+                        <div cclassName="card-body bg-light">
+                            <div className="container">
+                                <div className="row">
+                                <div className="col">
                                    
                                     <ul>
                                         <li>Patient ID: </li>
@@ -44,11 +44,11 @@ const PatientDashboard = () =>{
                                         <li>Diagnosis: </li>
                                     </ul>
                                     <form id="contact-form">
-                                        <div class="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
+                                        <div className="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
 
                                     </form>
                                 </div>
-                                <div class="col">
+                                <div className="col">
                                     <img src="patient.png" alt="patient"></img>
                                 </div>
                                 </div>
