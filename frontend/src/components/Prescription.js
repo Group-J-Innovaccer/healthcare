@@ -12,14 +12,13 @@ function Prescription() {
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
-            backgroundImage: "url(" + "https://images.unsplash.com/photo-1628771065518-0d82f1938462?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" + ")",
+            backgroundImage: "url(" + "https://images.squarespace-cdn.com/content/v1/5be5e281a2772c7d09a59f72/1543717647231-K09VTNN3BGXZMEXNYIH7/blu.jpg" + ")",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}> 
             <div className=" text-center p-4">
-            <h1>Generate Prescription</h1><br />
-            <h4>Patient details</h4>
+            <h1>Generate Prescription</h1>
             </div>
             
             <div className="row ">
