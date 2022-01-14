@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
-import { MDBNavItem } from 'mdbreact';
 
 const ViewPrescription = () =>{
     
@@ -13,7 +12,7 @@ const ViewPrescription = () =>{
             <div class="container-fluid" style={{
             width: "100%",
             height: "120vh",
-            backgroundImage: "url(" + "https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg" + ")",
+            backgroundImage: "url('https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg')",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -35,14 +34,14 @@ const ViewPrescription = () =>{
                 <h6>Total Quantity : <b>drug_quantity</b></h6><br />
                 <h6>Other Instructions : <b>drug_instruction</b></h6><br />
                 
-                <form id="contact-form" role="form">
+                <form id="contact-form">
                 <div class="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
 
                 </form>
                 </div>
             </div>
             <div class="card" style={{height:"90vh", width: "30vw"}}>
-                <center><img src="prescription.png" alt="Card image cap"  style={{height:"100%", width:"100%"}}/></center>
+                <center><img src="prescription.png" alt="Card-cap"  style={{height:"100%", width:"100%"}}/></center>
                 
             </div>
             </div>

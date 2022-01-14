@@ -2,11 +2,6 @@ const Header = () => {
 
     return (
         <div>
-            
-
-
-
-
 <div class="topnav">
   <a class="active" href="/">DocEasy</a>
   <div class="topnav-right">

@@ -11,7 +11,7 @@ const PatientSignUp = () => (
         <div class="container-fluid" style={{
             width: "100%",
             height: "200vh",
-            backgroundImage: "url(" + "https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg" + ")",
+            backgroundImage: "url('https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg')",
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
@@ -24,7 +24,7 @@ const PatientSignUp = () => (
                     <div class="card mt-2 mx-auto p-4 bg-light">
                         <div class="card-body bg-light">
                             <div class="container">
-                                <form id="contact-form" role="form" action='PatientDashboard.js'>
+                                <form id="contact-form" action='PatientDashboard.js'>
                                     <div class="controls">
                                         <div class="row">
                                             <div class="col-md-6">
