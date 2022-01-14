@@ -11,16 +11,16 @@ const PatientDashboard = () =>{
         <div>
             <Header />
             <div class="container-fluid" style={{
-            width: "100%",
-            height: "110vh",
-            backgroundImage: "url('https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg')",
-            backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-      }}> 
+                width: "100%",
+                height: "110vh",
+                backgroundImage: "url('https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg')",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
+            }}> 
 
             <div class="text-center p-3">
-            <h1>Patient Details</h1>
+                <h1>Patient Details</h1>
             </div>
             
             <div class="row ">
@@ -44,27 +44,30 @@ const PatientDashboard = () =>{
                                         <li>Diagnosis: </li>
                                     </ul>
                                     <form id="contact-form">
-                <div class="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
+                                        <div class="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
 
-                </form>
+                                    </form>
                                 </div>
-                                <div class="col"><img src="patient.png" alt="patient"></img></div>
+                                <div class="col">
+                                    <img src="patient.png" alt="patient"></img>
+                                </div>
                                 </div>
 
-                                
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            <div class="container p-4" style={{ display:"flex", justifyContent:"center"}}>
-            <form id="contact-form" method="get" action="prescription">
-                <div class="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}  onClick={<ViewPrescription />}>View Prescription</button></div>
+            <div class="container p-4" style={{ display:"flex", justifyContent:"center"}}>
+                <form id="contact-form" method="get" action="prescription">
+                    <div class="form-group">
+                        <button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}  onClick={<ViewPrescription />}>View Prescription</button>
+                    </div>
 
                 </form>
             </div>
-                            </div>
+    </div>
 
             <Footer />
         </div>
