@@ -1,3 +1,4 @@
+import re
 from rest_framework import viewsets
 from .serializers import DoctorSerializer
 from .models import Doctor
@@ -12,15 +13,13 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from django.utils.decorators import method_decorator
 
 
-class DoctorList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
-    serializer_class = DoctorSerializer
-    queryset = Doctor.objects.all()
+class DoctorList(APIView):
 
-    def get(self, request):
-        return self.list(request)
-
-    def post(self, request):
-        return self.create(request)
+    permission_classes = (permissions.IsAuthenticated, )
+    def get(self, request, format=None):
+        doctor = Doctor.objects.filter(id=self.request.user.id)
+        serializer = DoctorSerializer(doctor, many=True)
+        return Response(serializer.data)
 
 @method_decorator(ensure_csrf_cookie, name='dispatch')
 class GetCSRFToken(APIView):
@@ -28,6 +27,7 @@ class GetCSRFToken(APIView):
 
     def get(self, request, format=None):
         return Response({ 'success': 'CSRF cookie set' })
+        
 @method_decorator(csrf_protect, name='dispatch')
 class CheckAuthenticatedView(APIView):
     permission_classes = (permissions.AllowAny, )
