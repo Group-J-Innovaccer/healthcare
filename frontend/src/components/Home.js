@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './Header';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -36,15 +37,16 @@ const Home = () => {
             <div className="ourDoctors" >
                 <div>
                     <div className="ourDoctorsDetails" style={{ fontSize:'30px'}}>
-                        <a href="/doctorlogin"><Card>
-                            <img style={{ height: "350px"}} src={drImage} alt="" />
-                            <div className="doctorsInfo">
+                        <a href="/doctorlogin"><Card  style={{borderRadius:'20px'}}>
+                            <img style={{ height: "350px", borderRadius:'10px 10px 0 0'}} src={drImage} alt="" />
+                            <div className="doctorsInfo" style={{ borderRadius:'0 0 10px 10px'}}>
                                 <h5>Doctor</h5>
                             </div>
                         </Card></a>
-                        <a href="/patientlogin"><Card>
-                            <img style={{ height: "350px"}} src={patient} alt="" />
-                            <div className="doctorsInfo">
+                        <a href="/patientlogin"><Card  style={{borderRadius:'20px 20px 10px 10px'}}>
+                            <img style={{ height: "350px", borderRadius:'10px 10px 0 0'}} src={patient} alt="" />
+
+                            <div className="doctorsInfo" style={{ borderRadius:'0 0 10px 10px'}}>
                                 <h5>Patient</h5>
                             </div>
                         </Card></a> 
