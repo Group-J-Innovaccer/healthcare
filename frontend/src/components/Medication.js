@@ -54,15 +54,15 @@ const  Medication = () => {
 			<form onSubmit={handleSubmit}>
 				<div className="row">
 					<div className="col-md-6">
-					<input type='text' name='medication_name' placeholder='Medication Name' value={medication.medication_name} onChange={handleChange}  style={{width:"100%"}} />
+					<input type='text' name='medication_name' placeholder='Medication Name' value={medication.medication_name} onChange={handleChange}  required="required"  style={{width:"100%"}} />
 					</div>
 					<div className="col-md-6">
-					<input type='text' name='strength' placeholder='Strength' value={medication.strength} onChange={handleChange} style={{width:"100%"}} />
+					<input type='text' name='strength' placeholder='Strength' value={medication.strength} onChange={handleChange} style={{width:"100%"}}  required="required" />
 					</div>
                 </div><br />
 				<div className="row">
 					<div className="col-md-6">
-					<select type='' placeholder='Preparation' name='preparation' onChange={handleChange}  style={{height:"100%", width:"100%", borderRadius:"5px"}}>
+					<select type='' placeholder='Preparation' name='preparation' onChange={handleChange} required="required"   style={{height:"100%", width:"100%", borderRadius:"5px"}}>
 					<option >Preparation</option>
 					<option value={medication.preparation} >Tablets</option>
 					<option value={medication.preparation} >Capsule</option>
@@ -72,7 +72,7 @@ const  Medication = () => {
 					</select>
 					</div>
 					<div className="col-md-6">
-					<select type='' placeholder='Route' name='route' onChange={handleChange}  style={{height:"100%", width:"100%", borderRadius:"5px"}}>
+					<select type='' placeholder='Route' name='route' onChange={handleChange}  required="required"  style={{height:"100%", width:"100%", borderRadius:"5px"}}>
 					<option >Route</option>
 					<option value={medication.route} >Topical</option>
 					<option value={medication.route} >Oral</option>
@@ -93,10 +93,10 @@ const  Medication = () => {
                 </div><br />
 				<div className="row">
 					<div className="col-md-6">
-					<input type='number' name='dosage' placeholder='Dosage' value={medication.dosage}  onChange={handleChange}  style={{width:"100%"}}/>
+					<input type='number' name='dosage' placeholder='Dosage' value={medication.dosage}  required="required"  onChange={handleChange}  style={{width:"100%"}}/>
 					</div>
 					<div className="col-md-6">
-					<select type='' placeholder='Direction' name='direction' onChange={handleChange} style={{height:"100%", width:"100%", borderRadius:"5px"}}>
+					<select type='' placeholder='Direction' name='direction' onChange={handleChange}  required="required"  style={{height:"100%", width:"100%", borderRadius:"5px"}}>
 					<option >Direction</option>
 					<option value={medication.direction} >Before meals</option>
 					<option value={medication.direction} >After meals</option>
@@ -105,7 +105,7 @@ const  Medication = () => {
                 </div><br />
 				<div className="row">
 					<div className="col-md-6">
-					<select type='' placeholder='Frequency' name='freq' onChange={handleChange} style={{height:"100%", width:"100%", borderRadius:"5px"}}>
+					<select type='' placeholder='Frequency' name='freq' onChange={handleChange}  required="required"  style={{height:"100%", width:"100%", borderRadius:"5px"}}>
 					<option >Frequency</option>
 					<option value={medication.freq} >If Required</option>
 					<option value={medication.freq} >Immediately</option>
@@ -123,12 +123,12 @@ const  Medication = () => {
 					</select>
 					</div>
 					<div className="col-md-6">
-					<input type='text' name='duration' placeholder='Duration' value={medication.duration} onChange={handleChange}  style={{width:"100%"}}/>
+					<input type='text' name='duration' placeholder='Duration' value={medication.duration}  required="required"  onChange={handleChange}  style={{width:"100%"}}/>
 					</div>
                 </div><br />
 				<div className="row">
 					<div className="col-md-6">
-					<input type='text' name='total_quant' placeholder='Total Quantity' value={medication.total_quant} onChange={handleChange}  style={{width:"100%"}}/>
+					<input type='text' name='total_quant' placeholder='Total Quantity' value={medication.total_quant}  required="required"  onChange={handleChange}  style={{width:"100%"}}/>
 					</div>
 					<div className="col-md-6">
 					<button className="btn-primary" type='submit' name='Add Medication' placeholder="add" style={{width:"100%", border:"3px solid blue", borderRadius:"5px"}}>Add</button>
