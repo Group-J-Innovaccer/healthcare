@@ -35,13 +35,13 @@ const PatientDashboard = () =>{
                                         <li>Patient ID: </li>
                                         <li>Patient Name: </li>
                                         <li>Patient Date of Birth: </li>
-                                        <li>Patient Age: </li>
+                                        <li>Patient Email: </li>
                                         <li>Patient Gender:</li>
                                         <li>Patient Mobile No: </li>
                                         <li>Patient Address: </li>
                                         <li>Patient Height: </li>
                                         <li>Patient Weight: </li>
-                                        <li>Diagnosis: </li>
+                                        
                                     </ul>
                                     <form id="contact-form">
                                         <div className="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
