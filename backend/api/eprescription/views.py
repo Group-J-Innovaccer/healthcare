@@ -61,7 +61,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST'])  #api view for doctor both get and post
 def medication_list(request):
     if request.method == 'GET':
         medication = Medication.objects.all()
@@ -85,35 +85,35 @@ def medication_list(request):
     
    
  
+ # Medication view with primary key for doctors (GET)
+@api_view(['GET'])
+def medication_detail(request, pk):
+    try: 
+        medication = Medication.objects.get(pk=pk) 
+    except Medication.DoesNotExist: 
+        return JsonResponse({'message': 'The tutorial does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
-# @api_view(['GET', 'PUT', 'DELETE'])
-# def tutorial_detail(request, pk):
-#     try: 
-#         tutorial = Tutorial.objects.get(pk=pk) 
-#     except Tutorial.DoesNotExist: 
-#         return JsonResponse({'message': 'The tutorial does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+    if request.method == 'GET': 
+        medication_serializer = MedicationSerializer(medication) 
+        return JsonResponse(medication_serializer.data) 
  
-#     if request.method == 'GET': 
-#         tutorial_serializer = TutorialSerializer(tutorial) 
-#         return JsonResponse(tutorial_serializer.data) 
+    # elif request.method == 'PUT': 
+    #     tutorial_data = JSONParser().parse(request) 
+    #     tutorial_serializer = TutorialSerializer(tutorial, data=tutorial_data) 
+    #     if tutorial_serializer.is_valid(): 
+    #         tutorial_serializer.save() 
+    #         return JsonResponse(tutorial_serializer.data) 
+    #     return JsonResponse(tutorial_serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
  
-#     elif request.method == 'PUT': 
-#         tutorial_data = JSONParser().parse(request) 
-#         tutorial_serializer = TutorialSerializer(tutorial, data=tutorial_data) 
-#         if tutorial_serializer.is_valid(): 
-#             tutorial_serializer.save() 
-#             return JsonResponse(tutorial_serializer.data) 
-#         return JsonResponse(tutorial_serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
- 
-#     elif request.method == 'DELETE': 
-#         tutorial.delete() 
-#         return JsonResponse({'message': 'Tutorial was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
+    # elif request.method == 'DELETE': 
+    #     tutorial.delete() 
+    #     return JsonResponse({'message': 'Tutorial was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
     
         
 # @api_view(['GET'])
-# def tutorial_list_published(request):
-#     tutorials = Tutorial.objects.filter(published=True)
+# def medications_list_published(request):
+#     tutorials = Medication.objects.filter(published=True)
         
 #     if request.method == 'GET': 
-#         tutorials_serializer = TutorialSerializer(tutorials, many=True)
+#         tutorials_serializer = MedicationSerializer(tutorials, many=True)
 #         return JsonResponse(tutorials_serializer.data, safe=False)
