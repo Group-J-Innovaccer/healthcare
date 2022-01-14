@@ -78,6 +78,7 @@ function Prescription() {
                                         </div>
                                         
                                     </div>
+
                                 </form>
                                 <div className="row">
                                     <div className="col-md-12 text-center">
@@ -85,6 +86,7 @@ function Prescription() {
                                     </div>
                                 </div>
                                 <Medication />
+                                <button className="btn-primary mt-4" style={{width:"100%", border:"3px solid blue", borderRadius:"5px"}}>Submit Prescription</button>
                             </div>
                         </div>
                     </div>

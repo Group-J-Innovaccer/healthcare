@@ -136,9 +136,9 @@ const  Medication = () => {
                 </div><br />
 				
 			</form>
-			<div style={{border:"1px solid black"}}>
+			<div>
 				{medications.map((med) => {
-				return <div key={med.medication_name}>
+				return <div key={med.medication_name} style={{border:"1px solid black"}}>
 					<div className="row">
 					<div className="col-md-6">
 					<p>Medicine Name :  {med.medication_name}</p>
