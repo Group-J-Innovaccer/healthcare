@@ -86,7 +86,7 @@ def medication_list(request):
    
  
  # Medication view with primary key for doctors (GET)
-@api_view(['GET'])
+@api_view(['GET', 'PUT'])
 def medication_detail(request, pk):
     try: 
         medication = Medication.objects.get(pk=pk) 
@@ -97,13 +97,13 @@ def medication_detail(request, pk):
         medication_serializer = MedicationSerializer(medication) 
         return JsonResponse(medication_serializer.data) 
  
-    # elif request.method == 'PUT': 
-    #     tutorial_data = JSONParser().parse(request) 
-    #     tutorial_serializer = TutorialSerializer(tutorial, data=tutorial_data) 
-    #     if tutorial_serializer.is_valid(): 
-    #         tutorial_serializer.save() 
-    #         return JsonResponse(tutorial_serializer.data) 
-    #     return JsonResponse(tutorial_serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
+    elif request.method == 'PUT': 
+        tutorial_data = JSONParser().parse(request) 
+        tutorial_serializer = MedicationSerializer(medication, data=tutorial_data) 
+        if tutorial_serializer.is_valid(): 
+            tutorial_serializer.save() 
+            return JsonResponse(tutorial_serializer.data) 
+        return JsonResponse(tutorial_serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
  
     # elif request.method == 'DELETE': 
     #     tutorial.delete() 
