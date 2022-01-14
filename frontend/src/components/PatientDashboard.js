@@ -2,8 +2,6 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
-// import { MDBNavItem } from 'mdbreact';
-import ViewPrescription from './ViewPrescription';
 
 const PatientDashboard = () =>{
     

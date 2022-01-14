@@ -1,8 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
-import PatientDashboard from './PatientDashboard';
-
 
 const AddPatient = () => (
     <div>
