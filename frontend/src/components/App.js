@@ -1,6 +1,6 @@
+import React from 'react';
 import Home from './Home';
-import Signup from './Signup';
-import Login from './Login';
+import About from './About';
 
 import {
   BrowserRouter,
@@ -14,8 +14,8 @@ const App = () => {
        <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login />} />
-      <Route path="signup" element={<Signup />} />
+      <Route path="about" element={<About />} />
+      <Route path="home" element={<Home/>}/>
     </Routes>
   </BrowserRouter>
     </div>
