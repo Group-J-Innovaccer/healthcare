@@ -16,3 +16,11 @@ class PatientList(generics.GenericAPIView, mixins.ListModelMixin):
 
     def get(self,request): 
         return self.list(request)
+
+# Patient form for doctor to add patient POST API
+
+class PatientForm(generics.GenericAPIView, mixins.CreateModelMixin):
+    serializer_class=PatientSerializer
+
+    def post(self,request):
+        return self.list(request)
