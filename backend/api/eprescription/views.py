@@ -43,12 +43,12 @@ class doctoraddnewprescription(mixins.CreateModelMixin,generics.GenericAPIView):
 
     def post(self, request):
         return self.create(request)
-# class patientviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
-#     serializer_class=PrescriptionSerializer
-#     queryset=Prescription.objects.all()
+class patientviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
+    serializer_class=PrescriptionSerializer
+    queryset=Prescription.objects.all()
 
-#     def get(self, request, *args, **kwargs):
-#         return self.list(request, *args, **kwargs) 
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs) 
 
 
 # Prescription (Rachna)
