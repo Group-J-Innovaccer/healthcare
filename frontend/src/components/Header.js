@@ -8,9 +8,7 @@ const Header = () => {
 
 
 <div class="topnav">
-  <a class="active" href="/login">DocEasy</a>
-  
- 
+  <a class="active" href="/">DocEasy</a>
   <div class="topnav-right">
   <a href="#about">About Us</a>
     <a href="/patientlogin">Patient Portal</a>
