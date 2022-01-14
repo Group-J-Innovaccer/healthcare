@@ -9,6 +9,7 @@ import patient from '../images/patient.jpg';
 import './Home.css';
 
 
+
 const Home = () => {
 
     return (

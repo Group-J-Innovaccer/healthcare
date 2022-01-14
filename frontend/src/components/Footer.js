@@ -2,6 +2,8 @@ import React from 'react';
 import './Home.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
+import "./App.css";
+
 
 const Footer = () => {
 
@@ -38,7 +40,6 @@ const Footer = () => {
             <div style={{ textAlign: "center", marginTop: "30px" }}>
                 <small>Copyright 2022 DocEasy.com</small>
             </div>
-            <p>@ 2022 Copyright <a href="/">DocEasy.com</a></p>
         </div>
     )
 }

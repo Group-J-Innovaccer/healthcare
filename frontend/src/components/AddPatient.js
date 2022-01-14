@@ -79,13 +79,13 @@ const AddPatient = () => (
                                             <div className="col-md-6">
                                                 <div className="form-group "> 
                                                     <label for="form_height">Height (in Cm) *</label> 
+                                                    <label for="form_height">Height *</label> 
                                                     <input id="form_p_height" type="number" name="p_height" className="form-control" placeholder="Please enter your  height*" required="required" data-error="Patient height is required." /> 
                                                 </div>
                                             </div>
 
                                             <div className="col-md-6">
                                                 <div className="form-group ">
-                                                    <label for="form_weight">Weight (in Kg)*</label> 
                                                     <input id="form_p_weight" type="number" name="p_weight" className="form-control" placeholder="Please enter your  weight*" required="required" data-error="Patient weight is required." /> 
                                                 </div>
                                             </div>

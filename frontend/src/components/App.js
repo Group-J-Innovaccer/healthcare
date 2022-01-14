@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import Home from './Home';
+import AddPatient from './AddPatient';
+import PatientLogin from './PatientLogin';
+import PatientDashboard from './PatientDashboard';
+
+import "./App.css";
+
+>>>>>>> shivangi_branch
 import {
   BrowserRouter,
   Routes,
@@ -11,7 +21,6 @@ import PatientLogin from './PatientLogin';
 import PatientDashboard from './PatientDashboard';
 import ViewPrescription from './ViewPrescription';
 import "./App.css";
-
 
 
 const App = () => {
