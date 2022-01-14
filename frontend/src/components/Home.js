@@ -26,7 +26,7 @@ const Home = () => {
 						<p className="my-4" style={{ fontSize:'22px'}}>
                             We are here to ensure fast and accurate medical care for you. Your prescription are safely stored and they help the doctors to provide you get all kinds of health related services with accurate consultation.
 						</p>
-                        <Link className="btn btn-primary button-style" style={{ fontSize:'18px'}} to="/about">
+                        <Link className="btn btn-primary button-style" style={{padding: '16px 21px',borderRadius: '20px', fontSize:'20px'}} to="/about">
 							Learn More...
 						</Link>
 					</div>
@@ -39,7 +39,7 @@ const Home = () => {
             <div className="ourDoctors" >
                 <div>
                     <div className="ourDoctorsDetails" style={{ fontSize:'30px'}}>
-                        <a href="/doctorlogin"><Card  style={{borderRadius:'20px'}}>
+                        <a href="/doctor_login"><Card  style={{borderRadius:'20px'}}>
                             <img style={{ height: "350px", borderRadius:'10px 10px 0 0'}} src={drImage} alt="" />
                             <div className="doctorsInfo" style={{ borderRadius:'0 0 10px 10px'}}>
                                 <h5>Doctor</h5>
