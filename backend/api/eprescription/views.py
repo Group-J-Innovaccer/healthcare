@@ -1,8 +1,13 @@
 from rest_framework import viewsets
-from .serializers import PrescriptionSerializer,MedicationSerializer
+from .serializers import *
 from .models import Prescription,Medication
 from rest_framework import generics
 from rest_framework import mixins 
+#from rest_framework.decorators import api_View
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser 
+from rest_framework import status
+
 
 
 class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -32,6 +37,19 @@ class PatientPrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mi
 
     def get(self, request):
         return self.list(request)
+class doctoraddnewprescription(mixins.CreateModelMixin,generics.GenericAPIView):
+    serializer_class=PrescriptionSerializer
+    queryset=Prescription.objects.all()
+
+    def post(self, request):
+        return self.create(request)
+# class patientviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
+#     serializer_class=PrescriptionSerializer
+#     queryset=Prescription.objects.all()
+
+#     def get(self, request, *args, **kwargs):
+#         return self.list(request, *args, **kwargs) 
+
 
 # Prescription (Rachna)
 # Add new Prescription PostAPI (doctor)
