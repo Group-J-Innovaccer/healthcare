@@ -138,3 +138,8 @@
 .CC:hover {
     background-color: rgb(228, 188, 255);
   } 
+.button-style{
+	padding: 16px 21px;
+    background-color: #eb1e75;
+    border-radius: 20px;
+}

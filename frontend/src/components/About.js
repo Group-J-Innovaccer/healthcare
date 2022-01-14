@@ -1,6 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
-import {CCard,CCardBody,CCardTitle,CCardText,CRow,CCol} from '@coreui/react';
+import {CCard,CCardBody,CCardTitle,CRow,CCol} from '@coreui/react';
 
 import './Home.css';
 
@@ -13,7 +13,7 @@ const About = () => {
             <div className="row align-items-center" style={{ height: '30vh' }}>
 					<div className="col-md-10">
 						<p className="my-7" style={{ fontSize:'22px', paddingLeft:'25%', paddingRight:'15%', textAlign:'center'}}>
-                         The DocEasy website features a clean, straightforward information architecture to simplify the process of Health Care in hospitals to help the patients, doctor. 						
+                         The DocEasy website features a clean, straightforward information architecture to simplify the process of Health Care in hospitals to help the patients, doctor... 						
                          </p>
 					</div>
 				</div>
