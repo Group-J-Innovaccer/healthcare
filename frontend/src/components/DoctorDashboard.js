@@ -6,8 +6,22 @@ import Header from './Header';
 
 const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
 
-    const [hell, sethell] = useState('')
+    const [doctorData, setDoctorData] = useState('');
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await doctordetail();
+                setDoctorData(res.data[0])
+                
+            } catch (err) {
+                console.log(err)
+            }
+        };
+
+        fetchData();
+    }, []);
+    
     if (!isAuthenticated) {
         return <Navigate to='/doctor_login' />
     }
@@ -29,16 +43,16 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
 
 
             <div className="text-center p-4">
-            <h1>Welcome Doctor_name</h1>
+            <h1>Welcome Dr. {doctorData.firstname}</h1>
             </div>
             
             <div className="container" style={{ display:"flex", justifyContent:"center"}}>
             <div className="card" style={{width: "40vw",height:"60vh"}}>
                 <div className="card-body">
-                <h6>Doctor ID : <b>d_id</b></h6><br />
-                <h6>Doctor Name : <b>d_name</b></h6><br />
-                <h6>Doctor Qualification : <b>d_qualification</b></h6><br />
-                <h6>Doctor Mobile No : <b>d_mob_no</b></h6><br />
+                <h6>Doctor ID : <b>{doctorData.id}</b></h6><br />
+                <h6>Doctor Name : <b>{doctorData.firstname} {doctorData.lastname}</b></h6><br />
+                <h6>Doctor Qualification : <b>{doctorData.qualification}</b></h6><br />
+                <h6>Doctor Mobile No : <b>{doctorData.phone_no}</b></h6><br />
 
                 <form method="get" action="doctor_login">
                 <button variant="outline-primary" style={{width:"50%", height:"7vh", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
