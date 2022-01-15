@@ -1,10 +1,36 @@
-import React from 'react'
-import Header from './Header'
+import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import { doctordetail } from '../api/doc';
+import Header from './Header';
 
-function DoctorDashboard() {
+const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
+
+    const [doctorData, setDoctorData] = useState('');
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await doctordetail();
+                setDoctorData(res.data[0])
+                
+            } catch (err) {
+                console.log(err)
+            }
+        };
+
+        fetchData();
+    }, []);
+    
+    if (!isAuthenticated) {
+        return <Navigate to='/doctor_login' />
+    }
+
+    doctordetail();
+
+
     return (
         <div>
-            <Header />
+            <Header setIsAuthenticated={setIsAuthenticated}/>
             <div class="container-fluid" style={{
             width: "100%",
             height: "100vh",
@@ -13,38 +39,42 @@ function DoctorDashboard() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}> 
-            <div class="text-center p-4">
-            <h1>Welcome Doctor_name</h1>
+
+
+
+            <div className="text-center p-4">
+            <h1>Welcome Dr. {doctorData.firstname}</h1>
             </div>
             
-            <div class="container" style={{ display:"flex", justifyContent:"center"}}>
-            <div class="card" style={{width: "40vw",height:"60vh"}}>
-                <div class="card-body">
-                <h6>Doctor ID : <b>d_id</b></h6><br />
-                <h6>Doctor Name : <b>d_name</b></h6><br />
-                <h6>Doctor Qualification : <b>d_qualification</b></h6><br />
-                <h6>Doctor Mobile No : <b>d_mob_no</b></h6><br />
-                
-                <form id="contact-form">
-                <div class="form-group"> <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
+            <div className="container" style={{ display:"flex", justifyContent:"center"}}>
+            <div className="card" style={{width: "40vw",height:"60vh"}}>
+                <div className="card-body">
+                <h6>Doctor ID : <b>{doctorData.id}</b></h6><br />
+                <h6>Doctor Name : <b>{doctorData.firstname} {doctorData.lastname}</b></h6><br />
+                <h6>Doctor Qualification : <b>{doctorData.qualification}</b></h6><br />
+                <h6>Doctor Mobile No : <b>{doctorData.phone_no}</b></h6><br />
 
+                <form method="get" action="doctor_login">
+                <button variant="outline-primary" style={{width:"50%", height:"7vh", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
                 </form>
                 </div>
             </div>
-            <div class="card" style={{height:"60vh", width: "30vw"}}>
+            <div className="card" style={{height:"60vh", width: "30vw"}}>
                 <center><img src="https://st2.depositphotos.com/3474805/6536/v/600/depositphotos_65365277-stock-illustration-medic-doctor-circle-icon.jpg" alt="Card-cap"  style={{height:"100%", width:"100%"}}/></center>
                 
             </div>
             </div>
-            <div class="container p-4" style={{ display:"flex", justifyContent:"center"}}>
-            <form id="contact-form"  method="get" action="prescription">
-                <div class="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Prescription</button></div>
+
+
+            <div className="container p-4" style={{ display:"flex", justifyContent:"center"}}>
+            <form id="contact-form" method="get" action="prescription">
+                <div className="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Prescription</button></div>
 
                 </form>
             </div>
-            <div class="container p-2" style={{ display:"flex", justifyContent:"center"}}>
+            <div className="container p-2" style={{ display:"flex", justifyContent:"center"}}>
             <form id="contact-form" method="get" action="add_patient">
-                <div class="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Patient</button></div>
+                <div className="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Patient</button></div>
 
                 </form>
             </div>
@@ -55,4 +85,5 @@ function DoctorDashboard() {
     )
 }
 
-export default DoctorDashboard
+export default DoctorDashboard;
+

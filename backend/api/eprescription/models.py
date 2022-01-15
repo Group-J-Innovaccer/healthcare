@@ -19,8 +19,9 @@ class Prescription(models.Model):
     date = models.DateField(default=datetime.now())
 
     def __str__(self):
-        return self.patient_id + ' ' + self.date
-
+        # return self.patient_id + ' ' + self.date
+        return self.examination
+        
 class Medication(models.Model):
     prescription_id = models.ForeignKey(Prescription, on_delete=models.PROTECT)
     medication_item = models.CharField(max_length=30, null=False)
