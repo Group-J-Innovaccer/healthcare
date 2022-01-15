@@ -9,7 +9,7 @@ function ViewPrescription() {
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
-            backgroundImage: "url(" + "https://images.squarespace-cdn.com/content/v1/5be5e281a2772c7d09a59f72/1543717647231-K09VTNN3BGXZMEXNYIH7/blu.jpg" + ")",
+            backgroundImage: "url(" + "https://healthcareacademycalifornia.com/wp-content/uploads/2018/11/Free-Downlaod-Light-Blue-Wallpaper-HD.jpeg" + ")",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
