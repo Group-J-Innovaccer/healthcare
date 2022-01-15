@@ -1,11 +1,55 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import Medication from './Medication';
+import { Navigate } from 'react-router-dom';
+import { eprescdetail } from '../api/presc';
+import { patientdetail } from '../api/patient';
+
 
 const Prescription = () => {
+
+        const [doctorData, setDoctorData] = useState('');
+    
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const res = await eprescdetail();
+                    setDoctorData(res.data[0])
+                    
+                } catch (err) {
+                    console.log(err)
+                }
+            };
+    
+            fetchData();
+        }, []);
+        
+        eprescdetail();
+
+
+        const [patientData, setPatientData] = useState('');
+    
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const res = await patientdetail();
+                    setPatientData(res.data[0])
+                    
+                } catch (err) {
+                    console.log(err)
+                }
+            };
+    
+            fetchData();
+        }, []);
+        
+        patientdetail();
+
+
     return (
         <div>
             <Header />
+            {/* <Header setIsAuthenticated={setIsAuthenticated}/> */}
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
@@ -27,20 +71,32 @@ const Prescription = () => {
                                     <div className="controls">
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <div className="form-group"> <label htmlFor="form_d_id">Doctor ID : <b>d_id</b></label></div>
+                                                <div className="form-group"> <label htmlFor="form_d_id">Doctor ID : <b>{doctorData.id}</b></label></div>
                                             </div>
                                             <div className="col-md-6">
-                                                <div className="form-group"> <label htmlFor="form_d_name">Doctor Name : <b>d_name</b></label></div>
+                                                <div className="form-group"> <label htmlFor="form_d_name">Doctor Name : <b>{doctorData.firstname}</b></label></div>
                                             </div>
                                         </div><br />
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <div className="form-group"> <label htmlFor="form_p_id">Patient's ID *</label> <input id="form_p_id" type="text" name="p_id" className="form-control" placeholder="Patient's ID*" required="required" data-error="Patient's id is required." /> </div>
+                                                <div className="form-group"> <label htmlFor="form_d_id">Patient ID : <b>{patientData.id}</b></label></div>
                                             </div>
                                             <div className="col-md-6">
-                                                <div className="form-group"> <label htmlFor="form_p_name">Patient's Name *</label> <input id="form_p_name" type="text" name="p_name" className="form-control" placeholder="Patient's Name*" required="required" data-error="Patient's name is required." /> </div>
+                                                <div className="form-group"> <label htmlFor="form_d_name">Patient Name : <b>{patientData.firstname}</b></label></div>
                                             </div>
-                                        </div>
+                                        </div><br />
+                                        {/* <div className="row">
+                                            <div className="col-md-6">
+                                                <div className="form-group"> <label htmlFor="form_p_id">Patient's ID  : <b>{patientData.id}</b></label> 
+                                                <input id="form_p_id" type="text" name="p_id" className="form-control" placeholder="Patient's ID*" required="required" data-error="Patient's id is required." /> 
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="form-group"> <label htmlFor="form_p_name">Patient's Name  : <b>{patientData.firstname}</b> </label>
+                                                 <input id="form_p_name" type="text" name="p_name" className="form-control" placeholder="Patient's Name*" required="required" data-error="Patient's name is required." /> 
+                                                </div>
+                                            </div>
+                                        </div> */}
                                         
                                         <div className="row">
                                             <div className="col-md-6">
