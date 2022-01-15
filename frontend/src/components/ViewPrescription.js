@@ -1,9 +1,46 @@
-import React from 'react';
+import React ,{useState,useEffect} from 'react';
 import Header from './Header';
-import Medication from './Medication';
+import Footer from './Footer';
+import "./App.css";
+//import img from './images/pr'
 
-function ViewPrescription() {
+import Medication from './Medication';
+import { prescriptiondetail,medicationdetail } from '../api/pres';
+
+
+
+
+const ViewPrescription = () =>{
+    const [prescriptionData,setPrescriptionData] = useState(false)
+    const [medicationData,setMedicationData] = useState(false)
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const prescription = await prescriptiondetail()
+                const medication = await medicationdetail()
+                console.log(prescription)
+                console.log(medication)
+                setPrescriptionData(prescription.data[0])
+                setMedicationData(medication.data)
+                console.log(prescriptionData)
+                console.log(medicationData)
+            } catch (err) {
+                console.log(err)
+
+            }
+        };
+
+        fetchData();
+        
+    }, []);
+
+  
+
+    
+
     return (
+        
         <div>
             <Header />
             <div className="container-fluid" style={{
@@ -25,9 +62,10 @@ function ViewPrescription() {
                             <div className="container">
                                 {/* <form id="contact-form" type="submit" role="form" method="post" action=""> */}
                                     <div className="controls">
+                                        
                                         <div className="row">
                                             <div className="col-md-6">
-                                                Doctor ID : <b>d_id</b>
+                                                Doctor ID : <b>{(prescriptionData) ? prescriptionData.doctor_id : ""}</b>
                                             </div>
                                             <div className="col-md-6">
                                                 Doctor Name : <b>d_name</b>
@@ -35,7 +73,7 @@ function ViewPrescription() {
                                         </div><br />
                                         <div className="row">
                                             <div className="col-md-6">
-                                            Patient's ID : <b>p_id</b>
+                                            Patient's ID : <b>{(prescriptionData) ? prescriptionData.patient_id : ""}</b>
                                             </div>
                                             <div className="col-md-6">
                                             Patient's Name : <b>p_name</b>
@@ -43,26 +81,26 @@ function ViewPrescription() {
                                         </div><br />
                                         <div className="row">
                                             <div className="col-md-6">
-                                            Chief Complaints : <b>chief_complaints</b>
+                                            Chief Complaints : <b>{(prescriptionData) ? prescriptionData.chief_complain : ""}</b>
                                             </div>
                                             <div className="col-md-6">
-                                            Clinical Features : <b>clinical_features</b>
-                                            </div>
-                                        </div><br />
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                            Examination : <b>examination</b>
-                                            </div>
-                                            <div className="col-md-6">
-                                            Investigations : <b>investigations</b>
+                                            Clinical Features : <b>{(prescriptionData) ? prescriptionData.doctor_id : ""}</b>
                                             </div>
                                         </div><br />
                                         <div className="row">
                                             <div className="col-md-6">
-                                            Advice/Referrals : <b>advices</b>
+                                            Examination : <b>{(prescriptionData) ? prescriptionData.examination : ""}</b>
                                             </div>
                                             <div className="col-md-6">
-                                            Notes : <b>notes</b>
+                                            Investigations : <b>{(prescriptionData) ? prescriptionData.investigation : ""}</b>
+                                            </div>
+                                        </div><br />
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                            Advice/Referrals : <b>{(prescriptionData) ? prescriptionData.advice : ""}</b>
+                                            </div>
+                                            <div className="col-md-6">
+                                            Notes : <b>{(prescriptionData) ? prescriptionData.comment : ""}</b>
                                             </div>
                                         </div><br /><br />
                                         
@@ -77,56 +115,64 @@ function ViewPrescription() {
                                     </div>
 
                                 {/* </form> */}
-                                <div className="row">
+
+                                {(medicationData) ? medicationData.map(medication => {
+                
+                                    return (
+                                        <div  className=" text-center p-4">
+                                            <div className="row">
                                     <div className="col-md-12 text-center">
                                         <h5><b>Drugs</b></h5>
                                     </div>
                                 </div><br />
                                 <div className="row">
                                     <div className="col-md-6">
-                                        Medicine : <b>m_name</b>
+                                        Medicine : <b>{medication.medication_item}</b>
                                     </div>
                                     <div className="col-md-6">
-                                        Strength : <b>m_strength</b>
+                                        Strength : <b>{medication.strength}</b>
                                     </div>
                                 </div><br />
                                 <div className="row">
                                     <div className="col-md-6">
-                                        Preparation : <b>m_preparation</b>
+                                        Preparation : <b>{medication.preparation}</b>
                                     </div>
                                     <div className="col-md-6">
-                                        Route : <b>m_route</b>
+                                        Route : <b>{medication.route}</b>
                                     </div>
                                 </div><br />
                                 <div className="row">
                                     <div className="col-md-6">
-                                        Dosage : <b>m_dosage</b>
+                                        Dosage : <b>{medication.dose}</b>
                                     </div>
                                     <div className="col-md-6">
-                                        Direction : <b>m_direction</b>
+                                        Direction : <b>{medication.direction}</b>
                                     </div>
                                 </div><br />
                                 <div className="row">
                                     <div className="col-md-6">
-                                        Frequency : <b>m_frequency</b>
+                                        Frequency : <b>{medication.frequency}</b>
                                     </div>
                                     <div className="col-md-6">
-                                        Duration : <b>m_duration</b>
+                                        Duration : <b>{medication.duration}</b>
                                     </div>
                                 </div><br />
                                 <div className="row">
                                     <div className="col-md-6">
-                                        Total Quantity : <b>m_quant</b>
+                                        Total Quantity : <b>{medication.total_quantity}</b>
                                     </div>
                                 </div><br />
+                                        </div>
+                                    )
+                                }) : ""}
+                                
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div className=" text-center p-4">
-            <h1></h1>
-            </div>
+            
 
 
             </div>

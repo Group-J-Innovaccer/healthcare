@@ -67,11 +67,7 @@ const Prescription = () => {
                                             </div>
                                         </div><br />
                                         <div className="row">
-                                        <center>
-                                            {/* <div className="col-md-6">
-                                                <div className="form-group"> <button variant="outline-primary" style={{width:"100%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Add Drug</button></div>
-                                            </div> */}
-                                        </center>
+                                
                                         </div>
                                         
                                     </div>
