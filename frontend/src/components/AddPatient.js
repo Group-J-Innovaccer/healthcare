@@ -1,9 +1,77 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
+import {Navigate} from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
+import axios, { Axios } from 'axios';
+import { addPatient } from '../api/patientdata';
+import CSRFToken from './CSRFToken';
+import {doctordetail} from '../api/doc'
 
-const AddPatient = () => (
+const AddPatient = () => {
+    
+    const [formData,setFormData] = useState({
+        firstname:'',
+        lastname:'',
+        dob:'',
+        email:'',
+        gender:'',
+        height:'',
+        weight:'',
+        phone:'',
+        address:'',
+        current_doctor:'',
+        secretkey:''
+
+    });
+
+
+    const [status, setStatus] = useState(400);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await doctordetail();
+                setFormData(formData =>({
+                    ...formData,
+                    current_doctor: res.data[0].id
+                }));
+                
+            } catch (err) {
+                console.log(err)
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const handleChange = (event) => {
+        setFormData(formData =>({
+            ...formData,
+            [event.target.name]: event.target.value
+        }));
+    };
+
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const res = await addPatient(formData);
+        console.log(res.status)
+        console.log(formData)
+        if (res.status === 201) {
+            setStatus(201)
+        }
+        else {
+            console.log('bye')
+        }
+    };
+
+    if (status === 201) {
+        return <Navigate to='/doctor_dashboard' />
+    }
+    
+    return (
     <div>
         <Header />
 
@@ -23,21 +91,22 @@ const AddPatient = () => (
                     <div className="card mt-2 mx-auto p-4 bg-light">
                         <div className="card-body bg-light">
                             <div className="container">
-                                <form id="contact-form" action='PatientDashboard.js'>
+                                <form id="contact-form" onSubmit={handleSubmit}>
+                                <CSRFToken />
                                     <div className="controls">
 
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
                                                     <label htmlFor="form_p_fname">Firstname *</label> 
-                                                    <input id="form_p_fname" type="text" name="p_fname" className="form-control" placeholder="Please enter your Firstname *" required="required" data-error="Firstname is required." /> 
+                                                    <input id="form_p_fname" type="text" name="firstname" className="form-control" placeholder="Please enter your Firstname *" required="required" value= {formData.firstname} onChange={handleChange} data-error="Firstname is required." /> 
                                                 </div>
                                             </div>
 
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
                                                     <label htmlFor="form_p_lname">Lastname *</label> 
-                                                    <input id="form_p_lname" type="text" name="p_lname" className="form-control" placeholder="Lastname*" required="required" data-error="Lastname is required." /> 
+                                                    <input id="form_p_lname" type="text" name="lastname" className="form-control" placeholder="Lastname*" required="required" value= {formData.lastname} onChange={handleChange} data-error="Lastname is required." /> 
                                                 </div>
                                             </div>
                                         </div>
@@ -46,13 +115,13 @@ const AddPatient = () => (
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
                                                     <label htmlFor="form_dob">Date Of Birth *</label> 
-                                                    <input id="form_dob" type="date" name="dob" className="form-control" placeholder="Please enter your Date of birth *" required="required" data-error="Date of birth is required." /> 
+                                                    <input id="form_dob" type="date" name="dob" className="form-control" placeholder="Please enter your Date of birth *" required="required" value={formData.dob} onChange={handleChange} data-error="Date of birth is required." /> 
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="form-group">
                                                     <label htmlFor="form_email">Email *</label> 
-                                                    <input id="form_email" type="email" name="p_email" className="form-control" placeholder="Please enter your Email *" required="required" data-error="Email is required." /> 
+                                                    <input id="form_email" type="email" name="email" className="form-control" placeholder="Please enter your Email *" required="required" value={formData.email} onChange={handleChange} data-error="Email is required." /> 
                                                 </div>
                                             </div>
                                         </div>
@@ -61,17 +130,17 @@ const AddPatient = () => (
                                             <div className="col-md-6">
                                                 <div className="form-group ">
                                                      <label htmlFor="form_gender">Gender *</label> 
-                                                    <select id="form_gender" className="form-control dropdown-toggle" placeholder='Choose Gender'>
-                                                        <option>Male</option>
-                                                        <option>Female</option>
-                                                        <option>Other</option>
+                                                    <select id="form_gender" name="gender" className="form-control dropdown-toggle" value= {formData.gender} onChange={handleChange} placeholder='Choose Gender'>
+                                                        <option >Choose Gender</option>
+                                                        <option value="M">Male</option>
+                                                        <option value="F">Female</option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="form-group"> 
                                                     <label htmlFor="form_p_mob_no">Mobile No. *</label>
-                                                    <input id="form_p_mob_no" type="tel" name="p_mobile_no" className="form-control" placeholder="Please enter your mobile no. *" required="required" data-error="Valid mobile number is required." />
+                                                    <input id="form_p_mob_no" type="tel" name="phone" className="form-control" placeholder="Please enter your mobile no. *" required="required" value={formData.phone} onChange={handleChange} data-error="Valid mobile number is required." />
                                                 </div>
                                             </div>
                                         </div>
@@ -79,24 +148,31 @@ const AddPatient = () => (
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <div className="form-group "> 
-                                                    <label htmlFor="form_height">Height (in Cm) *</label> 
-                                                    <label htmlFor="form_height">Height *</label> 
-                                                    <input id="form_p_height" type="number" name="p_height" className="form-control" placeholder="Please enter your  height*" required="required" data-error="Patient height is required." /> 
+                                                    <label htmlFor="form_height">Height (in cm) *</label> 
+                                                    <input id="form_p_height" type="number" name="height" className="form-control" placeholder="Please enter your  height*" required="required" value={formData.height} onChange={handleChange} data-error="Patient height is required." /> 
                                                 </div>
                                             </div>
 
                                             <div className="col-md-6">
                                                 <div className="form-group ">
-                                                    <input id="form_p_weight" type="number" name="p_weight" className="form-control" placeholder="Please enter your  weight*" required="required" data-error="Patient weight is required." /> 
+                                                <label htmlFor="form_weight">Weight (in kg) *</label> 
+                                                    <input id="form_p_weight" type="number" name="weight" className="form-control" placeholder="Please enter your  weight*" required="required" value={formData.weight} onChange={handleChange} data-error="Patient weight is required." /> 
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div className="col-md-6">
+                                                <div className="form-group ">
+                                                <label htmlFor="form_p_secretkey">Secret Key*</label> 
+                                                    <input id="form_p_secretkey" type="password" name="secretkey" className="form-control" placeholder="enter your secret key*" required="required" value={formData.secretkey} onChange={handleChange} data-error="Patient weight is required." /> 
+                                                </div>
+                                            </div>
 
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="form-group">
                                                     <label htmlFor="form_p_address">Address *</label>
-                                                    <textarea id="form_p_address" name="p_address" className="form-control" placeholder="Write your address here." rows="3" required="required" data-error="Address is required."></textarea> 
+                                                    <textarea id="form_p_address" name="address" className="form-control" placeholder="Write your address here." rows="3" required="required" value={formData.address} onChange={handleChange} data-error="Address is required."></textarea> 
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +202,5 @@ const AddPatient = () => (
         <Footer />
     </div>
 )
-
+}
 export default AddPatient;
-
-

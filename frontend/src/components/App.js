@@ -24,9 +24,7 @@ const App = () => {
   const authenticate = async () => {
 
     const res = await checkAuthenticated();
-    console.log(res)
     if (res) {
-    
       setIsAuthenticated(localStorage.getItem('isAuthenticated'))
     } else {
       localStorage.clear()
@@ -48,7 +46,7 @@ const App = () => {
           <Route path="viewprescription" element={<ViewPrescription />} />
           <Route path="doctor_login" element={<DoctorLogin isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="doctor_dashboard" element={<DoctorDashboard isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="prescription" element={<Prescription isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="addprescription" element={<Prescription />} />
         </Routes>
       </BrowserRouter>
     </div>
