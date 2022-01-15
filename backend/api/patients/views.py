@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from rest_framework import status
-
 from rest_framework import viewsets
 from .serializers import PatientSerializer
 from .models import Patient
@@ -14,9 +13,9 @@ from rest_framework.decorators import api_view
 class PatientList(generics.GenericAPIView, mixins.ListModelMixin):
     serializer_class=PatientSerializer
     queryset=Patient.objects.all() 
-
     def get(self,request): 
         return self.list(request)
+
 
 # Patient form for doctor to add patient -> POST API
 

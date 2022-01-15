@@ -44,6 +44,7 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}> 
+
             <div className="text-center p-4">
             <h1>Doctor Login</h1>
             </div>
@@ -82,6 +83,7 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
                     </div>
                 </div>
             </div>
+
 
             <div className="row" style={{height:"10px"}}>
 

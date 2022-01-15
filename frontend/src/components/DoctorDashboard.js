@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { doctordetail } from '../api/doc';
@@ -26,6 +27,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
         backgroundRepeat: 'no-repeat'
       }}> 
 
+
             <div className="text-center p-4">
             <h1>Welcome Doctor_name</h1>
             </div>
@@ -37,6 +39,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 <h6>Doctor Name : <b>d_name</b></h6><br />
                 <h6>Doctor Qualification : <b>d_qualification</b></h6><br />
                 <h6>Doctor Mobile No : <b>d_mob_no</b></h6><br />
+
                 <form method="get" action="doctor_login">
                 <button variant="outline-primary" style={{width:"50%", height:"7vh", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
                 </form>
@@ -47,6 +50,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 
             </div>
             </div>
+
 
             <div className="container p-4" style={{ display:"flex", justifyContent:"center"}}>
             <form id="contact-form" method="get" action="prescription">

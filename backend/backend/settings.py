@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'api.patients',
     
     'rest_framework',
-    # 'corsheaders'
 
     ]
 
