@@ -1,5 +1,9 @@
 # healthcare
 
+
+We proposed a healthcare system using ReactJS, Django to create a website that features a clean, straight forward information architecture to simplify the process of Health Care in hospitals to help the patients, doctor.
+
+
 1. Create a folder 
 
 2. Clone the repo
