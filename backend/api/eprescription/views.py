@@ -7,8 +7,10 @@ from rest_framework import mixins
 from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
-from rest_framework import status
+from rest_framework import status,permissions
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
 class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -164,25 +166,25 @@ class CreateMedicationView(generics.GenericAPIView, mixins.CreateModelMixin):
 
 
 
-class LoginView(APIView):
-    permission_classes = (permissions.AllowAny, )
+# class LoginView(APIView):
+#     permission_classes = (permissions.AllowAny, )
 
-    def post(self, request, format=None):
-        data = self.request.data
+#     def post(self, request, format=None):
+#         data = self.request.data
 
-        email = data['email']
-        password = data['password']
+#         email = data['email']
+#         password = data['password']
 
-        try:
-            user = auth.authenticate(email=email, password=password)
+#         try:
+#             user = auth.authenticate(email=email, password=password)
 
-            if user is not None:
-                auth.login(request, user)
-                return Response({ 'code': 200 })
-            else:
-                return Response({ 'error': 'Error Authenticating', 'code': 401 })
-        except:
-            return Response({ 'error': 'Something went wrong when logging in' })
+#             if user is not None:
+#                 auth.login(request, user)
+#                 return Response({ 'code': 200 })
+#             else:
+#                 return Response({ 'error': 'Error Authenticating', 'code': 401 })
+#         except:
+#             return Response({ 'error': 'Something went wrong when logging in' })
 
 
 
@@ -193,11 +195,13 @@ class DoctorList(APIView):
     def get(self, request, format=None):
         doctor = Doctor.objects.filter(id=self.request.user.id)
         serializer = DoctorSerializer(doctor, many=True)
-        return Response(serializer.data)
-
-
-
-
-
-
-
+        patientId=data['patient_id']
+        try:
+            patientData=Patient.ocjects.filter(id=1)
+            if patientData is None:
+                serializer=PatientSerializer(patientData,many=True)
+                return Response(serializer.data)
+            else:
+                return Response({ 'error': 'Error Authenticating', 'code': 401 })
+        except:
+            return Response({ 'error': 'Something went wrong ' })

@@ -17,5 +17,5 @@ urlpatterns = [
 
 
 
-   # path('createmedication/', views.CreateMedicationView.as_view()),
+    path('createmedication/', views.CreateMedicationView.as_view()),
 ]

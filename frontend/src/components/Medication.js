@@ -49,9 +49,6 @@ const  Medication = () => {
 
 	return (
 		<div>
-
-
-			
 			<form onSubmit={handleSubmit}>
 				<div className="row">
 					<div className="col-md-6">
