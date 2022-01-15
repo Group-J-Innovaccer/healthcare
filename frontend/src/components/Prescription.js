@@ -3,22 +3,20 @@ import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import Medication from './Medication';
 import { doctordetail } from '../api/doc';
-import { patientdetail } from '../api/pat';
+import { patientdata } from '../api/pat';
 
 
 
 const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
 
     const [doctorData, setDoctorData] = useState('');
-    const [patientData, setPatientData] = useState('');
+    const [patientData, setPatientData] = useState(false);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await doctordetail();
-                
-                
-                setDoctorData(res.data[0])
-               
+                const res = await doctordetail(); 
+                setDoctorData(res.data[0]) 
                 
             } catch (err) {
                 console.log(err)
@@ -26,23 +24,19 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
         };
 
         fetchData();
+        fetchPatient();
+        
     }, []);
     
 
-    doctordetail(); 
 
     const fetchPatient = async () => {
-        const pat = await doctordetail();
-        // setPatientData(pat.data)
-        console.log(pat)
-        console.log(pat.data)
-        // let options = patientData.map(patient => {
-        //     return <option value={patient.id}>{patient.firstname} {patient.lastname}</option>
-        // })
-        // return options
+        const res = await patientdata();
+        setPatientData(res.data)   
+      
     }
    
-
+           
     return (
         <div>
             <Header/>
@@ -78,10 +72,9 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                                             <label htmlFor="form_p_name">Patient Name :</label>
                                                 <select name="patient_id" id="patientname">
                                                     <option >Choose Patient</option>
-                                                    {fetchPatient}
-+
+                                                    {(patientData) ? patientData.map(patient => <option value={patient.id}>{patient.firstname} {patient.lastname}</option>) : ''}
                                                 </select>
-                                                <div className="form-group"> <label htmlFor="form_p_name">Patient Name : <b></b></label></div>
+       
                                             </div>
                                         </div><br />
                                         {/* <div className="row">
