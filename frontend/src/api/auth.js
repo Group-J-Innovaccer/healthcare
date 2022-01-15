@@ -17,7 +17,7 @@ export const login = async (formData) => {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/doctors/login`, body, config);
         if (res.status === 200) {
             return res
-        } 
+        }
         
         
     } catch(err) {

@@ -68,7 +68,7 @@ const AddPatient = () => {
     };
 
     if (status === 201) {
-        return <Navigate to='/addprescription' />
+        return <Navigate to='/doctor_dashboard' />
     }
     
     return (
