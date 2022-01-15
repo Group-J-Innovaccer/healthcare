@@ -4,16 +4,12 @@ from .serializers import PrescriptionSerializer,MedicationSerializer
 from .models import Prescription,Medication
 from rest_framework import generics
 from rest_framework import mixins 
-
-
 from django.shortcuts import render
-
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
 from rest_framework.decorators import api_view
-
 
 
 class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -35,6 +31,7 @@ class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.Cr
 
 #     def post(self, request):
 #         return self.create(request)
+
 
 
 class PatientPrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
@@ -112,3 +109,4 @@ def medication_detail_by_id(request, pk):
     if request.method == 'GET': 
         medication_serializer = MedicationSerializer(medication) 
         return JsonResponse(medication_serializer.data) 
+
