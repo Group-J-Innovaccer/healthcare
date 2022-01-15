@@ -22,7 +22,6 @@ const  Medication = () => {
 			...medication,
 			[event.target.name]: event.target.value
 		}))
-        
 	}
 
 	const handleSubmit = (event) => {
@@ -185,5 +184,6 @@ const  Medication = () => {
 		</div>
 	)
 }
+
 
 export default Medication

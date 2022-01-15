@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
+import { checkAuthenticated } from '../api/auth';
 import Home from './Home';
 import AddPatient from './AddPatient';
 import PatientLogin from './PatientLogin';
@@ -18,6 +19,24 @@ import "./App.css";
 
 
 const App = () => {
+
+  const [isAuthenticated, setIsAuthenticated] = useState('')
+
+  const authenticate = async () => {
+
+    const res = await checkAuthenticated();
+    console.log(res)
+    if (res) {
+    
+      setIsAuthenticated(localStorage.getItem('isAuthenticated'))
+    } else {
+      localStorage.clear()
+      setIsAuthenticated(false)
+    }
+  }
+
+  authenticate()
+
   return (
     <div>   
       <BrowserRouter>
@@ -28,8 +47,8 @@ const App = () => {
           <Route path="patientlogin" element={<PatientLogin />} />
           <Route path="patientdashboard" element={<PatientDashboard/>} />
           <Route path="viewprescription" element={<ViewPrescription />} />
-          <Route path="doctor_login" element={<DoctorLogin />} />
-          <Route path="doctor_dashboard" element={<DoctorDashboard />} />
+          <Route path="doctor_login" element={<DoctorLogin isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="doctor_dashboard" element={<DoctorDashboard isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="prescription" element={<Prescription />} />
         </Routes>
       </BrowserRouter>

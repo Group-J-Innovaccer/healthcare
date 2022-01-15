@@ -1,11 +1,23 @@
-import React from 'react'
-import Header from './Header'
+import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import { doctordetail } from '../api/doc';
+import Header from './Header';
 
-const DoctorDashboard = () => {
+const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
+
+    const [hell, sethell] = useState('')
+
+    if (!isAuthenticated) {
+        return <Navigate to='/doctor_login' />
+    }
+
+    doctordetail();
+
+
     return (
         <div>
-            <Header />
-            <div className="container-fluid" style={{
+            <Header setIsAuthenticated={setIsAuthenticated}/>
+            <div class="container-fluid" style={{
             width: "100%",
             height: "100vh",
             backgroundImage: "url('https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg')",
