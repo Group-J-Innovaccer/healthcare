@@ -13,4 +13,5 @@ urlpatterns = [
 
     path('medicationbyid/<int:pk>', views.medication_detail_by_id),
     
+
 ]

@@ -7,3 +7,4 @@ urlpatterns = [
     path('patient/', include('api.patients.urls')),
 ]
 
+

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
 
     'api.doctors',
     'api.eprescription',
@@ -48,6 +49,12 @@ INSTALLED_APPS = [
 
     ]
 
+=======
+    'rest_framework',
+    'api.eprescription',
+    'api'
+    ]
+>>>>>>> eprescription-model
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

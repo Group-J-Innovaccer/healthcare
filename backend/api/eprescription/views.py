@@ -52,6 +52,7 @@ class MedicationList(APIView):
 
 
 class PatientPrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+
     serializer_class = PrescriptionSerializer
     queryset = Prescription.objects.all()
 
@@ -126,4 +127,5 @@ def medication_detail_by_id(request, pk):
     if request.method == 'GET': 
         medication_serializer = MedicationSerializer(medication) 
         return JsonResponse(medication_serializer.data) 
+
 
