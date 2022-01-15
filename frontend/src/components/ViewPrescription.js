@@ -64,7 +64,7 @@ function ViewPrescription() {
                                             <div className="col-md-6">
                                             Notes : <b>notes</b>
                                             </div>
-                                        </div><br />
+                                        </div><br /><br />
                                         
                                         <div className="row">
                                         <center>
@@ -81,13 +81,51 @@ function ViewPrescription() {
                                     <div className="col-md-12 text-center">
                                         <h5><b>Drugs</b></h5>
                                     </div>
-                                </div>
-                                <Medication />
-                                <button className="btn-primary mt-4" for="contact-form" style={{width:"100%", border:"3px solid blue", borderRadius:"5px"}}>Submit Prescription</button>
+                                </div><br />
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        Medicine : <b>m_name</b>
+                                    </div>
+                                    <div className="col-md-6">
+                                        Strength : <b>m_strength</b>
+                                    </div>
+                                </div><br />
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        Preparation : <b>m_preparation</b>
+                                    </div>
+                                    <div className="col-md-6">
+                                        Route : <b>m_route</b>
+                                    </div>
+                                </div><br />
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        Dosage : <b>m_dosage</b>
+                                    </div>
+                                    <div className="col-md-6">
+                                        Direction : <b>m_direction</b>
+                                    </div>
+                                </div><br />
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        Frequency : <b>m_frequency</b>
+                                    </div>
+                                    <div className="col-md-6">
+                                        Duration : <b>m_duration</b>
+                                    </div>
+                                </div><br />
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        Total Quantity : <b>m_quant</b>
+                                    </div>
+                                </div><br />
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className=" text-center p-4">
+            <h1></h1>
             </div>
 
 
