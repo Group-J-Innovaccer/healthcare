@@ -8,6 +8,7 @@ from api.doctors.models import Doctor
 class Prescription(models.Model):
     patient_id = models.ForeignKey(Patient, on_delete=models.PROTECT)
     doctor_id = models.ForeignKey(Doctor, on_delete=models.PROTECT)
+
     examination = models.TextField(null=False)
     investigation = models.TextField(null=False)
     diagnosis = models.TextField(null=False)
@@ -37,4 +38,5 @@ class Medication(models.Model):
 
     def __str__(self):
         return self.medication_item
+
 

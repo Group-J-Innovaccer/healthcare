@@ -13,7 +13,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             try {
                 const res = await doctordetail();
                 setDoctorData(res.data[0])
-                
+
             } catch (err) {
                 console.log(err)
             }
@@ -23,6 +23,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
     }, []);
     
     if (!isAuthenticated) {
+        console.log(isAuthenticated)
         return <Navigate to='/doctor_login' />
     }
 
@@ -54,7 +55,6 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 <h6>Doctor Qualification : <b>{doctorData.qualification}</b></h6><br />
                 <h6>Doctor Mobile No : <b>{doctorData.phone_no}</b></h6><br />
 
-                
                 </div>
             </div>
             <div className="card" >
