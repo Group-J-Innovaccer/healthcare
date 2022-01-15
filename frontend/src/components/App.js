@@ -48,7 +48,7 @@ const App = () => {
           <Route path="viewprescription" element={<ViewPrescription />} />
           <Route path="doctor_login" element={<DoctorLogin isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="doctor_dashboard" element={<DoctorDashboard isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
-          <Route path="prescription" element={<Prescription />} />
+          <Route path="prescription" element={<Prescription isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
         </Routes>
       </BrowserRouter>
     </div>

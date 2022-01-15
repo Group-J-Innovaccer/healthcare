@@ -13,7 +13,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             try {
                 const res = await doctordetail();
                 setDoctorData(res.data[0])
-                
+
             } catch (err) {
                 console.log(err)
             }
@@ -23,6 +23,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
     }, []);
     
     if (!isAuthenticated) {
+        console.log(isAuthenticated)
         return <Navigate to='/doctor_login' />
     }
 
@@ -53,10 +54,6 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 <h6>Doctor Name : <b>{doctorData.firstname} {doctorData.lastname}</b></h6><br />
                 <h6>Doctor Qualification : <b>{doctorData.qualification}</b></h6><br />
                 <h6>Doctor Mobile No : <b>{doctorData.phone_no}</b></h6><br />
-
-                <form method="get" action="doctor_login">
-                <button variant="outline-primary" style={{width:"50%", height:"7vh", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
-                </form>
                 </div>
             </div>
             <div className="card" style={{height:"60vh", width: "30vw"}}>
