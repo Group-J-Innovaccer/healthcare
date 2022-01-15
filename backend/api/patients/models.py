@@ -23,7 +23,7 @@ class Patient(models.Model):
     phone=models.CharField(max_length=12, null=False)
     address=models.TextField(null=False)
     gender=models.CharField(max_length=1, null=False, choices=GENDER)
-    emergency_contact=models.CharField(max_length=12, null=False)
+    secretkey=models.CharField(max_length=4, null=False)
     current_doctor=models.ForeignKey(Doctor, on_delete=models.PROTECT)
 
     def __str__(self):

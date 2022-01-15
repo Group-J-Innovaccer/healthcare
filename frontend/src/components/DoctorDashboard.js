@@ -46,21 +46,19 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             <h1>Welcome Dr. {doctorData.firstname}</h1>
             </div>
             
-            <div className="container" style={{ display:"flex", justifyContent:"center"}}>
-            <div className="card" style={{width: "40vw",height:"60vh"}}>
+            <div className="container" style={{ display:"flex", justifyContent:"center",borderRadius:"20px 20px 20px 20px"}}>
+            <div className="card" style={{width: "30vw",height:"40vh", borderRadius:"20px 20px 0 0"}}>
                 <div className="card-body">
                 <h6>Doctor ID : <b>{doctorData.id}</b></h6><br />
                 <h6>Doctor Name : <b>{doctorData.firstname} {doctorData.lastname}</b></h6><br />
                 <h6>Doctor Qualification : <b>{doctorData.qualification}</b></h6><br />
                 <h6>Doctor Mobile No : <b>{doctorData.phone_no}</b></h6><br />
 
-                <form method="get" action="doctor_login">
-                <button variant="outline-primary" style={{width:"50%", height:"7vh", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
-                </form>
+                
                 </div>
             </div>
-            <div className="card" style={{height:"60vh", width: "30vw"}}>
-                <center><img src="https://st2.depositphotos.com/3474805/6536/v/600/depositphotos_65365277-stock-illustration-medic-doctor-circle-icon.jpg" alt="Card-cap"  style={{height:"100%", width:"100%"}}/></center>
+            <div className="card" >
+                <center><img src="https://st2.depositphotos.com/3474805/6536/v/600/depositphotos_65365277-stock-illustration-medic-doctor-circle-icon.jpg" alt="Card-cap"  style={{height:"40vh", width:"20vw",borderRadius:"0  20px 20px"}}/></center>
                 
             </div>
             </div>
@@ -73,7 +71,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 </form>
             </div>
             <div className="container p-2" style={{ display:"flex", justifyContent:"center"}}>
-            <form id="contact-form" method="get" action="add_patient">
+            <form id="contact-form" method="get" action="addpatient">
                 <div className="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Patient</button></div>
 
                 </form>

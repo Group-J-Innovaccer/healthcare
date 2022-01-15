@@ -23,7 +23,7 @@ class PatientForm(generics.GenericAPIView, mixins.CreateModelMixin):
     serializer_class=PatientSerializer
 
     def post(self,request):
-        return self.list(request)
+        return self.create(request)
 
 # Patient Detail for doctor based on patient id -> GET API
 @api_view(['GET'])
