@@ -17,7 +17,6 @@ import DoctorDashboard from './DoctorDashboard';
 import "./App.css";
 
 
-
 const App = () => {
 
   const [isAuthenticated, setIsAuthenticated] = useState('')
