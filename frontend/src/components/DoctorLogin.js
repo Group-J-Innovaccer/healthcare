@@ -82,6 +82,7 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
                     </div>
                 </div>
             </div>
+
             <div className="row" style={{height:"10px"}}>
 
         </div>
