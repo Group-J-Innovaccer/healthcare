@@ -7,20 +7,37 @@ from rest_framework import mixins
 from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
-from rest_framework import status
+from rest_framework import status,permissions
+from rest_framework.views import APIView
+from .models import Prescription,Medication
+from .serializers import PrescriptionSerializer,MedicationSerializer
+from rest_framework.response import Response
  
 from rest_framework.decorators import api_view
 
+class PrescriptionList(APIView):
+    permission_classes = (permissions.AllowAny, )
+    def get(self, request, format=None):
+        prescription = Prescription.objects.filter(patient_id=1)
+        serializer = PrescriptionSerializer(prescription, many=True)
+        return Response(serializer.data)
 
-class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
-    serializer_class = PrescriptionSerializer
-    queryset = Prescription.objects.all()
+class MedicationList(APIView):
+    permission_classes = (permissions.AllowAny, )
+    def get(self, request, format=None):
+        medication = Medication.objects.filter(prescription_id=1)
+        serializer = MedicationSerializer(medication, many=True)
+        return Response(serializer.data)
 
-    def get(self, request):
-        return self.list(request)
+# class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+#     serializer_class = PrescriptionSerializer
+#     queryset = Prescription.objects.all()
 
-    def post(self, request):
-        return self.create(request)
+#     def get(self, request):
+#         return self.list(request)
+
+#     def post(self, request):
+#         return self.create(request)
 
 # class MedicationList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
 #     serializer_class = MedicationSerializer
