@@ -37,3 +37,4 @@ def patientDetailId(request, pk):
     if request.method == 'GET': 
         patient_serializer = PatientSerializer(patient) 
         return JsonResponse(patient_serializer.data) 
+
