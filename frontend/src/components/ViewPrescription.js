@@ -22,8 +22,8 @@ const ViewPrescription = () => {
                     <h1>Prescription Details</h1>
                 </div>
             
-                <div className="container" style={{ display:"flex", justifyContent:"center"}}>
-                    <div className="card" style={{width: "40vw",height:"90vh"}}>
+                <div className="container" style={{ display:"flex", justifyContent:"center", }}>
+                    <div className="card" style={{width: "40vw",height:"80vh", borderRadius:'10px 0 0 10px'}}>
                         <div className="card-body">
                             <h6>Drug name : <b>drug_name</b></h6><br />
                             <h6>Strength : <b>drug_strength</b></h6><br />
@@ -35,17 +35,11 @@ const ViewPrescription = () => {
                             <h6>Total Quantity : <b>drug_quantity</b></h6><br />
                             <h6>Other Instructions : <b>drug_instruction</b></h6><br />
                 
-                            <form id="contact-form" action='/patientlogin'>
-                                <div className="form-group"> 
-                                    <button variant="outline-primary" style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
-                                </div>
-
-                            </form>
                         </div>
                     </div>
-                    <div className="card" style={{height:"90vh", width: "30vw"}}>
+                    <div className="card" style={{height:"80vh", width: "30vw", borderRadius:'0 10px 10px 0'}}>
                         <center>
-                            <img src="prescription.png" alt="Card-cap"  style={{height:"100%", width:"100%"}}/>
+                            <img src="prescription.png" alt="Card-cap"  style={{height:"100%", width:"100%", borderRadius:'0 10px 10px 0'}}/>
                         </center>
                 
                     </div>

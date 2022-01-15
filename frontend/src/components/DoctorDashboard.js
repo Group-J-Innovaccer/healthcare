@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { doctordetail } from '../api/doc';
 import Header from './Header';
+import Footer from './Footer';
 
 const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
 
@@ -35,10 +36,10 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             <div class="container-fluid" style={{
             width: "100%",
             height: "100vh",
-            backgroundImage: "url('https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1611690828081-878ab4e8416d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=938&q=80')",
             backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
       }}> 
 
 
@@ -47,39 +48,38 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             </div>
             
             <div className="container" style={{ display:"flex", justifyContent:"center"}}>
-            <div className="card" style={{width: "40vw",height:"60vh"}}>
-                <div className="card-body">
+            <div className="card" style={{width: "35vw",height:"50vh", justifyContent:'center'}}>
+                <div className="card-body"style={{padding:'20px'}}>
+                    <br/><br/>
                 <h6>Doctor ID : <b>{doctorData.id}</b></h6><br />
                 <h6>Doctor Name : <b>{doctorData.firstname} {doctorData.lastname}</b></h6><br />
                 <h6>Doctor Qualification : <b>{doctorData.qualification}</b></h6><br />
                 <h6>Doctor Mobile No : <b>{doctorData.phone_no}</b></h6><br />
 
-                <form method="get" action="doctor_login">
-                <button variant="outline-primary" style={{width:"50%", height:"7vh", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button>
-                </form>
                 </div>
             </div>
-            <div className="card" style={{height:"60vh", width: "30vw"}}>
+            <div className="card" style={{height:"50vh", width: "20vw", justifyContent:'center'}}>
                 <center><img src="https://st2.depositphotos.com/3474805/6536/v/600/depositphotos_65365277-stock-illustration-medic-doctor-circle-icon.jpg" alt="Card-cap"  style={{height:"100%", width:"100%"}}/></center>
                 
             </div>
             </div>
 
 
-            <div className="container p-4" style={{ display:"flex", justifyContent:"center"}}>
+            <div className="container p-2" style={{ display:"flex", justifyContent:"center"}}>
             <form id="contact-form" method="get" action="prescription">
-                <div className="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Prescription</button></div>
+                <div className="form-group"><button variant="outline-primary" style={{width:"20vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"10px", color:"white", fontWeight:"bolder"}}>Add Prescription</button></div>
 
                 </form>
             </div>
-            <div className="container p-2" style={{ display:"flex", justifyContent:"center"}}>
+            <div className="container p-1" style={{ display:"flex", justifyContent:"center"}}>
             <form id="contact-form" method="get" action="add_patient">
-                <div className="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Patient</button></div>
+                <div className="form-group"><button variant="outline-primary" style={{width:"20vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"10px", color:"white", fontWeight:"bolder"}}>Add Patient</button></div>
 
                 </form>
             </div>
 
         </div>
+        <Footer/>
     </div>
 
     )

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import button from 'react-bootstrap';
 function DoctorRegister() {
     return (
@@ -8,17 +9,17 @@ function DoctorRegister() {
             <div class="container-fluid" style={{
             width: "100%",
             height: "100vh",
-            backgroundImage: "url('https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1611689102033-7f9e0a8eb851?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
             backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
       }}> 
             <div class="text-center p-4">
             <h1>Doctor Registeration</h1>
             </div>
-            <div class="row ">
+            <div class="row "  style={{ borderRadius:'10px 10px 10px 10px'}}>
                 <div class="col-lg-8 mx-auto">
-                    <div class="card mt-2 mx-auto p-4 bg-light">
+                    <div class="card mt-2 mx-auto p-4 bg-light"  style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div class="card-body bg-light">
                             <div class="container">
                                 <form id="contact-form">
@@ -64,8 +65,9 @@ function DoctorRegister() {
             </div>
             <div class="row" style={{height:"10px"}}>
 
-                                </div>
+            </div>
         </div>
+        <Footer/>
     </div>
     )
 }

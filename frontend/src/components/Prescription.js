@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import Medication from './Medication';
+import Footer from './Footer'
 
 const Prescription = () => {
     return (
@@ -9,18 +10,18 @@ const Prescription = () => {
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
-            backgroundImage: "url('https://images.squarespace-cdn.com/content/v1/5be5e281a2772c7d09a59f72/1543717647231-K09VTNN3BGXZMEXNYIH7/blu.jpg')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1527239441953-caffd968d952?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')",
             backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
       }}> 
             <div className=" text-center p-4">
             <h1>Generate Prescription</h1>
             </div>
             
-            <div className="row ">
+            <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
                 <div className="col-lg-8 mx-auto">
-                    <div className="card mt-2 mx-auto p-4 bg-light">
+                    <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
                             <div className="container">
                                 <form id="contact-form" type="submit" method="post" action="">
@@ -83,15 +84,18 @@ const Prescription = () => {
                                     </div>
                                 </div>
                                 <Medication />
-                                <button className="btn-primary mt-4" htmlFor="contact-form" style={{width:"100%", border:"3px solid blue", borderRadius:"5px"}}>Submit Prescription</button>
+                                <button className="btn-primary mt-4" htmlFor="contact-form" style={{width:"100%",height:"40px", border:"3px solid black", borderRadius:"10px"}}>Submit Prescription</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br/>
+            <br/>
 
 
             </div>
+            <Footer/>
         </div>
     )
 }
