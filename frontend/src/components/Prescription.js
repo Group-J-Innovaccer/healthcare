@@ -1,18 +1,15 @@
 import React from 'react'
 import Header from './Header'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
 import Medication from './Medication';
 
-function Prescription() {
+const Prescription = () => {
     return (
         <div>
             <Header />
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
-            backgroundImage: "url(" + "https://images.squarespace-cdn.com/content/v1/5be5e281a2772c7d09a59f72/1543717647231-K09VTNN3BGXZMEXNYIH7/blu.jpg" + ")",
+            backgroundImage: "url('https://images.squarespace-cdn.com/content/v1/5be5e281a2772c7d09a59f72/1543717647231-K09VTNN3BGXZMEXNYIH7/blu.jpg')",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -26,7 +23,7 @@ function Prescription() {
                     <div className="card mt-2 mx-auto p-4 bg-light">
                         <div className="card-body bg-light">
                             <div className="container">
-                                <form id="contact-form" type="submit" role="form" method="post" action="">
+                                <form id="contact-form" type="submit" method="post" action="">
                                     <div className="controls">
                                         <div className="row">
                                             <div className="col-md-6">
@@ -86,7 +83,7 @@ function Prescription() {
                                     </div>
                                 </div>
                                 <Medication />
-                                <button className="btn-primary mt-4" for="contact-form" style={{width:"100%", border:"3px solid blue", borderRadius:"5px"}}>Submit Prescription</button>
+                                <button className="btn-primary mt-4" htmlFor="contact-form" style={{width:"100%", border:"3px solid blue", borderRadius:"5px"}}>Submit Prescription</button>
                             </div>
                         </div>
                     </div>

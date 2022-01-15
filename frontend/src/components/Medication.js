@@ -7,6 +7,7 @@ const  Medication = () => {
 	const [medication, setMedication] = useState(
 		{
 		'medication_name': '',
+
 		'strength': '',
 		'preparation': null,
 		'route':null,
@@ -22,7 +23,6 @@ const  Medication = () => {
 			...medication,
 			[event.target.name]: event.target.value
 		}))
-        
 	}
 
 	const handleSubmit = (event) => {
@@ -30,6 +30,7 @@ const  Medication = () => {
 		setMedications(medications => [...medications, medication])
 		setMedication({
 			'medication_name': '',
+
 			'strength': '',
 			'preparation': null,
 			'route':null,
@@ -50,6 +51,7 @@ const  Medication = () => {
 
 	return (
 		<div>
+
 			
 			<form onSubmit={handleSubmit}>
 				<div className="row">
@@ -185,5 +187,6 @@ const  Medication = () => {
 		</div>
 	)
 }
+
 
 export default Medication

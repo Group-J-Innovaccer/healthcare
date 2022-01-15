@@ -1,36 +1,56 @@
-import Home from './Home';
-import Signup from './Signup';
-import Login from './Login';
-import Prescription from './Prescription';
-import Doctor_login from './Doctor_login';
-import Doctor_register from './Doctor_register';
-import Doctor_dashboard from './Doctor_dashboard';
-import Medication from './Medication';
-import React from 'react';
-import ViewPrescription from './ViewPrescription';
-
+import React, { useState } from 'react';
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
+import { checkAuthenticated } from '../api/auth';
+import Home from './Home';
+import AddPatient from './AddPatient';
+import PatientLogin from './PatientLogin';
+import PatientDashboard from './PatientDashboard';
+import Prescription from './Prescription';
+import DoctorLogin from './DoctorLogin';
+import About from './About';
+import ViewPrescription from './ViewPrescription';
+import DoctorDashboard from './DoctorDashboard';
+import "./App.css";
+
 
 const App = () => {
+
+  const [isAuthenticated, setIsAuthenticated] = useState('')
+
+  const authenticate = async () => {
+
+    const res = await checkAuthenticated();
+    console.log(res)
+    if (res) {
+    
+      setIsAuthenticated(localStorage.getItem('isAuthenticated'))
+    } else {
+      localStorage.clear()
+      setIsAuthenticated(false)
+    }
+  }
+
+  authenticate()
+
   return (
-    <div>
-       <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="login" element={<Login />} />
-      <Route path="signup" element={<Signup />} />
-      <Route path="doctor_login" element={<Doctor_login />} />
-      <Route path="doctor_register" element={<Doctor_register />} />
-      <Route path="doctor_dashboard" element={<Doctor_dashboard />} />
-      <Route path="medication" element={<Medication />} />
-      <Route path="prescription" element={<Prescription />} />
-      <Route path="viewprescription" element={<ViewPrescription />} />
-    </Routes>
-  </BrowserRouter>
+    <div>   
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="addpatient" element={<AddPatient />} />
+          <Route path="patientlogin" element={<PatientLogin />} />
+          <Route path="patientdashboard" element={<PatientDashboard/>} />
+          <Route path="viewprescription" element={<ViewPrescription />} />
+          <Route path="doctor_login" element={<DoctorLogin isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="doctor_dashboard" element={<DoctorDashboard isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="prescription" element={<Prescription />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
