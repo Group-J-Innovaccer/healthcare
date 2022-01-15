@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
+//import img from './images/pr'
 
 const ViewPrescription = () => {
     
@@ -45,7 +46,7 @@ const ViewPrescription = () => {
                     </div>
                     <div className="card" style={{height:"90vh", width: "30vw"}}>
                         <center>
-                            <img src="prescription.png" alt="Card-cap"  style={{height:"100%", width:"100%"}}/>
+                            <img src="" alt="Card-cap"  style={{height:"100%", width:"100%"}}/>
                         </center>
                 
                     </div>
