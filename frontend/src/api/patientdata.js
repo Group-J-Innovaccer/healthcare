@@ -15,9 +15,7 @@ export const addPatient = async (formData) =>{
 
     try{
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/patient/addpatient/`, body, config);
-        if (res.status===200){
-            return res
-        }
+        return res
     }catch(err){
         return err
     }

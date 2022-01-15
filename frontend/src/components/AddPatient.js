@@ -1,4 +1,5 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
+import {Navigate} from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
@@ -14,15 +15,35 @@ const AddPatient = () => {
         lastname:'',
         dob:'',
         email:'',
-        gender:'null',
-        height:'null',
-        weight:'null',
+        gender:'',
+        height:'',
+        weight:'',
         phone:'',
         address:'',
         current_doctor:'',
         secretkey:''
 
     });
+
+
+    const [status, setStatus] = useState(400);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await doctordetail();
+                setFormData(formData =>({
+                    ...formData,
+                    current_doctor: res.data[0].id
+                }));
+                
+            } catch (err) {
+                console.log(err)
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const handleChange = (event) => {
         setFormData(formData =>({
@@ -31,16 +52,24 @@ const AddPatient = () => {
         }));
     };
 
-    const handleSubmit = async(event) => {
+
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const doctor = await doctordetail();
-        setFormData(formData =>({
-            ...formData,
-            current_doctor: doctor.data[0].id
-        }));
         const res = await addPatient(formData);
+        console.log(res.status)
+        console.log(formData)
+        if (res.status === 201) {
+            setStatus(201)
+        }
+        else {
+            console.log('bye')
+        }
     };
 
+    if (status === 201) {
+        return <Navigate to='/addprescription' />
+    }
     
     return (
     <div>
@@ -102,8 +131,9 @@ const AddPatient = () => {
                                                 <div className="form-group ">
                                                      <label htmlFor="form_gender">Gender *</label> 
                                                     <select id="form_gender" name="gender" className="form-control dropdown-toggle" value= {formData.gender} onChange={handleChange} placeholder='Choose Gender'>
-                                                        <option value="Male">Male</option>
-                                                        <option value="Female">Female</option>
+                                                        <option >Choose Gender</option>
+                                                        <option value="M">Male</option>
+                                                        <option value="F">Female</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -133,8 +163,8 @@ const AddPatient = () => {
 
                                         <div className="col-md-6">
                                                 <div className="form-group ">
-                                                <label htmlFor="form_weight">Secret Key*</label> 
-                                                    <input id="form_p_weight" type="password" name="secretkey" className="form-control" placeholder="enter your secret key*" required="required" value={formData.secretkey} onChange={handleChange} data-error="Patient weight is required." /> 
+                                                <label htmlFor="form_p_secretkey">Secret Key*</label> 
+                                                    <input id="form_p_secretkey" type="password" name="secretkey" className="form-control" placeholder="enter your secret key*" required="required" value={formData.secretkey} onChange={handleChange} data-error="Patient weight is required." /> 
                                                 </div>
                                             </div>
 
