@@ -17,37 +17,35 @@ from rest_framework.decorators import api_view
 
 class PrescriptionList(APIView):
     permission_classes = (permissions.AllowAny, )
-    def get(self, request, format=None):
-        prescription = Prescription.objects.filter(patient_id=1)
+    def post(self, request, format=None):
+        data=self.request.data
+        patientId=data['id']
+        prescription = Prescription.objects.filter(patient_id=patientId)
         serializer = PrescriptionSerializer(prescription, many=True)
         return Response(serializer.data)
 
 class MedicationList(APIView):
     permission_classes = (permissions.AllowAny, )
-    def get(self, request, format=None):
-        medication = Medication.objects.filter(prescription_id=1)
+    def post(self, request, format=None):
+        data=self.request.data
+        prescription_id=data['prescription_id']
+        medication = Medication.objects.filter(prescription_id=prescription_id)
         serializer = MedicationSerializer(medication, many=True)
         return Response(serializer.data)
 
-# class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
-#     serializer_class = PrescriptionSerializer
-#     queryset = Prescription.objects.all()
+class PrescriptionCreate(generics.GenericAPIView, mixins.CreateModelMixin):
+    serializer_class = PrescriptionSerializer
+    queryset = Prescription.objects.all()
 
-#     def get(self, request):
-#         return self.list(request)
+    def post(self, request):
+        return self.create(request)
 
-#     def post(self, request):
-#         return self.create(request)
+class MedicationCreate(generics.GenericAPIView, mixins.CreateModelMixin):
+    serializer_class = MedicationSerializer
+    queryset = Medication.objects.all()
 
-# class MedicationList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
-#     serializer_class = MedicationSerializer
-#     queryset = Medication.objects.all()
-
-#     def get(self, request):
-#         return self.list(request)
-
-#     def post(self, request):
-#         return self.create(request)
+    def post(self, request):
+        return self.create(request)
 
 
 
@@ -59,21 +57,7 @@ class PatientPrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mi
     def get(self, request):
         return self.list(request)
 
-# Prescription (Rachna)
-# Add new Prescription PostAPI (doctor)
 
-
-
-# View Prescription GetAPI (patient)
-
-# View Prescription GetAPI (doctor)
-
-# View Medication GetAPI (patient)
-
-# View Medication GetAPI (doctor)
-
-
-# Add new medication PostAPI (doctor)
 
 
 

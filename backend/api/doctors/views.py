@@ -38,9 +38,9 @@ class CheckAuthenticatedView(APIView):
             isAuthenticated = user.is_authenticated
 
             if isAuthenticated:
-                return Response({ 'isAuthenticated': '0' })
+                return Response({ 'isAuthenticated': 200 })
             else:
-                return Response({ 'isAuthenticated': '1' })
+                return Response({ 'error': '1' })
         except:
             return Response({ 'error': 'Something went wrong', 'code' : 404 })
 
