@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import { checkAuthenticated } from '../api/auth';
 import { doctordetail } from '../api/doc';
 import Header from './Header';
 
@@ -18,21 +18,21 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 console.log(err)
             }
         };
-
+        
         fetchData();
     }, []);
+
+    // setIsAuthenticated(localStorage.getItem('isAuthenticated'))
+    // if (!isAuthenticated) {
+    //     console.log(isAuthenticated)
+    //         return <Navigate to='/doctor_login' />
+    // }    
     
-    if (!isAuthenticated) {
-        console.log(isAuthenticated)
-        return <Navigate to='/doctor_login' />
-    }
-
-    doctordetail();
-
+   
 
     return (
         <div>
-            <Header setIsAuthenticated={setIsAuthenticated}/>
+            <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
             <div class="container-fluid" style={{
             width: "100%",
             height: "100vh",

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
 import { login } from '../api/auth_patient';
 import { Navigate } from 'react-router-dom';
 import CSRFToken from './CSRFToken';
+import { patientdata } from '../api/pat';
 
 const PatientLogin = ({isAuthenticated, setIsAuthenticated}) =>{
 
@@ -26,17 +28,16 @@ const PatientLogin = ({isAuthenticated, setIsAuthenticated}) =>{
         event.preventDefault();
         const form = {'patient_id':parseInt(formData.patient_id),'secret_key':formData.secret_key}
         const res = await login(form);
-        console.log(res)
         if(!res.data.error){
-            console.log(res.data)
-            localStorage.setItem("PatientData",res.data[0])
-            setPatientId(localStorage.getItem("PatientData"))
+            console.log(res.data[0])
+            localStorage.setItem("patientData",res.data[0].id)
+            setPatientId(localStorage.getItem("patientData"))
         }
         
     }
 
     if(patientId){
-        return <Navigate to='/patientdashboard'/>
+        return <Navigate to='/viewprescription'/>
     }
 
 

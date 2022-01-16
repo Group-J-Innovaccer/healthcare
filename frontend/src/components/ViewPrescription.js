@@ -4,6 +4,7 @@ import "./App.css";
 //import img from './images/pr'
 
 import { prescriptiondetail,medicationdetail } from '../api/pres';
+import Cookies from 'js-cookie';
 
 
 
@@ -15,8 +16,8 @@ const ViewPrescription = () =>{
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const prescription = await prescriptiondetail()
-                const medication = await medicationdetail()
+                const prescription = await prescriptiondetail(localStorage.getItem('patientData'))
+                const medication = await medicationdetail(prescription.data[0].id)
                 console.log(prescription)
                 console.log(medication)
                 setPrescriptionData(prescription.data[0])
@@ -31,7 +32,7 @@ const ViewPrescription = () =>{
 
         fetchData();
         
-    });
+    }, []);
 
   
 
@@ -66,7 +67,7 @@ const ViewPrescription = () =>{
                                                 Doctor ID : <b>{(prescriptionData) ? prescriptionData.doctor_id : ""}</b>
                                             </div>
                                             <div className="col-md-6">
-                                                Doctor Name : <b>d_name</b>
+                                                Doctor Name : <b>{(prescriptionData) ? prescriptionData.doctor_name : ""}</b>
                                             </div>
                                         </div><br />
                                         <div className="row">
@@ -74,7 +75,7 @@ const ViewPrescription = () =>{
                                             Patient's ID : <b>{(prescriptionData) ? prescriptionData.patient_id : ""}</b>
                                             </div>
                                             <div className="col-md-6">
-                                            Patient's Name : <b>p_name</b>
+                                            Patient's Name : <b>{(prescriptionData) ? prescriptionData.patient_name : ""}</b>
                                             </div>
                                         </div><br />
                                         <div className="row">
@@ -104,9 +105,7 @@ const ViewPrescription = () =>{
                                         
                                         <div className="row">
                                         <center>
-                                            {/* <div className="col-md-6">
-                                                <div className="form-group"> <button variant="outline-primary" style={{width:"100%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Add Drug</button></div>
-                                            </div> */}
+                                            
                                         </center>
                                         </div>
                                         
