@@ -17,7 +17,7 @@ const ViewPrescription = () =>{
         const fetchData = async () => {
             try {
                 const prescription = await prescriptiondetail(localStorage.getItem('patientData'))
-                const medication = await medicationdetail()
+                const medication = await medicationdetail(prescription.data[0].id)
                 console.log(prescription)
                 console.log(medication)
                 setPrescriptionData(prescription.data[0])

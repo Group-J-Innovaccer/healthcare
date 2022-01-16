@@ -27,10 +27,21 @@ export const prescriptiondetail = async (data) => {
 
 
 
-export const medicationdetail = async () => {
+export const medicationdetail = async (data) => {
+
+    const config = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': Cookies.get('csrftoken')
+        }
+    };
+
+    const body = JSON.stringify({prescription_id: data})
+
 
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/eprescription/medicationdata/`);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/eprescription/medicationdata/`, body, config);
         
         return res
         
