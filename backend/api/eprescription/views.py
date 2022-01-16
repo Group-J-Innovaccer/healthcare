@@ -1,13 +1,13 @@
 from curses import keyname
 from rest_framework import viewsets
-from .serializers import PrescriptionSerializer,MedicationSerializer
-from .models import Prescription,Medication
+from .serializers import PrescriptionSerializer,MedicationSerializer,PatientSerializer
+from .models import Prescription,Medication,Patient
 from rest_framework import generics
 from rest_framework import mixins 
 from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
-from rest_framework import status,permissions
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -22,6 +22,19 @@ class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.Cr
 
     def post(self, request):
         return self.create(request)
+
+#view prescription with  patient primary key GET request
+
+@api_view(['GET'])
+def viewprescriptionpatientlId(request, pk):
+    try: 
+        patient = Patient.objects.get(pk=pk) 
+    except Patient.DoesNotExist: 
+        return JsonResponse({'message': 'The Prescription does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    if request.method == 'GET': 
+        patient_serializer = PatientSerializer(patient) 
+        return JsonResponse(patient_serializer.data) 
 
 class MedicationList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     serializer_class = MedicationSerializer
@@ -56,19 +69,26 @@ class doctoraddnewprescription(mixins.CreateModelMixin,generics.GenericAPIView):
 
     def post(self, request):
         return self.create(request)
-class patientviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
-    serializer_class=PrescriptionSerializer
-    queryset=Prescription.objects.all()
+@api_view(['GET'])
+def prescription_detail_by_id(request, pk):
+    try: 
+        prescrition = Prescription.objects.get(pk=pk) 
+    except Prescription.DoesNotExist: 
+        return JsonResponse({'message': 'The medication does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    if request.method == 'GET': 
+        medication_serializer = MedicationSerializer(medication) 
+        return JsonResponse(medication_serializer.data)  
 
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs) 
+
+
+
 class DoctorviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
     serializer_class=PrescriptionSerializer
     queryset=Prescription.objects.all()
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs) 
-
 
 
 # Prescription (Rachna)
@@ -156,52 +176,8 @@ def medication_detail_by_id(request, pk):
 
 
 
-class CreateMedicationView(generics.GenericAPIView, mixins.CreateModelMixin):
-    serializer_class = MedicationSerializer
-    queryset = Medication.objects.all()
-
-    def post(self, request):
-        return self.create(request)
 
 
 
 
-# class LoginView(APIView):
-#     permission_classes = (permissions.AllowAny, )
 
-#     def post(self, request, format=None):
-#         data = self.request.data
-
-#         email = data['email']
-#         password = data['password']
-
-#         try:
-#             user = auth.authenticate(email=email, password=password)
-
-#             if user is not None:
-#                 auth.login(request, user)
-#                 return Response({ 'code': 200 })
-#             else:
-#                 return Response({ 'error': 'Error Authenticating', 'code': 401 })
-#         except:
-#             return Response({ 'error': 'Something went wrong when logging in' })
-
-
-
-
-class DoctorList(APIView):
-
-    permission_classes = (permissions.AllowAny, )
-    def get(self, request, format=None):
-        doctor = Doctor.objects.filter(id=self.request.user.id)
-        serializer = DoctorSerializer(doctor, many=True)
-        patientId=data['patient_id']
-        try:
-            patientData=Patient.ocjects.filter(id=1)
-            if patientData is None:
-                serializer=PatientSerializer(patientData,many=True)
-                return Response(serializer.data)
-            else:
-                return Response({ 'error': 'Error Authenticating', 'code': 401 })
-        except:
-            return Response({ 'error': 'Something went wrong ' })

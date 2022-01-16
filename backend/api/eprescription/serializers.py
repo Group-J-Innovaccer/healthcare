@@ -1,4 +1,4 @@
-from .models import Prescription,Medication
+from .models import Prescription,Medication,Patient
 from rest_framework import serializers
 
 class PrescriptionSerializer(serializers.ModelSerializer):
@@ -14,3 +14,10 @@ class MedicationSerializer(serializers.ModelSerializer):
 
         model = Medication
         fields = '__all__'
+
+class PatientSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+
+        model = Patient
+        fields="__all__"
