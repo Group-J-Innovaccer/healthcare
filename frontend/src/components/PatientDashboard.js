@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
+import patient from '../images/patient.png';
 
 const PatientDashboard = () =>{
     
@@ -47,7 +48,7 @@ const PatientDashboard = () =>{
                                     </form>
                                 </div>
                                 <div className="col">
-                                    <img src="patient.png" alt="patient"></img>
+                                    <img src={patient} alt="patient"></img>
                                 </div>
                                 </div>
 
