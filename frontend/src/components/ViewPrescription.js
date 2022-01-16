@@ -19,12 +19,10 @@ const ViewPrescription = () =>{
                 const prescription = await prescriptiondetail(localStorage.getItem('patientData'))
                 if(prescription.status===200){
                     const medication = await medicationdetail(prescription.data[prescription.data.length-1].id)
-                    console.log(prescription)
-                    console.log(medication)
+                  
                     setPrescriptionData(prescription.data[prescription.data.length-1])
                     setMedicationData(medication.data)
-                    // console.log(prescriptionData)
-                    // console.log(medicationData)
+                  
                 }
                 
             } catch (err) {
@@ -62,7 +60,6 @@ const ViewPrescription = () =>{
                     <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
                             <div className="container">
-                                {/* <form id="contact-form" type="submit" role="form" method="post" action=""> */}
                                     <div className="controls">
                                         <div className="row">
                                             <div className="col-md-12 text-center">
@@ -118,7 +115,6 @@ const ViewPrescription = () =>{
                                         
                                     </div>
 
-                                {/* </form> */}
 
                                 {(medicationData) ? medicationData.map(medication => {
                 
