@@ -39,7 +39,7 @@ const Home = ({ isAuthenticated, setIsAuthenticated }) => {
             <div className="ourDoctors" >
                 <div>
                     <div className="ourDoctorsDetails" style={{ fontSize:'30px'}}>
-                        <a href="/doctorlogin"><Card  style={{borderRadius:'20px'}}>
+                        <a href="/doctor_login"><Card  style={{borderRadius:'20px'}}>
                             <img style={{ height: "350px", borderRadius:'10px 10px 0 0'}} src={drImage} alt="" />
                             <div className="doctorsInfo" style={{ borderRadius:'0 0 10px 10px'}}>
                                 <h5>Doctor</h5>

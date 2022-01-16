@@ -6,6 +6,7 @@ import { doctordetail } from '../api/doc';
 import { patientdata } from '../api/pat';
 import { createMedication, createPrescription } from '../api/pres';
 import CSRFToken from './CSRFToken';
+import Footer from './Footer'
 
 
 
@@ -130,7 +131,7 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
-            backgroundImage: "url('https://images.squarespace-cdn.com/content/v1/5be5e281a2772c7d09a59f72/1543717647231-K09VTNN3BGXZMEXNYIH7/blu.jpg')",
+            backgroundImage: "url('https://cdn.pixabay.com/photo/2018/06/06/09/50/stethoscope-3457519_960_720.jpg')",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -139,14 +140,14 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
             <h1>Generate Prescription</h1>
             </div>
             
-            <div className="row ">
+            <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
                 <div className="col-lg-8 mx-auto">
-                    <div className="card mt-2 mx-auto p-4 bg-light">
+                    <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
                             <div className="container">
                                 <form id="contact-form" onSubmit={handleSubmit}>
                                     <CSRFToken />
-                                    <button className="btn-primary mt-4" htmlFor="contact-form" style={{width:"100%", border:"3px solid blue", borderRadius:"5px"}} >Submit Prescription</button>
+                                    <button className="btn-primary mt-4" htmlFor="contact-form" style={{width:"100%",height:"40px", border:"3px solid black", borderRadius:"10px"}} >Submit Prescription</button>
 
                                     <div className="controls">
                                         <div className="row">
@@ -156,8 +157,7 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                                             <div className="col-md-6">
                                                 <div className="form-group"> <label htmlFor="form_d_name">Doctor Name : <b>{(doctorData) ? doctorData.firstname + ' ' + doctorData.lastname : ""}</b></label></div>
                                             </div>
-                                        </div><br />
-                                        <div className="row">
+                                        </div>
                                             <div className="col-md-6">
                                             <label htmlFor="form_p_name">Patient Name :</label>
                                                 <select name="patient_id" id="patientname" value={addPrescription.patient_id} onChange={handleChange}>
@@ -166,7 +166,6 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                                                 </select>
        
                                             </div>
-                                        </div><br />
                                        
                                         
                                         <div className="row">
@@ -214,8 +213,10 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                 </div>
             </div>
 
-
+            <div className="row" style={{height:"25px"}}>
             </div>
+            </div>
+            <Footer/>
         </div>
     )
 }

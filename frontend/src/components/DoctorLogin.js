@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom';
 import Header from './Header'
+import Footer from './Footer';
 import { checkAuthenticated, login } from '../api/auth';
 import CSRFToken from './CSRFToken';
 
@@ -44,21 +45,21 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
             <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
             <div className="container-fluid" style={{
             width: "100%",
-            height: "100vh",
-            backgroundImage: "url('https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg')",
+            height: "100%",
+            backgroundImage: "url('https://images.unsplash.com/photo-1611689102033-7f9e0a8eb851?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
             backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
       }}> 
 
             <div className="text-center p-4">
             <h1>Doctor Login</h1>
             </div>
-            <div className="row ">
-                <div className="col-lg-8 mx-auto">
-                    <div className="card mt-2 mx-auto p-4 bg-light">
+            <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
+                <div className="col-lg-6 mx-auto">
+                    <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
-                        <p style={{ 'color': 'red', 'textAlign': 'center'}}>{(error) ? "Invalid Credentionals" : ""}</p>
+                        <p style={{ 'color': 'red', 'textAlign': 'center'}}>{(error) ? "Invalid Credentials!!!" : ""}</p>
                             <div className="container">
                                 <form id="contact-form" onSubmit={handleSubmit}>
                                     <CSRFToken />
@@ -68,12 +69,12 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
                                                 <div className="form-group"> <label htmlFor="form_d_email">Email ID *</label> <input id="form_d_email" type="email" name="email" className="form-control" placeholder="Email ID *" required="required" data-error="Email ID is required." value={formData.email} onChange={handleChange}/> </div>
                                             </div>
 
-                                        </div><br />
+                                        </div>
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="form-group"> <label htmlFor="form_d_pass">Password *</label> <input id="form_d_pass" type="password" name="password" className="form-control" placeholder="Password *" required="required" data-error="Password is required." value={formData.password} onChange={handleChange}/> </div>
                                             </div>
-                                        </div><br />
+                                        </div>
                                         <div className="row">
                                         <center>
                                             <div className="col-md-12">
@@ -92,10 +93,11 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
             </div>
 
 
-            <div className="row" style={{height:"10px"}}>
+            <div className="row" style={{height:"25px"}}>
 
         </div>
         </div>
+        <Footer/>
     </div>
     )
 }
