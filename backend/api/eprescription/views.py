@@ -23,7 +23,7 @@ class PrescriptionList(generics.GenericAPIView, mixins.ListModelMixin, mixins.Cr
     def post(self, request):
         return self.create(request)
 
-#view prescription with  patient primary key GET request
+# patient view prescription with  patient primary key GET request
 
 @api_view(['GET'])
 def viewprescriptionpatientlId(request, pk):
@@ -35,6 +35,26 @@ def viewprescriptionpatientlId(request, pk):
     if request.method == 'GET': 
         patient_serializer = PatientSerializer(patient) 
         return JsonResponse(patient_serializer.data) 
+
+
+
+
+#doctor view prescription by patient primary key(GET)
+
+@api_view(['POST'])
+def prescription_detail_by_id(request, pk):
+    try: 
+        prescrition = Patient.objects.get(pk=pk) 
+    except Patient.DoesNotExist: 
+        return JsonResponse({'message': 'The prescription does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    if request.method == 'GET': 
+        prescription_serializer = PatientSerializer(medication) 
+        return JsonResponse(prescription_serializer.data) 
+
+
+
+
 
 class MedicationList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
     serializer_class = MedicationSerializer
@@ -69,6 +89,9 @@ class doctoraddnewprescription(mixins.CreateModelMixin,generics.GenericAPIView):
 
     def post(self, request):
         return self.create(request)
+
+
+
 @api_view(['GET'])
 def prescription_detail_by_id(request, pk):
     try: 
@@ -82,13 +105,6 @@ def prescription_detail_by_id(request, pk):
 
 
 
-
-class DoctorviewPrescription(generics.GenericAPIView, mixins.ListModelMixin):
-    serializer_class=PrescriptionSerializer
-    queryset=Prescription.objects.all()
-
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs) 
 
 
 # Prescription (Rachna)
