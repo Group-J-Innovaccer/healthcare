@@ -10,8 +10,8 @@ const PatientDashboard = () =>{
             <Header />
             <div className="container-fluid" style={{
                 width: "100%",
-                height: "110vh",
-                backgroundImage: "url('https://muslimaid.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg')",
+                height: "100%",
+                backgroundImage: "url('https://images.unsplash.com/photo-1615388248492-19ea9a40f115?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')",
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat'
@@ -21,13 +21,13 @@ const PatientDashboard = () =>{
                 <h1>Patient Details</h1>
             </div>
             
-            <div className="row ">
+            <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
                 <div className="col-lg-8 mx-auto">
-                    <div className="card mt-2 mx-auto p-4 bg-light">
+                    <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
                             <div className="container">
                                 <div className="row">
-                                <div className="col">
+                                <div className="col p-2 mt-2">
                                    
                                     <ul>
                                         <li>Patient ID: </li>
@@ -41,13 +41,9 @@ const PatientDashboard = () =>{
                                         <li>Patient Weight: </li>
                                         
                                     </ul>
-                                    <form id="contact-form" action='patientlogin'>
-                                        <div className="form-group"> <button variant="outline-primary"  style={{width:"50%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}}>Logout</button></div>
-
-                                    </form>
                                 </div>
-                                <div className="col">
-                                    <img src="patient.png" alt="patient"></img>
+                                <div className="col p-2 mt-2">
+                                    <img src='https://www.freeiconspng.com/thumbs/patient-icon/patient-icon-png-3.png' style={{ padding:'20px 0 20px 70px' ,width:'90%'}}></img>
                                 </div>
                                 </div>
 

@@ -1,7 +1,7 @@
 import React ,{useState,useEffect} from 'react';
 import Header from './Header';
 import "./App.css";
-//import img from './images/pr'
+import Footer from './Footer';
 
 import { prescriptiondetail,medicationdetail } from '../api/pres';
 import Cookies from 'js-cookie';
@@ -45,23 +45,27 @@ const ViewPrescription = () =>{
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
-            backgroundImage: "url('https://healthcareacademycalifornia.com/wp-content/uploads/2018/11/Free-Downlaod-Light-Blue-Wallpaper-HD.jpeg')",
+            backgroundImage: "url('https://img.freepik.com/free-photo/stethoscope-with-business-card_23-2147652316.jpg?size=626&ext=jpg')",
             backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
       }}> 
             <div className=" text-center p-4">
-            <h1>Prescriptions</h1>
+            <h1>Your Prescription</h1>
             </div>
             
-            <div className="row ">
-                <div className="col-lg-8 mx-auto">
-                    <div className="card mt-2 mx-auto p-4 bg-light">
+            <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
+                <div className="col-lg-7 mx-auto">
+                    <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
                             <div className="container">
                                 {/* <form id="contact-form" type="submit" role="form" method="post" action=""> */}
                                     <div className="controls">
-                                        
+                                        <div className="row">
+                                            <div className="col-md-12 text-center">
+                                            <h4><b>Details</b></h4>
+                                            </div>
+                                        </div><br />
                                         <div className="row">
                                             <div className="col-md-6">
                                                 Doctor ID : <b>{(prescriptionData) ? prescriptionData.doctor_id : ""}</b>
@@ -116,49 +120,50 @@ const ViewPrescription = () =>{
                                 {(medicationData) ? medicationData.map(medication => {
                 
                                     return (
-                                        <div  className=" text-center p-4">
+                                        
+                                        <div className="">
                                             <div className="row">
-                                    <div className="col-md-12 text-center">
-                                        <h5><b>Drugs</b></h5>
-                                    </div>
-                                </div><br />
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        Medicine : <b>{medication.medication_item}</b>
-                                    </div>
-                                    <div className="col-md-6">
-                                        Strength : <b>{medication.strength}</b>
-                                    </div>
-                                </div><br />
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        Preparation : <b>{medication.preparation}</b>
-                                    </div>
-                                    <div className="col-md-6">
-                                        Route : <b>{medication.route}</b>
-                                    </div>
-                                </div><br />
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        Dosage : <b>{medication.dose}</b>
-                                    </div>
-                                    <div className="col-md-6">
-                                        Direction : <b>{medication.direction}</b>
-                                    </div>
-                                </div><br />
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        Frequency : <b>{medication.frequency}</b>
-                                    </div>
-                                    <div className="col-md-6">
-                                        Duration : <b>{medication.duration}</b>
-                                    </div>
-                                </div><br />
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        Total Quantity : <b>{medication.total_quantity}</b>
-                                    </div>
-                                </div><br />
+                                                <div className="col-md-12 text-center">
+                                                <h4><b>Drugs</b></h4>
+                                                </div>
+                                            </div><br />
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    Medicine : <b>{medication.medication_item}</b>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    Strength : <b>{medication.strength}</b>
+                                                </div>
+                                            </div><br />
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    Preparation : <b>{medication.preparation}</b>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    Route : <b>{medication.route}</b>
+                                                </div>
+                                            </div><br />
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    Dosage : <b>{medication.dose}</b>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    Direction : <b>{medication.direction}</b>
+                                                </div>
+                                            </div><br />
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    Frequency : <b>{medication.frequency}</b>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    Duration : <b>{medication.duration}</b>
+                                                </div>
+                                            </div><br />
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    Total Quantity : <b>{medication.total_quantity}</b>
+                                                </div>
+                                            </div><br />
                                         </div>
                                     )
                                 }) : ""}
@@ -168,11 +173,15 @@ const ViewPrescription = () =>{
                     </div>
 
                 </div>
+
             </div>
             
+            <div className="row" style={{height:"25px"}}>
+             </div>       
 
 
             </div>
+            <Footer/>
         </div>
 
     )

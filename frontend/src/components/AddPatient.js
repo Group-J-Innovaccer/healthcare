@@ -86,8 +86,8 @@ const AddPatient = ({ isAuthenticated }) => {
 
         <div className="container-fluid" style={{
             width: "100%",
-            height: "180vh",
-            backgroundImage: "url('https://cutewallpaper.org/21/healthcare-wallpapers/Health-Care-Wallpapers-Top-Free-Health-Care-Backgrounds-.jpg')",
+            height: "100%",
+            backgroundImage: "url('https://images.unsplash.com/photo-1611690828081-878ab4e8416d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=938&q=80')",
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
@@ -95,9 +95,9 @@ const AddPatient = ({ isAuthenticated }) => {
             <div className="text-center p-5">
                 <h1>Add Patient</h1>
             </div>
-            <div className="row ">
+            <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
                 <div className="col-lg-8 mx-auto">
-                    <div className="card mt-2 mx-auto p-4 bg-light">
+                    <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
                             <div className="container">
                                 <form id="contact-form" onSubmit={handleSubmit}>
@@ -170,13 +170,14 @@ const AddPatient = ({ isAuthenticated }) => {
                                             </div>
                                         </div>
 
-                                        <div className="col-md-6">
+                                        <div className="row">
+                                            <div className="col-md-6">
                                                 <div className="form-group ">
                                                 <label htmlFor="form_p_secretkey">Secret Key*</label> 
                                                     <input id="form_p_secretkey" type="password" name="secretkey" className="form-control" placeholder="enter your secret key*" required="required" value={formData.secretkey} onChange={handleChange} data-error="Patient weight is required." /> 
                                                 </div>
                                             </div>
-
+                                            </div>
                                         <div className="row">
                                             <div className="col-md-12">
                                                 <div className="form-group">
@@ -205,7 +206,7 @@ const AddPatient = ({ isAuthenticated }) => {
                 </div>
             </div>
             
-            <div className="row" style={{ height: "10px" }}>
+            <div className="row" style={{ height: "25px" }}>
             </div>
         </div>
         <Footer />
