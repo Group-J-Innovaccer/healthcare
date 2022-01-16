@@ -61,11 +61,11 @@ export const checkAuthenticated = async () => {
 
     try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/doctors/authenticated`, config);
-
-        if (res.data.isauthenticated === 1) {
-            return false
-        } else {
+        console.log(res.data)
+        if (res.data.isauthenticated) {
             return true
+        } else {
+            return false
         }
         
     } catch(err) {

@@ -94,11 +94,12 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
 			...addPrescription,
             doctor_id: doctorData.id,
             doctor_name: doctorData.firstname + ' ' + doctorData.lastname ,
-            patient_name: patient_name[0]
+            patient_name: patient_name[parseInt(patientData.id) - 1]
 		}))
 
         let form = addPrescription
-        form.patient_name = patient_name[0]
+        console.log(patient_name)
+        form.patient_name = patient_name[parseInt(addPrescription.patient_id) - 1]
         form.doctor_id = doctorData.id
         form.doctor_name = doctorData.firstname + ' ' + doctorData.lastname 
         console.log(form)

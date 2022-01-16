@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom';
 import Header from './Header'
-import { login } from '../api/auth';
+import { checkAuthenticated, login } from '../api/auth';
 import CSRFToken from './CSRFToken';
 
 const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
@@ -11,11 +11,14 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
         password: ''
     });
 
+    const [error, setError] = useState(false)
+
     const handleChange = (event) => {
         setFormData(formData => ({
             ...formData, 
             [event.target.name]: event.target.value
         }));
+        setError(false);
 
     }
 
@@ -23,19 +26,22 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
         event.preventDefault();
         const res = await login(formData);
         if (res.data.code === 200) {
-            setIsAuthenticated(true)
             localStorage.setItem('isAuthenticated', true)
+            setIsAuthenticated(true)
+        } else {
+            setError(true)
         }
     }
-
-    if (isAuthenticated) {
-        return <Navigate to='/doctor_dashboard' />
-    }
+    
+    // if (isAuthenticated) {
+    //     console.log(isAuthenticated)
+    //     return <Navigate to='/doctor_dashboard' />
+    // } 
 
 
     return (
         <div>
-            <Header />
+            <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
             <div className="container-fluid" style={{
             width: "100%",
             height: "100vh",
@@ -52,6 +58,7 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
                 <div className="col-lg-8 mx-auto">
                     <div className="card mt-2 mx-auto p-4 bg-light">
                         <div className="card-body bg-light">
+                        <p style={{ 'color': 'red', 'textAlign': 'center'}}>{(error) ? "Invalid Credentionals" : ""}</p>
                             <div className="container">
                                 <form id="contact-form" onSubmit={handleSubmit}>
                                     <CSRFToken />

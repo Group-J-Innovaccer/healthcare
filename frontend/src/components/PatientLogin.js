@@ -36,7 +36,7 @@ const PatientLogin = ({isAuthenticated, setIsAuthenticated}) =>{
     }
 
     if(patientId){
-        return <Navigate to='/patientdashboard'/>
+        return <Navigate to='/viewprescription'/>
     }
 
 
