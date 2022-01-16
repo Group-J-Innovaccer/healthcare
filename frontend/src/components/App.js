@@ -19,14 +19,14 @@ import Prescription from './Prescription';
 
 const App = () => {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(checkAuthenticated())
+  const [isAuthenticated, setIsAuthenticated] = useState(checkAuthenticated(false))
 
   const authenticate = async () => {
 
     const res = await checkAuthenticated();
     console.log(res)
     if (res) {
-      setIsAuthenticated(localStorage.getItem('isAuthenticated'))
+      setIsAuthenticated(localStorage.setItem('isAuthenticated'), true)
     } else {
       localStorage.clear()
       setIsAuthenticated(false)
@@ -39,7 +39,7 @@ const App = () => {
     <div>   
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="about" element={<About />} />
           <Route path="addpatient" element={<AddPatient isAuthenticated={isAuthenticated} />} />
           <Route path="patientlogin" element={<PatientLogin />} />

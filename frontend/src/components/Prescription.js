@@ -41,6 +41,8 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
 
     const [medications, setMedications] = useState([])
 
+    const [navigate, setNavigate] = useState(false)
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -111,10 +113,15 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                 medication.prescription_id = res.data.id
                 sendMedications(medication);
             })
+            setNavigate(true)
         } else {
             console.log(res)
         }
         
+    }
+
+    if (navigate) {
+        return <Navigate to='/doctor_dashboard' />
     }
            
     return (

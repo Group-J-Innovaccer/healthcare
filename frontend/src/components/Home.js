@@ -10,11 +10,11 @@ import './Home.css';
 
 
 
-const Home = () => {
+const Home = ({ isAuthenticated, setIsAuthenticated }) => {
 
     return (
         <div> 
-            <Header />
+            <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
             <div className='doctorHeading'>
             <section className="banner-section">
 			<div className="container">

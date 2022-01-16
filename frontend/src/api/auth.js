@@ -43,6 +43,7 @@ export const logout = async () => {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/doctors/logout`,  body, config);
 
         if (res.data.success) {
+            localStorage.removeItem('isAuthenticated')
             return true
         }
     } catch(err) {

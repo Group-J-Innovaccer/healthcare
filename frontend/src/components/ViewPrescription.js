@@ -67,7 +67,7 @@ const ViewPrescription = () =>{
                                                 Doctor ID : <b>{(prescriptionData) ? prescriptionData.doctor_id : ""}</b>
                                             </div>
                                             <div className="col-md-6">
-                                                Doctor Name : <b>d_name</b>
+                                                Doctor Name : <b>{(prescriptionData) ? prescriptionData.doctor_name : ""}</b>
                                             </div>
                                         </div><br />
                                         <div className="row">
@@ -75,7 +75,7 @@ const ViewPrescription = () =>{
                                             Patient's ID : <b>{(prescriptionData) ? prescriptionData.patient_id : ""}</b>
                                             </div>
                                             <div className="col-md-6">
-                                            Patient's Name : <b>p_name</b>
+                                            Patient's Name : <b>{(prescriptionData) ? prescriptionData.patient_name : ""}</b>
                                             </div>
                                         </div><br />
                                         <div className="row">

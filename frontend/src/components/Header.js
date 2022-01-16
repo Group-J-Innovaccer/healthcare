@@ -9,7 +9,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
         const res = await logout();
         if (res) {
             localStorage.clear()
-            setIsAuthenticated(localStorage.getItem('isAuthenticated'))
+            setIsAuthenticated(checkAuthenticated())
         }
     }
 
@@ -19,7 +19,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                 <a className="active" href="/">DocEasy</a>
                 <div className="topnav-right">
                     <a href="/about">About Us</a>
-                {isAuthenticated ? <><a href="/patientlogin">Patient Portal</a> <a href="/doctor_login">Doctor Portal</a></> : <a role="button" onClick={logoutUser}>Logout</a> }
+                    {!isAuthenticated ? <><a href="/patientlogin">Patient Portal</a> <a href="/doctor_login">Doctor Portal</a></> : <a role="button" onClick={logoutUser}>Logout</a> }
                 </div>
             </div>
         </div>

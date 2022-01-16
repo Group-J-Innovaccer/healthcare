@@ -26,18 +26,18 @@ const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {
         event.preventDefault();
         const res = await login(formData);
         if (res.data.code === 200) {
+            console.log('success')
             localStorage.setItem('isAuthenticated', true)
             setIsAuthenticated(true)
-        } else {
+        } else {    
+            console.log('fail')
             setError(true)
         }
     }
     
-    // if (isAuthenticated) {
-    //     console.log(isAuthenticated)
-    //     return <Navigate to='/doctor_dashboard' />
-    // } 
-
+    if (localStorage.getItem('isAuthenticated')) {
+        return <Navigate to='/doctor_dashboard' />
+    } 
 
     return (
         <div>
