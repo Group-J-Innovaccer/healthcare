@@ -4,6 +4,7 @@ import "./App.css";
 //import img from './images/pr'
 
 import { prescriptiondetail,medicationdetail } from '../api/pres';
+import Cookies from 'js-cookie';
 
 
 
@@ -15,7 +16,7 @@ const ViewPrescription = () =>{
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const prescription = await prescriptiondetail()
+                const prescription = await prescriptiondetail(localStorage.getItem('patientData'))
                 const medication = await medicationdetail()
                 console.log(prescription)
                 console.log(medication)

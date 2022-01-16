@@ -1,10 +1,21 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-export const prescriptiondetail = async () => {
+export const prescriptiondetail = async (data) => {
 
+    const config = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': Cookies.get('csrftoken')
+        }
+    };
+
+    
+    const body = JSON.stringify({id: data})
+    console.log(body)
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/eprescription/prescriptiondata/`);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/eprescription/prescriptiondata/`, body, config);
         
         return res
         
