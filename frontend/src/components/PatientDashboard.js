@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
+import patient from '../images/patient.png';
 
 const PatientDashboard = () =>{
     
@@ -42,8 +43,10 @@ const PatientDashboard = () =>{
                                         
                                     </ul>
                                 </div>
+
                                 <div className="col p-2 mt-2">
                                     <img src='https://www.freeiconspng.com/thumbs/patient-icon/patient-icon-png-3.png' style={{ padding:'20px 0 20px 70px' ,width:'90%'}}></img>
+
                                 </div>
                                 </div>
 
