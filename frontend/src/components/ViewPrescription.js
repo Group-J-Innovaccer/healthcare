@@ -17,13 +17,16 @@ const ViewPrescription = () =>{
         const fetchData = async () => {
             try {
                 const prescription = await prescriptiondetail(localStorage.getItem('patientData'))
-                const medication = await medicationdetail(prescription.data[0].id)
-                console.log(prescription)
-                console.log(medication)
-                setPrescriptionData(prescription.data[0])
-                setMedicationData(medication.data)
-                console.log(prescriptionData)
-                console.log(medicationData)
+                if(prescription.status===200){
+                    const medication = await medicationdetail(prescription.data[prescription.data.length-1].id)
+                    console.log(prescription)
+                    console.log(medication)
+                    setPrescriptionData(prescription.data[prescription.data.length-1])
+                    setMedicationData(medication.data)
+                    // console.log(prescriptionData)
+                    // console.log(medicationData)
+                }
+                
             } catch (err) {
                 console.log(err)
 
