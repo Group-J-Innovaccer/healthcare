@@ -9,12 +9,12 @@ import Home from './Home';
 import AddPatient from './AddPatient';
 import PatientLogin from './PatientLogin';
 import PatientDashboard from './PatientDashboard';
-import Prescription from './Prescription';
 import DoctorLogin from './DoctorLogin';
 import About from './About';
 import ViewPrescription from './ViewPrescription';
 import DoctorDashboard from './DoctorDashboard';
 import "./App.css";
+import Prescription from './Prescription';
 
 
 const App = () => {

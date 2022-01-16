@@ -1,6 +1,5 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-import CSRFToken from "../components/CSRFToken";
 
 export const addPatient = async (formData) =>{
     const config={

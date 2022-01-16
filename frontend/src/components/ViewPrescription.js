@@ -1,10 +1,8 @@
 import React ,{useState,useEffect} from 'react';
 import Header from './Header';
-import Footer from './Footer';
 import "./App.css";
 //import img from './images/pr'
 
-import Medication from './Medication';
 import { prescriptiondetail,medicationdetail } from '../api/pres';
 
 
@@ -33,7 +31,7 @@ const ViewPrescription = () =>{
 
         fetchData();
         
-    }, []);
+    });
 
   
 
@@ -46,7 +44,7 @@ const ViewPrescription = () =>{
             <div className="container-fluid" style={{
             width: "100%",
             height: "100%",
-            backgroundImage: "url(" + "https://healthcareacademycalifornia.com/wp-content/uploads/2018/11/Free-Downlaod-Light-Blue-Wallpaper-HD.jpeg" + ")",
+            backgroundImage: "url('https://healthcareacademycalifornia.com/wp-content/uploads/2018/11/Free-Downlaod-Light-Blue-Wallpaper-HD.jpeg')",
             backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'

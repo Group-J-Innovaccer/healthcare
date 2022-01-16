@@ -65,7 +65,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
 
 
             <div className="container p-4" style={{ display:"flex", justifyContent:"center"}}>
-            <form id="contact-form" method="get" action="prescription">
+            <form id="contact-form" method="get" action="addprescription">
                 <div className="form-group"><button variant="outline-primary" style={{width:"50vw", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"5px", color:"white", fontWeight:"bolder"}}>Add Prescription</button></div>
 
                 </form>

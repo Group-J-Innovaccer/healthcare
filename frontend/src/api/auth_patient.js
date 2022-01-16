@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
-import CSRFToken from '../components/CSRFToken';
 
 export const login = async (formData) => {
     const config = {

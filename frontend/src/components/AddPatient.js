@@ -3,7 +3,6 @@ import {Navigate} from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
-import axios, { Axios } from 'axios';
 import { addPatient } from '../api/patientdata';
 import CSRFToken from './CSRFToken';
 import {doctordetail} from '../api/doc'
