@@ -17,11 +17,19 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from django.db.models import Q
 
 # Patient list for doctor -> GET API
-class PatientList(generics.GenericAPIView, mixins.ListModelMixin):
-    serializer_class=PatientSerializer
-    queryset=Patient.objects.all() 
-    def get(self,request): 
-        return self.list(request)
+
+
+
+
+
+
+class PatientList(APIView):
+    
+    def get(self, request, format=None):
+        patientData=Patient.objects.filter(current_doctor=self.request.user.id)
+        serializer = PatientSerializer(patientData,many=True)
+        return Response(serializer.data)
+       
 
 
 # Patient form for doctor to add patient -> POST API

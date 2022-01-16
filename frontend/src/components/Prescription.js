@@ -92,17 +92,25 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                 return data.firstname + ' ' + data.lastname
             }
         })
+        let patient_name2;
+        for(let i=0;i<patient_name.length;i++)
+        {
+             if(patient_name[i] !== undefined)
+             {
+                 patient_name2=patient_name[i];
+             }
+        }
       
          setAddPrescription(addPrescription => ({
 			...addPrescription,
             doctor_id: doctorData.id,
             doctor_name: doctorData.firstname + ' ' + doctorData.lastname ,
-            patient_name: patient_name[parseInt(patientData.id) - 1]
+            patient_name: patient_name2
 		}))
 
         let form = addPrescription
         console.log(patient_name)
-        form.patient_name = patient_name[parseInt(addPrescription.patient_id) - 1]
+        form.patient_name = patient_name2
         form.doctor_id = doctorData.id
         form.doctor_name = doctorData.firstname + ' ' + doctorData.lastname 
         console.log(form)
