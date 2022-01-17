@@ -15,6 +15,8 @@ import ViewPrescription from './ViewPrescription';
 import DoctorDashboard from './DoctorDashboard';
 import "./App.css";
 import Prescription from './Prescription';
+import Appointments from './Appointments';
+import ViewAppointment from './ViewAppointment'
 
 
 const App = () => {
@@ -24,7 +26,6 @@ const App = () => {
   const authenticate = async () => {
 
     const res = await checkAuthenticated();
-    console.log(res)
     if (res) {
       setIsAuthenticated(localStorage.setItem('isAuthenticated'), true)
     } else {
@@ -43,6 +44,9 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="addpatient" element={<AddPatient isAuthenticated={isAuthenticated} />} />
           <Route path="patientlogin" element={<PatientLogin />} />
+          <Route path="addappointment" element={<Appointments />} />
+          <Route path="appointment" element={<ViewAppointment />} />
+
           <Route path="patientdashboard" element={<PatientDashboard/>} />
           <Route path="viewprescription" element={<ViewPrescription />} />
           <Route path="doctor_login" element={<DoctorLogin isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />

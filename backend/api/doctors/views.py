@@ -1,6 +1,6 @@
 import re
 from rest_framework import viewsets
-from .serializers import DoctorSerializer
+from .serializers import DoctorSerializer, DoctorListSerializer
 from .models import Doctor
 from rest_framework import generics
 from rest_framework import mixins 
@@ -19,6 +19,15 @@ class DoctorList(APIView):
     def get(self, request, format=None):
         doctor = Doctor.objects.filter(id=self.request.user.id)
         serializer = DoctorSerializer(doctor, many=True)
+        return Response(serializer.data)
+
+
+class DoctorListAll(APIView):
+
+    permission_classes = (permissions.AllowAny, )
+    def get(self, request, format=None):
+        doctor = Doctor.objects.all()
+        serializer = DoctorListSerializer(doctor, many=True)
         return Response(serializer.data)
 
 @method_decorator(ensure_csrf_cookie, name='dispatch')
