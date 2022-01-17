@@ -69,6 +69,7 @@ const AddPatient = ({ isAuthenticated }) => {
         console.log(res.status)
         console.log(formData)
         if (res.status === 201) {
+            alert(res.data.firstname + res.data.lastname + "'s Patient ID is: " + res.data.id)
             setStatus(201)
         }
         else {
