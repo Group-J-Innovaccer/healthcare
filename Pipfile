@@ -7,6 +7,8 @@ name = "pypi"
 django = "==4.0.1"
 djangorestframework = "*"
 psycopg2 = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
