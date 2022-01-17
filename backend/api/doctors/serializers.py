@@ -8,3 +8,11 @@ class DoctorSerializer(serializers.ModelSerializer):
 
         model = Doctor
         fields = ('firstname', 'lastname', 'id', 'qualification', 'phone_no')
+
+
+class DoctorListSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+
+        model = Doctor
+        fields = ('firstname', 'lastname', 'id', 'qualification', 'specialization')

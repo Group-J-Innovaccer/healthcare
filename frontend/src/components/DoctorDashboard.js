@@ -5,30 +5,38 @@ import { doctordetail } from '../api/doc';
 import Header from './Header';
 import Footer from './Footer';
 import { logout } from '../api/auth';
+import { getappointment } from '../api/appoint';
 
 const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
 
     const [doctorData, setDoctorData] = useState('');
+    const [appointment, setAppointment] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const res = await doctordetail();
-                setDoctorData(res.data[0])
+                if (res.status === 200) {
+                    setDoctorData(res.data[0])
+                    
+                }
+                const appoint = await getappointment();
+                if (appoint.data.error) {
+                    setAppointment(false)
+                } else {
+                    setAppointment(true)
+
+                }
+                
 
             } catch (err) {
-                console.log(err)
             }
         };
         
         fetchData();
     }, []);
 
-    // setIsAuthenticated(localStorage.getItem('isAuthenticated'))
-    // if (!isAuthenticated) {
-    //     console.log(isAuthenticated)
-    //         return <Navigate to='/doctor_login' />
-    // }    
+ 
     
    
 
@@ -47,6 +55,8 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
 
             <div className="text-center p-4">
             <h1>Welcome Dr. {doctorData.firstname}</h1>
+            <br />
+            {(appointment) ? <p><a href="/appointment" >You have some appointments (click to view)</a></p> : <p>No Appoinments for Today :)</p>}
             </div>
 
             <div className="container" style={{ display:"flex", justifyContent:"center",borderRadius:"10px 10px 10px 10px"}}>

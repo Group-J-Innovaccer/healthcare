@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'api.eprescription',
     'api',
     'api.patients',
+    'api.appointments',
     
     'rest_framework',
 
