@@ -48,7 +48,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             <div className="text-center p-4">
             <h1>Welcome Dr. {doctorData.firstname}</h1>
             </div>
-            
+
             <div className="container" style={{ display:"flex", justifyContent:"center",borderRadius:"10px 10px 10px 10px"}}>
             <div className="card" style={{width: "35vw",height:"50vh", justifyContent:'center', borderRadius:"10px 0 0 10px"}}>
                 <div className="card-body"style={{padding:'20px',borderRadius:"10px 0 0 10px", justifyContent:'center'}}>
