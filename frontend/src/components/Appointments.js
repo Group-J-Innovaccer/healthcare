@@ -109,7 +109,7 @@ const Appointments = ({ isAuthenticated }) => {
                 <h1>New Appointment</h1>
             </div>
             <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
-                <div className="col-lg-8 mx-auto">
+                <div className="col-lg-5 mx-auto">
                     <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
                             <div className="container">

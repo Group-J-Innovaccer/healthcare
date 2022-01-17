@@ -55,7 +55,7 @@ const PatientLogin = ({isAuthenticated, setIsAuthenticated}) =>{
             }}> 
 
                 <div className="text-center p-4">
-                    <h1>Patient Login</h1>
+                    <h1>Patient Details</h1>
                 </div>
 
                 <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>

@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from 'react';
+import React ,{useState} from 'react';
 import Header from './Header';
 import "./App.css";
 import Footer from './Footer';
@@ -11,8 +11,8 @@ import Cookies from 'js-cookie';
 
 const ViewAppointment = () =>{
     const [appointment, setAppointment] = useState(false)
-    const [multiple, setMultiple] = useState(true)
-    const [appoint, setAppoint] = useState(false)
+    const [mulitple, setMultiple] = useState(true)
+    const [singleAppoint, setSingleAppoint] = useState(false)
     
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +33,7 @@ const ViewAppointment = () =>{
     }, []);
 
     const handleAppointment = (appoint) => {
-        setAppoint(appoint)
+        setSingleAppoint(appoint)
         setMultiple(false);
 
     }
@@ -68,10 +68,10 @@ const ViewAppointment = () =>{
                                         <div className="row">
                                     
                                             <div className="col-md-12 text-center">
-                                            <h4><b>{(multiple) ? "Appointments" : ""}</b></h4>
+                                            <h4><b>Appointments</b></h4>
                                             </div>
                                         </div><br />
-                                        {(multiple) ? <div>
+                                        {(!multiple) ? <div>
                                         {(appointment) ?  appointment.map(appoint => <div className="row">
                                             <center>
                                             <div>
@@ -87,10 +87,9 @@ const ViewAppointment = () =>{
                                                 <h4><b>Appointment Details</b></h4>
                                                 </div>
                                             </div><br />
-                                            <center>
                                             <div className="row">
                                                 <div className="col-md-6">
-                                                    First Name : <b>{appoint.firstname}</b>
+                                                    First Name : <b>{appint.firstname}</b>
                                                 </div>
                                                 <div className="col-md-6">
                                                     Last Name : <b>{appoint.lastname}</b>
@@ -113,9 +112,10 @@ const ViewAppointment = () =>{
                                                 </div>
                                             </div><br />
                                             <div className="row">
-                                                   <center> To View all </center> <b><button style={{color: "white"}}onClick={handleAll}>Click Here</button></b>
+                                                <div className="col-md-6">
+                                                    To View all : <b><button onClick={handleAll}>Click Here</button></b>
+                                                </div>
                                             </div><br />
-                                            </center>
                                         </div>
 
                                                 </div>}
