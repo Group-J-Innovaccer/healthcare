@@ -51,13 +51,13 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
-      }}> 
+         }}> 
 
 
             <div className="text-center p-4">
             <h1>Welcome Dr. {doctorData.firstname}</h1>
             <br />
-            {(appointment) ? <p><a href="/appointment" >You have some appointments (click to view)</a></p> : <p>No Appoinments for Today :)</p>}
+            {(appointment) ? <h4 style={{color:'#eb1e75'}}><a href="/appointment" >You have some appointments (click to view)</a></h4> : <h4 style={{color:'#eb1e75'}}>No Appoinments for Today :)</h4>}
             </div>
 
             <div className="container" style={{ display:"flex", justifyContent:"center",borderRadius:"10px 10px 10px 10px"}}>
@@ -79,6 +79,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 <center><img src="https://st2.depositphotos.com/3474805/6536/v/600/depositphotos_65365277-stock-illustration-medic-doctor-circle-icon.jpg" alt="Card-cap"  style={{height:"40vh", width:"100%"}}/></center>
                 
             </div>
+            
             </div>
 
             <div className="container" style={{ display:"flex", justifyContent:"center"}}>
