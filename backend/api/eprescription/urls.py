@@ -5,15 +5,9 @@ from . import views
 
 urlpatterns = [
     path('prescription/', views.PrescriptionList.as_view()),
-    path('patientprescription/', views.PatientPrescriptionList.as_view()),
-    path('docmedicationlist/', views.doctor_medication_list),
-    path('patientmedicationlist/', views.patient_medication_list),
     path('prescriptiondata/', views.PrescriptionList.as_view()),
     path('medicationdata/', views.MedicationList.as_view()),
     path('prescriptioncreate/', views.PrescriptionCreate.as_view()),
-    path('medicationcreate/', views.MedicationCreate.as_view()),
-
-    path('medicationbyid/<int:pk>', views.medication_detail_by_id),
-    
+    path('medicationcreate/', views.MedicationCreate.as_view()), 
 
 ]
