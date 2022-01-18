@@ -14,6 +14,7 @@ const AllPrescription = () =>{
     const [medicationData,setMedicationData] = useState(false)
     const [olderPrescriptionData, setOlderPrescriptionData] = useState(false)
     const [olderMedicationData, setOlderMedicationData] = useState(false)
+    const [med, setMed] = useState(false)
     
     useEffect(() => {
         const fetchData = async () => {
@@ -36,6 +37,17 @@ const AllPrescription = () =>{
         fetchData();
         
     }, []);
+
+    const handleCurrentMed = async (id) => {
+        const medication = await medicationdetail(id)
+        setOlderMedicationData(medication.data)
+        setMed(true)
+    }
+
+    const handleHide = () => {
+        setOlderMedicationData(false)
+        setMed(false)
+    }
 
   
 
@@ -117,6 +129,8 @@ const AllPrescription = () =>{
                                         
                                     </div>
 
+           
+
 
                                 {(medicationData) ? medicationData.map(medication => {
                 
@@ -176,8 +190,62 @@ const AllPrescription = () =>{
                 </div>
 
             </div>
+            {(olderMedicationData) ? <center><button variant="outline-primary" style={{width:"30%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder", margin: "10px 0 10px 0"}} onClick={handleHide}>Tap to hide</button></center>: ""}
 
-            {(olderPrescriptionData) ? olderPrescriptionData.map(pres => { return <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
+        {(olderMedicationData) ? olderMedicationData.map(medi => {
+            
+            return (
+                
+                <div style={{boxShadow: '3px 3px 3px 3px'}} className="col-lg-7 mx-auto">
+                    <center>
+                    <div className="row">
+                        <div className="col-md-12 text-center">
+                        <h4><b>Drugs</b></h4>
+                        </div>
+                    </div><br />
+                    <div className="row">
+                        <div className="col-md-6">
+                            Medicine : <b>{medi.medication_item}</b>
+                        </div>
+                        <div className="col-md-6">
+                            Strength : <b>{medi.strength}</b>
+                        </div>
+                    </div><br />
+                    <div className="row">
+                        <div className="col-md-6">
+                            Preparation : <b>{medi.preparation}</b>
+                        </div>
+                        <div className="col-md-6">
+                            Route : <b>{medi.route}</b>
+                        </div>
+                    </div><br />
+                    <div className="row">
+                        <div className="col-md-6">
+                            Dosage : <b>{medi.dose}</b>
+                        </div>
+                        <div className="col-md-6">
+                            Direction : <b>{medi.direction}</b>
+                        </div>
+                    </div><br />
+                    <div className="row">
+                        <div className="col-md-6">
+                            Frequency : <b>{medi.frequency}</b>
+                        </div>
+                        <div className="col-md-6">
+                            Duration : <b>{medi.duration}</b>
+                        </div>
+                    </div><br />
+                    <div className="row">
+                        <div className="col-md-6">
+                            Total Quantity : <b>{medi.total_quantity}</b>
+                        </div>
+                    </div><br />
+                    </center>
+                </div>
+            )
+        }) : ""}
+            {(!med) ? (olderPrescriptionData) ? olderPrescriptionData.map(pres => { return <div className="row " style={{ borderRadius:'10px 10px 10px 10px'}}>
+            
                 <div className="col-lg-7 mx-auto">
                     <div className="card mt-2 mx-auto p-4 bg-light" style={{ borderRadius:'10px 10px 10px 10px'}}>
                         <div className="card-body bg-light">
@@ -228,7 +296,7 @@ const AllPrescription = () =>{
                                             Notes : <b>{pres.comment}</b>
                                             </div>
                                         </div><br /><br />
-                                        
+                                        <button style={{color: "white", padding: "5px", borderRadius: "10px"}}onClick={() => handleCurrentMed(pres.id)}>View Medication report</button>
                                         <div className="row">
                                         <center>
                                             
@@ -242,7 +310,8 @@ const AllPrescription = () =>{
 
                 </div>
 
-            </div>}) : ""}
+            </div>}) : "" : ""}
+            
             
             <div className="row" style={{height:"25px"}}>
              </div>       
