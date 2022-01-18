@@ -50,7 +50,6 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                 const res = await doctordetail(); 
                 setDoctorData(res.data[0]) 
         
-                console.log(doctorData)
                 
             } catch (err) {
                 console.log(err)
@@ -122,6 +121,7 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
                 medication.prescription_id = res.data.id
                 sendMedications(medication);
             })
+            alert("Prescription is created successfully")
             setNavigate(true)
         } else {
             console.log(res)

@@ -84,6 +84,7 @@ const Appointments = ({ isAuthenticated }) => {
         const res = await addappointment(formData);
      
         if (res.status === 201) {
+            alert("Your appointed is made successfully!")
             setStatus(true)
         }
     
