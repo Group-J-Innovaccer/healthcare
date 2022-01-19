@@ -15,4 +15,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker-compose build
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build the Docker image
+      run: docker-compose build . --file Dockerfile --tag iamsahil1910/healthcare-docker
+    - name: Docker Push
+      run: docker push ${{secrets.DOCKER_USERNAME}}/healthcare-docker
+      
+      
