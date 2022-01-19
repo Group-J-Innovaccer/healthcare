@@ -23,6 +23,6 @@ jobs:
     - name: Build the Docker image
       run: docker-compose build 
     - name: Docker Push
-      run: docker push healthcare_project:latest
+      run: docker push iamsahil1910/healthcare_project:latest
       
       
