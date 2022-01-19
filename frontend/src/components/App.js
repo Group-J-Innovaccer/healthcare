@@ -17,6 +17,7 @@ import "./App.css";
 import Prescription from './Prescription';
 import Appointments from './Appointments';
 import ViewAppointment from './ViewAppointment'
+import AllPrescription from './AllPrescription';
 
 
 const App = () => {
@@ -46,7 +47,7 @@ const App = () => {
           <Route path="patientlogin" element={<PatientLogin />} />
           <Route path="addappointment" element={<Appointments />} />
           <Route path="appointment" element={<ViewAppointment />} />
-
+          <Route path="allprescription" element={<AllPrescription />} /> 
           <Route path="patientdashboard" element={<PatientDashboard/>} />
           <Route path="viewprescription" element={<ViewPrescription />} />
           <Route path="doctor_login" element={<DoctorLogin isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />} />

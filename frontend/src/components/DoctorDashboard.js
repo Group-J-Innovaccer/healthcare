@@ -61,7 +61,7 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
             </div>
 
             <div className="container" style={{ display:"flex", justifyContent:"center",borderRadius:"10px 10px 10px 10px"}}>
-            <div className="card" style={{width: "35vw",height:"50vh", justifyContent:'center', borderRadius:"10px 0 0 10px"}}>
+            <div className="card" style={{width: "40vw",height:"100%", justifyContent:'center', borderRadius:"10px"}}>
 
                 <div className="card-body"style={{padding:'20px',borderRadius:"10px 0 0 10px", justifyContent:'center'}}>
                 
@@ -74,10 +74,6 @@ const DoctorDashboard = ({ isAuthenticated, setIsAuthenticated }) => {
                 </form>
 
                 </div>
-            </div>
-            <div className="card" style={{height:"50vh", width: "20vw", justifyContent:'center',borderRadius:"0 10px 10px 0"}}>
-                <center><img src="https://st2.depositphotos.com/3474805/6536/v/600/depositphotos_65365277-stock-illustration-medic-doctor-circle-icon.jpg" alt="Card-cap"  style={{height:"40vh", width:"100%"}}/></center>
-                
             </div>
             
             </div>

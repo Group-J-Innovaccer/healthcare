@@ -24,6 +24,8 @@ const PatientLogin = ({isAuthenticated, setIsAuthenticated}) =>{
         }));
     }
 
+    const [all, setAll] = useState(false);
+
     const handleSubmit = async (event) =>{
         event.preventDefault();
         const form = {'patient_id':parseInt(formData.patient_id),'secret_key':formData.secret_key}
@@ -36,8 +38,16 @@ const PatientLogin = ({isAuthenticated, setIsAuthenticated}) =>{
         
     }
 
+    const handleAll = () => {
+        setAll(!all);
+    }
+
     if(patientId){
+        if (all) {
+            return <Navigate to='/allprescription' />
+        } else {
         return <Navigate to='/viewprescription'/>
+        }
     }
 
 
@@ -89,6 +99,7 @@ const PatientLogin = ({isAuthenticated, setIsAuthenticated}) =>{
                                                 <center>
                                                     <div className="col-md-12">
                                                         <div className="form-group"> 
+                                                        <button variant="outline-primary" style={{width:"100%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder", marginBottom: "10px"}}    onClick={handleAll}> {(!all) ? "Latest (tap to view all)" : "All (tap to view latest)"}</button>
                                                             <button variant="outline-primary" style={{width:"100%", height:"40px", backgroundColor:"#2a8fc7", border:"none", borderRadius:"20px", color:"white", fontWeight:"bolder"}} >View Details</button>
                                                         </div>
                                                     </div>

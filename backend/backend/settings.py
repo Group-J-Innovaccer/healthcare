@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-p$xjutx2)6ug^&d8m=-cpb2wu!_0))1ztqa-g$esd5qb@4q5jr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../frontend/build/')],
+        'DIRS': [os.path.join(BASE_DIR, 'build/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,7 +131,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../frontend', "build", "static"),
+    os.path.join(BASE_DIR, "build", "static"),
 )
 
 
