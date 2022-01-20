@@ -1,5 +1,7 @@
 FROM python:3.8
 ENV PYTHONUNBUFFERED 1
+WORKDIR /healthcare/frontend
+COPY build/ ./
 WORKDIR /healthcare/backend
 COPY requirements.txt ./
 RUN pip install -r requirements.txt

@@ -8,6 +8,25 @@ on:
 
 jobs:
 
+  build-react:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v2
+      working-directory: ./frontend
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build --if-present
+
+
   build:
 
     runs-on: ubuntu-latest
@@ -23,8 +42,7 @@ jobs:
     - name: Build the Docker image
       run: docker-compose build 
     - name: Docker Tag
-      run: docker tag healthcare_project ${{secrets.DOCKER_USERNAME}}/healthcare_project
+      run: docker tag test ${{secrets.DOCKER_USERNAME}}/test
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USERNAME}}/healthcare_project
-      
+      run: docker push ${{secrets.DOCKER_USERNAME}}/test
       
