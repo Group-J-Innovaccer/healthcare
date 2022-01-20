@@ -24,7 +24,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: |
-        export SECRET_KEY=SECRET_KEY
+        export SECRET_KEY=$SECRET_KEY
         docker-compose build 
     - name: Docker Tag
       run: docker tag healthcare_project ${{secrets.DOCKER_USERNAME}}/healthcare_project
