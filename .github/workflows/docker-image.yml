@@ -39,7 +39,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Gernerate pem key file
-      run: echo "env.PEM_KEY" >> pem_key.pem
+      run: echo "$PEM_KEY" >> pem_key.pem
     - name: Make Pem executable
       run: chmod +x pem_key.pem
     - name: Login to EC2
