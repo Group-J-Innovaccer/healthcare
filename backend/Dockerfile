@@ -3,6 +3,7 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /healthcare/backend
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
+RUN export SECRET_KEY=${SECRET_KEY}
 COPY . ./
 RUN python manage.py migrate
 EXPOSE 8000
