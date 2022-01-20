@@ -26,5 +26,5 @@ jobs:
     - name: Docker Tag
       run: docker tag healthcare_project ${{secrets.DOCKER_USERNAME}}/healthcare_project
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USERNAME}}/healthcare_proj
+      run: docker push ${{secrets.DOCKER_USERNAME}}/healthcare_project
       
