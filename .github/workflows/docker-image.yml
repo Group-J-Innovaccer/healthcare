@@ -34,11 +34,12 @@ jobs:
 
     needs: build
     runs-on: ubuntu-latest
-
+    env:
+      PEM_KEY: ${{secrets.PEM_KEY}}
     steps:
     - uses: actions/checkout@v2
     - name: Gernerate pem key file
-      run: echo ${{secrets.PEM_KEY}} >> pem_key.pem
+      run: echo "env.PEM_KEY" >> pem_key.pem
     - name: Make Pem executable
       run: chmod +x pem_key.pem
     - name: Login to EC2
