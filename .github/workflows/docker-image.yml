@@ -38,9 +38,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Gernerate pem key file
-      run: |
-        echo ${{secrets.PEM_KEY}} >> pem_key.pem
-        chmod 500 pem_key.pem
+      run: echo ${{secrets.PEM_KEY}} >> pem_key.pem
+    -name: Make Pem executable
+      run: chmod +x pem_key.pem
     - name: Login to EC2
       run: ssh -i "pem_key.pem" ec2-user@ec2-3-18-107-0.us-east-2.compute.amazonaws.com
     - name: Kill everything
