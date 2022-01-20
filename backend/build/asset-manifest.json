@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4e074d98.chunk.css",
+    "main.js": "/static/js/main.dd8567e4.chunk.js",
+    "main.js.map": "/static/js/main.dd8567e4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c8a21426.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c8a21426.js.map",
+    "static/js/2.abb94854.chunk.js": "/static/js/2.abb94854.chunk.js",
+    "static/js/2.abb94854.chunk.js.map": "/static/js/2.abb94854.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.2c49258ecf02d4a576dc6c7d4a838fbd.js": "/precache-manifest.2c49258ecf02d4a576dc6c7d4a838fbd.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.4e074d98.chunk.css.map": "/static/css/main.4e074d98.chunk.css.map",
+    "static/js/2.abb94854.chunk.js.LICENSE.txt": "/static/js/2.abb94854.chunk.js.LICENSE.txt",
+    "static/media/Home.css": "/static/media/footer.7e5aec06.png",
+    "static/media/Mask Group 4.jpg": "/static/media/Mask Group 4.dc64366c.jpg",
+    "static/media/drimage.jpg": "/static/media/drimage.2ac90daf.jpg",
+    "static/media/patient.jpg": "/static/media/patient.e12239fa.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c8a21426.js",
+    "static/js/2.abb94854.chunk.js",
+    "static/css/main.4e074d98.chunk.css",
+    "static/js/main.dd8567e4.chunk.js"
+  ]
+}
