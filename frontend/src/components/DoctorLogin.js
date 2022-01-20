@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Navigate } from 'react-router-dom';
 import Header from './Header'
 import Footer from './Footer';
-import { checkAuthenticated, login } from '../api/auth';
+import {  login } from '../api/auth';
 import CSRFToken from './CSRFToken';
 
 const DoctorLogin = ({ isAuthenticated, setIsAuthenticated }) => {

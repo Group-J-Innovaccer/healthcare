@@ -6,9 +6,8 @@ import "./App.css";
 import { addPatient } from '../api/patientdata';
 import CSRFToken from './CSRFToken';
 import {doctordetail} from '../api/doc'
-import { checkAuthenticated } from '../api/auth';
 
-const AddPatient = ({ isAuthenticated }) => {
+const AddPatient = () => {
     
     const [formData,setFormData] = useState({
         firstname:'',
@@ -41,18 +40,12 @@ const AddPatient = ({ isAuthenticated }) => {
                 console.log(err)
             }
         };
-        if (isAuthenticated) {
+    
             fetchData();
-        }
+
         
     }, []);
 
-    if (!checkAuthenticated()) {
-        console.log(isAuthenticated)
-        return <Navigate to='/doctor_login' />
-    } else {
-        console.log(isAuthenticated)
-    }
 
     const handleChange = (event) => {
         setFormData(formData =>({

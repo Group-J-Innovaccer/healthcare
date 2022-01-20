@@ -3,11 +3,6 @@ import Header from './Header';
 import "./App.css";
 import Footer from './Footer';
 import { getappointment } from '../api/appoint';
-import { prescriptiondetail,medicationdetail } from '../api/pres';
-import Cookies from 'js-cookie';
-
-
-
 
 const ViewAppointment = () =>{
     const [appointment, setAppointment] = useState(false)

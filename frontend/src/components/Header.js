@@ -1,17 +1,9 @@
 import React from 'react';
-import { checkAuthenticated, logout } from '../api/auth'
 import './Home.css';
 
 
-const Header = ({ isAuthenticated, setIsAuthenticated }) => {
+const Header = () => {
 
-    const logoutUser = async () => {
-        const res = await logout();
-        if (res) {
-            localStorage.clear()
-            setIsAuthenticated(checkAuthenticated())
-        }
-    }
 
     return (
         <div>
@@ -19,7 +11,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }) => {
                 <a className="active" href="/">DocEasy</a>
                 <div className="topnav-right">
                     <a href="/about">About Us</a>
-                    {!isAuthenticated ? <><a href="/addappointment">Make Appoinment</a><a href="/patientlogin">Patient Portal</a> <a href="/doctor_login">Doctor Portal</a></> : <a role="button" onClick={logoutUser}>Logout</a> }
+                    <a href="/addappointment">Make Appoinment</a><a href="/patientlogin">Patient Portal</a> <a href="/doctor_login">Doctor Portal</a>
                 </div>
             </div>
         </div>

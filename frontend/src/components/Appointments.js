@@ -3,9 +3,8 @@ import {Navigate} from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import "./App.css";
-import { addPatient } from '../api/patientdata';
 import CSRFToken from './CSRFToken';
-import {doctordetail, doctorlist} from '../api/doc'
+import { doctorlist} from '../api/doc'
 import { appointdate, addappointment } from '../api/appoint';
 
 const Appointments = ({ isAuthenticated }) => {
@@ -23,7 +22,6 @@ const Appointments = ({ isAuthenticated }) => {
 
     const [doctorList, setDoctorList] = useState([]);
     const [timeList, setTimeList] = useState([]);
-    const [appointTime, setAppointTime] = useState([])
 
 
     const [status, setStatus] = useState(false);

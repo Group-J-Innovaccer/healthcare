@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
-import { checkAuthenticated } from '../api/auth';
 import { doctordetail } from '../api/doc';
 import Header from './Header';
 import Footer from './Footer';

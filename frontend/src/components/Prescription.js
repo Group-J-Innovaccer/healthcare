@@ -10,7 +10,7 @@ import Footer from './Footer'
 
 
 
-const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
+const Prescription = () => {
 
     const [doctorData, setDoctorData] = useState(false);
     const [patientData, setPatientData] = useState(false);
@@ -89,6 +89,8 @@ const Prescription = ({ isAuthenticated, setIsAuthenticated }) => {
         const patient_name = patientData.map(data => {
             if (parseInt(data.id) === parseInt(addPrescription.patient_id)) {
                 return data.firstname + ' ' + data.lastname
+            } else {
+                return undefined
             }
         })
         let patient_name2;

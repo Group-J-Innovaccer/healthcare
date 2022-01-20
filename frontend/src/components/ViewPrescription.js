@@ -4,7 +4,6 @@ import "./App.css";
 import Footer from './Footer';
 
 import { prescriptiondetail,medicationdetail } from '../api/pres';
-import Cookies from 'js-cookie';
 
 
 
