@@ -30,28 +30,4 @@ jobs:
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USERNAME}}/healthcare_project
 
-  deploy:
-
-    needs: build
-    runs-on: ubuntu-latest
-    env:
-      PEM_KEY: ${{secrets.PEM_KEY}}
-    steps:
-    - uses: actions/checkout@v2
-    - name: Gernerate pem key file
-      run: echo "$PEM_KEY" >> pem_key.pem
-    - name: Make Pem executable
-      run: chmod +x pem_key.pem
-    - name: Login to EC2
-      run: ssh -i "pem_key.pem" ec2-user@ec2-13-59-2-216.us-east-2.compute.amazonaws.com
-    - name: Kill everything
-      run: |
-        docker kill $(docker ps -q)
-        docker rm $(docker ps -a -q)
-        docker rmi $(docker images -q)
-    - name: Pull docker image
-      run: docker pull iamsahil1910/healthcare_project 
-    - name: Run the docker image
-      run: docker run -dp 80:8000 iamsahil1910/healthcare_project
-
-      
+  
