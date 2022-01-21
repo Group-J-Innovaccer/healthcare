@@ -43,7 +43,7 @@ jobs:
     - name: Make Pem executable
       run: chmod +x pem_key.pem
     - name: Login to EC2
-      run: ssh -i "pem_key.pem" ec2-user@ec2-3-18-107-0.us-east-2.compute.amazonaws.com
+      run: ssh -i "pem_key.pem" ec2-user@ec2-13-59-2-216.us-east-2.compute.amazonaws.com
     - name: Kill everything
       run: |
         docker kill $(docker ps -q)
