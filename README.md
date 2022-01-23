@@ -1,31 +1,46 @@
-# healthcare
+Group-J (DocEasy) Documentation
+
+Set up your project for local deployment :-
 
 
-We proposed a healthcare system using ReactJS, Django to create a website that features a clean, straight forward information architecture to simplify the process of Health Care in hospitals to help the patients, doctor.
-
-
-1. Create a folder 
+1. Create a folder
 
 2. Clone the repo
-    - git clone https://github.com/Group-J-Innovaccer/healthcare.git
 
-3. To create and install envoirnment:
-    - pipenv install
+        git clone https://github.com/Group-J-Innovaccer/healthcare.git
 
-4.  To get back to Backend directory:
-    - cd /backend
+3. Create and install dependencies:
 
-5.  To run the django server: 
-    - python manage.py runserver 
+        pipenv shell
+        pipenv install -r /backend/requirements.txt
 
-6.  To get back to Frontend directory:  
-    - cd ..
-    - cd /frontend
+4. Get back to Backend directory:
 
-7.  To install the npm:
-    - npm install
+        cd /backend
 
-8.  To start the npm:
-    - npm start
+5. Get back to Frontend directory:
 
-# devopspractice
+        cd ..
+        cd /frontend
+
+6. Change the template directory in the setting.py for React Build
+
+        Run python manage.py runserver
+
+7. Install the npm:
+
+        npm install
+
+8. Start the npm:
+
+        npm run build
+
+
+Set up your project for EC2 deployment :-
+
+
+	Whenever you push/merge into the repo, the github actions will automatically build a 
+	Docker image and push that image to the Docker Hub.
+
+	After that , we’ll create a EC2 instance and install the docker, then we’ll run our docker
+    Image inside the EC2 Instance.
