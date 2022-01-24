@@ -22,7 +22,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 16.X
-        cache: 'npm'
     - run: npm install
     - run: newman run test
 
