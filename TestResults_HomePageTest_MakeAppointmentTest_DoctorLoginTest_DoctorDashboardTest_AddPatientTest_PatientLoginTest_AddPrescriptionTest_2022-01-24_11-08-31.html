@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Reporting using PyUnit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">HTML Reporting using PyUnit</h2>
+                <p class='attribute'><strong>Start Time: </strong>2022-01-24 11:08:31</p>
+                <p class='attribute'><strong>Duration: </strong>350.19 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 9, Pass: 6, Fail: 2, Error: 1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>homepageTest.HomePageTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_success</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 1 -- Duration: 45.67 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>makeAppointmentTest.MakeAppointmentTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_success</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 1 -- Duration: 66.88 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>doctorLoginTest.DoctorLoginTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_fail_password</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">AssertionError: 'http://13.59.2.216/doctor_login' != 'http://13.59.2.216/doctor_dashboard'
+- http://13.59.2.216/doctor_login
+?                           ^ ^^^
++ http://13.59.2.216/doctor_dashboard
+?                           ^^^^^ ^^^
+ : Login Failed</p><p style="color:maroon;">Traceback (most recent call last):
+  File "/home/sahil/Downloads/SeleniumTesting/doctorLoginTest.py", line 58, in test_fail_password
+    self.assertEqual(driver.current_url, "http://13.59.2.216/doctor_dashboard", "Login Failed")
+AssertionError: 'http://13.59.2.216/doctor_login' != 'http://13.59.2.216/doctor_dashboard'
+- http://13.59.2.216/doctor_login
+?                           ^ ^^^
++ http://13.59.2.216/doctor_dashboard
+?                           ^^^^^ ^^^
+ : Login Failed
+/home/sahil/Downloads/SeleniumTesting/doctorLoginTest.py:11: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+  self.driver = webdriver.Chrome("/usr/local/bin/chromedriver")
+/home/sahil/Downloads/SeleniumTesting/doctorLoginTest.py:42: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  doctorPortal=driver.find_element_by_xpath('//*[@id="root"]/div/div/div[1]/div/div/a[4]')
+/home/sahil/Downloads/SeleniumTesting/doctorLoginTest.py:45: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  email=driver.find_element_by_id("form_d_email")
+/home/sahil/Downloads/SeleniumTesting/doctorLoginTest.py:49: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  passwd=driver.find_element_by_xpath('//*[@id="form_d_pass"]')
+/home/sahil/Downloads/SeleniumTesting/doctorLoginTest.py:55: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  login=driver.find_element_by_xpath('//*[@id="contact-form"]/div/div[3]/center/div/div/button')
+</p>
+                            </td>
+                        </tr>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_success</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 2, Pass: 1, Fail: 1 -- Duration: 39.08 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>doctorDashboardTest.DoctorDashboardTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_success</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 1 -- Duration: 65.72 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>addPatientTest.AddPatientTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_success</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 1 -- Duration: 54.67 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>patientLoginTest.PatientLoginTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='danger'>
+                            <td class="col-xs-10">test_fail_credentials</td>
+                            <td class="col-xs-1">
+                                <span class="label label-danger" style="display:block;width:40px;">Fail</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">AssertionError: 'http://13.59.2.216/patientlogin' != 'http://13.59.2.216/allprescription'
+- http://13.59.2.216/patientlogin
++ http://13.59.2.216/allprescription
+ : Login Failed</p><p style="color:maroon;">Traceback (most recent call last):
+  File "/home/sahil/Downloads/SeleniumTesting/patientLoginTest.py", line 58, in test_fail_credentials
+    self.assertEqual(driver.current_url, "http://13.59.2.216/allprescription", "Login Failed")
+AssertionError: 'http://13.59.2.216/patientlogin' != 'http://13.59.2.216/allprescription'
+- http://13.59.2.216/patientlogin
++ http://13.59.2.216/allprescription
+ : Login Failed
+/home/sahil/Downloads/SeleniumTesting/patientLoginTest.py:11: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+  self.driver = webdriver.Chrome("/usr/local/bin/chromedriver")
+/home/sahil/Downloads/SeleniumTesting/patientLoginTest.py:41: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  patient_portal = driver.find_element_by_xpath("/html/body/div/div/div/div[1]/div/div/a[3]")
+/home/sahil/Downloads/SeleniumTesting/patientLoginTest.py:45: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  patient_id = driver.find_element_by_xpath("/html/body/div/div/div/div[2]/div[2]/div/div/div/div/form/div/div[1]/div/div/input")
+/home/sahil/Downloads/SeleniumTesting/patientLoginTest.py:48: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  patient_sk = driver.find_element_by_xpath("/html/body/div/div/div/div[2]/div[2]/div/div/div/div/form/div/div[2]/div/div/input")
+/home/sahil/Downloads/SeleniumTesting/patientLoginTest.py:53: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  patient_btn = driver.find_element_by_xpath('//*[@id="contact-form"]/div/div[3]/center/div/div/button[1]')
+</p>
+                            </td>
+                        </tr>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_success</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 2, Pass: 1, Fail: 1 -- Duration: 64.88 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>addPrescriptionTest.AddPrescriptionTest</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_success</td>
+                            <td class="col-xs-1">
+                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="contact-form"]/div/div[3]/center/div/div/button"}
+  (Session info: chrome=97.0.4692.71)
+Stacktrace:
+#0 0x56129bd64ee3 <unknown>
+#1 0x56129b832608 <unknown>
+#2 0x56129b868aa1 <unknown>
+#3 0x56129b868c61 <unknown>
+#4 0x56129b89b714 <unknown>
+#5 0x56129b88629d <unknown>
+#6 0x56129b8993bc <unknown>
+#7 0x56129b886163 <unknown>
+#8 0x56129b85bbfc <unknown>
+#9 0x56129b85cc05 <unknown>
+#10 0x56129bd96baa <unknown>
+#11 0x56129bdac651 <unknown>
+#12 0x56129bd97b05 <unknown>
+#13 0x56129bdada68 <unknown>
+#14 0x56129bd8c05f <unknown>
+#15 0x56129bdc8818 <unknown>
+#16 0x56129bdc8998 <unknown>
+#17 0x56129bde3eed <unknown>
+#18 0x7f22c4dad609 <unknown>
+</p><p style="color:maroon;">Traceback (most recent call last):
+  File "/home/sahil/Downloads/SeleniumTesting/addPrescriptionTest.py", line 39, in test_success
+    login=driver.find_element_by_xpath('//*[@id="contact-form"]/div/div[3]/center/div/div/button')
+  File "/home/sahil/.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 520, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "/home/sahil/.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1244, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/home/sahil/.local/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 424, in execute
+    self.error_handler.check_response(response)
+  File "/home/sahil/.local/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="contact-form"]/div/div[3]/center/div/div/button"}
+  (Session info: chrome=97.0.4692.71)
+Stacktrace:
+#0 0x56129bd64ee3 <unknown>
+#1 0x56129b832608 <unknown>
+#2 0x56129b868aa1 <unknown>
+#3 0x56129b868c61 <unknown>
+#4 0x56129b89b714 <unknown>
+#5 0x56129b88629d <unknown>
+#6 0x56129b8993bc <unknown>
+#7 0x56129b886163 <unknown>
+#8 0x56129b85bbfc <unknown>
+#9 0x56129b85cc05 <unknown>
+#10 0x56129bd96baa <unknown>
+#11 0x56129bdac651 <unknown>
+#12 0x56129bd97b05 <unknown>
+#13 0x56129bdada68 <unknown>
+#14 0x56129bd8c05f <unknown>
+#15 0x56129bdc8818 <unknown>
+#16 0x56129bdc8998 <unknown>
+#17 0x56129bde3eed <unknown>
+#18 0x7f22c4dad609 <unknown>
+
+/home/sahil/Downloads/SeleniumTesting/addPrescriptionTest.py:16: DeprecationWarning: executable_path has been deprecated, please pass in a Service object
+  self.driver = webdriver.Chrome("/usr/local/bin/chromedriver")
+/home/sahil/Downloads/SeleniumTesting/addPrescriptionTest.py:25: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  doctorPortal=driver.find_element_by_xpath('//*[@id="root"]/div/div/div[1]/div/div/a[4]')
+/home/sahil/Downloads/SeleniumTesting/addPrescriptionTest.py:28: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  email=driver.find_element_by_id("form_d_email")
+/home/sahil/Downloads/SeleniumTesting/addPrescriptionTest.py:32: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  passwd=driver.find_element_by_xpath('//*[@id="form_d_pass"]')
+/home/sahil/Downloads/SeleniumTesting/addPrescriptionTest.py:39: DeprecationWarning: find_element_by_* commands are deprecated. Please use find_element() instead
+  login=driver.find_element_by_xpath('//*[@id="contact-form"]/div/div[3]/center/div/div/button')
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 1, Pass: 0, Error: 1 -- Duration: 13.28 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html
