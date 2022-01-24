@@ -23,7 +23,7 @@ jobs:
       with:
         node-version: 16.X
     - run: npm install
-    - run: newman run test
+    - run: newman run DocEasy.json
 
 
 
