@@ -1,0 +1,923 @@
+{
+	"info": {
+		"_postman_id": "b8d49b2c-53f2-42ed-805c-b1787b5345d7",
+		"name": "DocEasy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "csrf cookies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin@admin.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/csrf_cookie",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"csrf_cookie"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctors list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/list",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appoinment lists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "6G43eUC9czHxAYQLX88MB0rPl3p2kUI4UhgkW8sGWVIqvLTCJBpkfbbrC8ywlBbe",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/appointments/list/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"appointments",
+						"list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appoinment date 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"2022-01-23\", \n    \"doctor\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/appointments/date",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"appointments",
+						"date"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appoinment create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://13.59.2.216/api/eprescription/prescription/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"eprescription",
+						"prescription",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appoinment date 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"2022-02-04\", \n    \"doctor\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/appointments/date",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"appointments",
+						"date"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor login (correct one)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "N8pRxjx4BhH2nrtn4DXyVtnkPjTUIJsagspEXo02Y4U4sbuaIoTnq5SZHbJI83J4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"admin@admin.com\",\n    \"password\": \"admin\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appoinment date",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"2022-02-05\", \n    \"doctor\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/appointments/date",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"appointments",
+						"date"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor login (correct one) 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "6G43eUC9czHxAYQLX88MB0rPl3p2kUI4UhgkW8sGWVIqvLTCJBpkfbbrC8ywlBbe",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@123\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor login (wrong input) 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "N8pRxjx4BhH2nrtn4DXyVtnkPjTUIJsagspEXo02Y4U4sbuaIoTnq5SZHbJI83J4",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@124\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor login (wrong input)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "3Wgf8IgB0A7BGreRKJY251qhIrfUtBxGtSsrb9ctEyGr67bNn4gEDczpofqYhWEF",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"santhosh@gmail.com\",\n    \"password\": \"admin@123\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "N8pRxjx4BhH2nrtn4DXyVtnkPjTUIJsagspEXo02Y4U4sbuaIoTnq5SZHbJI83J4",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/logout",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eprescription prescription data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/eprescription/prescriptiondata/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"eprescription",
+						"prescriptiondata",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eprescription medication data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prescription_id\":\"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/eprescription/medicationdata/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"eprescription",
+						"medicationdata",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patients addpatients",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"santhosh@gmail.com\",\n    \"firstname\":\"Santhosh\",\n    \"lastname\": \"Puvaneswaran\",\n    \"dob\":\"2000-11-11\",\n    \"height\": \"172\" ,\n    \"weight\": \"55\",\n    \"phone\": \"1234567890\",\n    \"address\": \"india\",\n    \"gender\": \"M\",\n    \"secretkey\": \"1234\",\n    \"current_doctor\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/patient/addpatient/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"patient",
+						"addpatient",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patients login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\":\"2\",\n    \"secret_key\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/patient/patientlogin",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"patient",
+						"patientlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patients login wrong creadentials 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\":\"1\",\n    \"secret_key\":\"2222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/patient/patientlogin",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"patient",
+						"patientlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patients login wrong creadentials 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\":\"3\",\n    \"secret_key\":\"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/patient/patientlogin",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"patient",
+						"patientlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patients lists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "6G43eUC9czHxAYQLX88MB0rPl3p2kUI4UhgkW8sGWVIqvLTCJBpkfbbrC8ywlBbe",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/patient/list",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"patient",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "csrf cookies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://13.59.2.216/api/patient/csrf_cookie",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"patient",
+						"csrf_cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patients list with id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "3Wgf8IgB0A7BGreRKJY251qhIrfUtBxGtSsrb9ctEyGr67bNn4gEDczpofqYhWEF",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://13.59.2.216/api/patients/csrf_cookie",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"patients",
+						"csrf_cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eprescription creating prescription",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doctor_name\": \"rahul\",\n    \"patient_name\": \"Ramya\",\n    \"examination\": \"qqqq\",\n    \"investigation\": \"aaaa\",\n    \"diagnosis\": \"sss\",\n    \"advice\": \"eat well\",\n    \"comment\": \"do rest\",\n    \"chief_complain\": \"head ack\",\n    \"active\": true,\n    \"date\": \"2022-01-22\",\n    \"patient_id\": \"2\",\n    \"doctor_id\": \"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/eprescription/prescriptioncreate/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"eprescription",
+						"prescriptioncreate",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eprescription creating medication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"direction\": \"after meals\",\n    \"dose\": \"2\",\n    \"duration\": \"52\",\n    \"frequency\": \"7\",\n    \"medication_item\": \"iuhdsafiu\",\n    \"preparation\": \"Capsule\",\n    \"prescription_id\": \"4\",\n    \"route\": \"drink\",\n    \"strength\": \"700mg\",\n    \"total_quantity\": \"10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/eprescription/medicationcreate/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"eprescription",
+						"medicationcreate",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@123\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/all",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
