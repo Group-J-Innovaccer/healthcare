@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "newman run /test/DocEasy.json"
+    "test": "newman run 'test/DocEasy.json'"
   },
   "author": "",
   "license": "ISC",
