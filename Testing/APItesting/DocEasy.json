@@ -1,12 +1,27 @@
 {
 	"info": {
-		"_postman_id": "b8d49b2c-53f2-42ed-805c-b1787b5345d7",
-		"name": "DocEasy",
+		"_postman_id": "dcd41fab-53e8-44ac-97d6-beff55cfd08c",
+		"name": "Automated tests for DocEasy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "csrf cookies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"CSRF cookie set\", function (){",
+							"    pm.expect(response.success).to.equal(\"CSRF cookie set\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -63,7 +78,22 @@
 			"response": []
 		},
 		{
-			"name": "doctors list",
+			"name": "doctor all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"CSRF cookie set\", function (){",
+							"    pm.expect(response[0].id).to.equal(1)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -78,7 +108,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@123\" \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -86,7 +116,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://13.59.2.216/api/doctors/list",
+					"raw": "http://13.59.2.216/api/doctors/all",
 					"protocol": "http",
 					"host": [
 						"13",
@@ -97,7 +127,7 @@
 					"path": [
 						"api",
 						"doctors",
-						"list"
+						"all"
 					]
 				}
 			},
@@ -105,6 +135,21 @@
 		},
 		{
 			"name": "appoinment lists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"CSRF cookie set\", function (){",
+							"    pm.expect(response.detail).to.equal(\"Authentication credentials were not provided.\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -146,75 +191,22 @@
 			"response": []
 		},
 		{
-			"name": "appoinment date 2",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
-						"type": "default"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"date\": \"2022-01-23\", \n    \"doctor\": \"2\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://13.59.2.216/api/appointments/date",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"appointments",
-						"date"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "appoinment create",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "",
-						"value": "",
-						"type": "default"
-					}
-				],
-				"url": {
-					"raw": "http://13.59.2.216/api/eprescription/prescription/",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"eprescription",
-						"prescription",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "appoinment date 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response[0].date).to.equal(\"2022-02-04\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -252,45 +244,22 @@
 			"response": []
 		},
 		{
-			"name": "doctor login (correct one)",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "N8pRxjx4BhH2nrtn4DXyVtnkPjTUIJsagspEXo02Y4U4sbuaIoTnq5SZHbJI83J4",
-						"type": "default"
+			"name": "appoinment date 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response[0].date).to.equal(\"2022-01-23\")",
+							"})"
+						],
+						"type": "text/javascript"
 					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\":\"admin@admin.com\",\n    \"password\": \"admin\" \n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://13.59.2.216/api/doctors/login",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"doctors",
-						"login"
-					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "appoinment date",
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -302,7 +271,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"date\": \"2022-02-05\", \n    \"doctor\": \"2\"\n}",
+					"raw": "{\n    \"date\": \"2022-01-23\", \n    \"doctor\": \"2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -328,156 +297,30 @@
 			"response": []
 		},
 		{
-			"name": "doctor login (correct one) 1",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "6G43eUC9czHxAYQLX88MB0rPl3p2kUI4UhgkW8sGWVIqvLTCJBpkfbbrC8ywlBbe",
-						"type": "default"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@123\" \n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://13.59.2.216/api/doctors/login",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"doctors",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "doctor login (wrong input) 1",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "N8pRxjx4BhH2nrtn4DXyVtnkPjTUIJsagspEXo02Y4U4sbuaIoTnq5SZHbJI83J4",
-						"type": "default"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@124\" \n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://13.59.2.216/api/doctors/login",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"doctors",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "doctor login (wrong input)",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "3Wgf8IgB0A7BGreRKJY251qhIrfUtBxGtSsrb9ctEyGr67bNn4gEDczpofqYhWEF",
-						"type": "default"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\":\"santhosh@gmail.com\",\n    \"password\": \"admin@123\" \n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://13.59.2.216/api/doctors/login",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"doctors",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "doctor logout",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "N8pRxjx4BhH2nrtn4DXyVtnkPjTUIJsagspEXo02Y4U4sbuaIoTnq5SZHbJI83J4",
-						"type": "default"
-					}
-				],
-				"url": {
-					"raw": "http://13.59.2.216/api/doctors/logout",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"doctors",
-						"logout"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "eprescription prescription data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response[0].id).to.equal(1)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
@@ -511,12 +354,29 @@
 		},
 		{
 			"name": "eprescription medication data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response[0].id).to.equal(1)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
@@ -549,19 +409,36 @@
 			"response": []
 		},
 		{
-			"name": "patients addpatients",
+			"name": "eprescription medication data 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response[0].id).to.equal(2)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"santhosh@gmail.com\",\n    \"firstname\":\"Santhosh\",\n    \"lastname\": \"Puvaneswaran\",\n    \"dob\":\"2000-11-11\",\n    \"height\": \"172\" ,\n    \"weight\": \"55\",\n    \"phone\": \"1234567890\",\n    \"address\": \"india\",\n    \"gender\": \"M\",\n    \"secretkey\": \"1234\",\n    \"current_doctor\": \"2\"\n}",
+					"raw": "{\n    \"prescription_id\":\"2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -569,7 +446,52 @@
 					}
 				},
 				"url": {
-					"raw": "http://13.59.2.216/api/patient/addpatient/",
+					"raw": "http://13.59.2.216/api/eprescription/medicationdata/",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"eprescription",
+						"medicationdata",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "csrf cookies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response.success).to.equal(\"CSRF cookie set\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://13.59.2.216/api/patient/csrf_cookie",
 					"protocol": "http",
 					"host": [
 						"13",
@@ -580,21 +502,251 @@
 					"path": [
 						"api",
 						"patient",
-						"addpatient",
-						""
+						"csrf_cookie"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "patients login",
+			"name": "doctor login (wrong input) 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response.code).to.equal(401)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"value": "{{csrftoken}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"Rahul@gmail.com\",\n    \"password\": \"admin@123\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor login (wrong input) 1 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@124\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor login (correct input) 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response.code).to.equal(200)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"admin@admin.com\",\n    \"password\": \"admin\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doctor login (correct input) 1 Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response.code).to.equal(200)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"rahul@gmail.com\",\n    \"password\": \"admin@123\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/doctors/login",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"doctors",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patient login (correct input) 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response[0].id).to.equal(2)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
@@ -626,19 +778,36 @@
 			"response": []
 		},
 		{
-			"name": "patients login wrong creadentials 2",
+			"name": "patient login (correct input) 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response[0].id).to.equal(1)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"patient_id\":\"1\",\n    \"secret_key\":\"2222\"\n}",
+					"raw": "{\n    \"patient_id\":\"1\",\n    \"secret_key\":\"1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -664,19 +833,36 @@
 			"response": []
 		},
 		{
-			"name": "patients login wrong creadentials 1",
+			"name": "patient login (wrong input) 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response.error).to.equal(\"Invalid Credentials\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "DKlvekR2h2GDpXvCeGUmuTcwreZhQJfvfE3niyrUcWHxLG2dbWxwvXfJ5ciOlw6Q",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"patient_id\":\"3\",\n    \"secret_key\":\"1234\"\n}",
+					"raw": "{\n    \"patient_id\":\"999\",\n    \"secret_key\":\"1234\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -702,22 +888,36 @@
 			"response": []
 		},
 		{
-			"name": "patients lists",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "patient login (wrong input) 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response.error).to.equal(\"Invalid Credentials\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "6G43eUC9czHxAYQLX88MB0rPl3p2kUI4UhgkW8sGWVIqvLTCJBpkfbbrC8ywlBbe",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\n    \"patient_id\":\"12\",\n    \"secret_key\":\"4321\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -725,7 +925,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://13.59.2.216/api/patient/list",
+					"raw": "http://13.59.2.216/api/patient/patientlogin",
 					"protocol": "http",
 					"host": [
 						"13",
@@ -736,159 +936,38 @@
 					"path": [
 						"api",
 						"patient",
-						"list"
+						"patientlogin"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "csrf cookies",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "",
-						"value": "",
-						"type": "default"
+			"name": "doctor logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"the date will display correctly\", function (){",
+							"    pm.expect(response.code).to.equal(200)",
+							"})"
+						],
+						"type": "text/javascript"
 					}
-				],
-				"url": {
-					"raw": "http://13.59.2.216/api/patient/csrf_cookie",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"patient",
-						"csrf_cookie"
-					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "patients list with id",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "",
-						"value": "3Wgf8IgB0A7BGreRKJY251qhIrfUtBxGtSsrb9ctEyGr67bNn4gEDczpofqYhWEF",
-						"type": "default"
-					}
-				],
-				"url": {
-					"raw": "http://13.59.2.216/api/patients/csrf_cookie",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"patients",
-						"csrf_cookie"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "eprescription creating prescription",
+			],
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "X-CSRFToken",
-						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
-						"type": "default"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"doctor_name\": \"rahul\",\n    \"patient_name\": \"Ramya\",\n    \"examination\": \"qqqq\",\n    \"investigation\": \"aaaa\",\n    \"diagnosis\": \"sss\",\n    \"advice\": \"eat well\",\n    \"comment\": \"do rest\",\n    \"chief_complain\": \"head ack\",\n    \"active\": true,\n    \"date\": \"2022-01-22\",\n    \"patient_id\": \"2\",\n    \"doctor_id\": \"3\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://13.59.2.216/api/eprescription/prescriptioncreate/",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"eprescription",
-						"prescriptioncreate",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "eprescription creating medication",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
-						"type": "default"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n   \"direction\": \"after meals\",\n    \"dose\": \"2\",\n    \"duration\": \"52\",\n    \"frequency\": \"7\",\n    \"medication_item\": \"iuhdsafiu\",\n    \"preparation\": \"Capsule\",\n    \"prescription_id\": \"4\",\n    \"route\": \"drink\",\n    \"strength\": \"700mg\",\n    \"total_quantity\": \"10\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://13.59.2.216/api/eprescription/medicationcreate/",
-					"protocol": "http",
-					"host": [
-						"13",
-						"59",
-						"2",
-						"216"
-					],
-					"path": [
-						"api",
-						"eprescription",
-						"medicationcreate",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "doctor all",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "zO5mftrMDGtC8mexNOTx2IwmSGoBm8EPcDk21XmeyWMP6GSfvkZzvvBZ5AeUluBc",
+						"value": "{{csrftoken}}",
 						"type": "default"
 					}
 				],
@@ -902,7 +981,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://13.59.2.216/api/doctors/all",
+					"raw": "http://13.59.2.216/api/doctors/logout",
 					"protocol": "http",
 					"host": [
 						"13",
@@ -913,11 +992,127 @@
 					"path": [
 						"api",
 						"doctors",
-						"all"
+						"logout"
 					]
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "appoinment date",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var xsrfCookie = postman.getResponseCookie(\"csrftoken\"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);",
+							"",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"we need to get an empty array\", function (){",
+							"    pm.expect(response[0]).to.equal(undefined)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "{{csrftoken}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"2022-02-05\", \n    \"doctor\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://13.59.2.216/api/appointments/date",
+					"protocol": "http",
+					"host": [
+						"13",
+						"59",
+						"2",
+						"216"
+					],
+					"path": [
+						"api",
+						"appointments",
+						"date"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// var name = '';",
+					"",
+					"// fetch('http://13.59.2.216/api/doctors/csrf_cookie')",
+					"// .then(data => {",
+					"//     let cookieValue = null;",
+					"//         if (document.cookie && document.cookie !== '') {",
+					"//             let cookies = document.cookie.split(';');",
+					"//             for (let i = 0; i < cookies.length; i++) {",
+					"//                 let cookie = cookies[i].trim();",
+					"//                 if (cookie.substring(0, csrftoken.length + 1) === (csrftoken + '=')) {",
+					"//                     cookieValue = decodeURIComponent(cookie.substring(csrftoken.length + 1));",
+					"//                     break;",
+					"//                 }",
+					"//             }",
+					"//         }",
+					"//     name = cookieValue;",
+					"// })",
+					"// .catch(err => {",
+					"//     console.log(error)",
+					"// })",
+					"",
+					"",
+					"// fetch(\"http://13.59.2.216/api/doctors/login\", {",
+					"     ",
+					"//     // Adding method type",
+					"//     method: \"POST\",",
+					"     ",
+					"//     // Adding body or contents to send",
+					"//     body: JSON.stringify({",
+					"//         email: \"admin@admin.com\",",
+					"//         password: \"admin\"",
+					"//     }),",
+					"     ",
+					"//     // Adding headers to the request",
+					"//     headers: {",
+					"//         \"Content-type\": \"application/json; charset=UTF-8\",",
+					"//         \"X-CSRFToken\": name",
+					"//     }",
+					"// })",
+					" ",
+					"// // Converting to JSON",
+					"// .then(response => response.json())"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
